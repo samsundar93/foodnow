@@ -550,6 +550,6 @@ class CheckoutsController extends AppController
             }
 
         }
-        echo 'comeee';die();
+        echo 'cmmmmm';die();
     }
 }
