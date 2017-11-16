@@ -239,9 +239,14 @@ padding-bottom: 15px;}
 .active_check { float: left;width: 100%; background:#fbdedd; cursor: pointer; border-bottom: 1px solid #DC5D54; padding: 10px 0px;
     color: #000;
 }
-.accordian_green { float: left;width: 100%; background:#f0f8ea; cursor: pointer; border-bottom: 1px solid #e4e4e4; padding: 10px 0px;
-    color: #000;
+/*.accordian_green { float: left;width: 100%; background:#f0f8ea; cursor: pointer; border-bottom: 1px solid #e4e4e4; padding: 10px 0px;
+    color: #000;*/
 }
+.accordian_head.active_check{background:none;color:#106be0;padding: 10px 15px;font-size:17px;font-weight:600;}
+
+.accordian_green { float: left;width: 100%;  cursor: pointer; border-bottom: 1px solid #e4e4e4; padding: 10px 0px; color: #000;
+}
+
 .accordian_head span {font:11px 'Montserrat';font-weight: 400; color: #a2a3a4;}
 .checkouts_round {
     width: 30px;
@@ -388,3 +393,5 @@ padding-bottom: 15px;}
     width: 100%;background: #eee;}
     .address-icon {float: left; width: 100%;height: 100px;}
     .address-icon i {line-height: 100px;}
+
+.filterCuisine{display: none;}

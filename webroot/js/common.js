@@ -203,3 +203,41 @@ function searchLocation() {
         return false;
 	}
 }
+
+function filter() {
+    $(".filter-content-part").css('display','none');
+    if($("input[name='filterCuisines']:checked").length > 0) {
+
+        $.each($("input[name='filterCuisines']:checked"), function(){
+            var i=0;
+            var restLength = $('.restLists').length;
+            var id = $(this).val();
+            $('.restLists').each(function () {
+                var attr = $(this).attr('data-cuisines');
+
+                var matches = attr.match(id);
+                if (matches == null) {
+                    $(this).addClass('filterCuisine');
+                    //i++;
+                }else {
+                    //i--;
+                    $(this).removeClass('filterCuisine');
+                }
+                restLength--;
+
+
+            })
+        });
+    }else {
+        $('.restLists').each(function () {
+            $(this).removeClass('filterCuisine');
+        })
+
+    }
+
+
+    return false;
+
+
+
+}

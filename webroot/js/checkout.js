@@ -153,6 +153,12 @@ function placeOrder() {
     if((deliveryAddress == '' || deliveryAddress == undefined) && orderType == 'delivery') {
         $("#checkoutBtn").attr('disabled',false);
         $("#addressErr").addClass('error').html('Sorry, but we are unable to continue without a delivery address.');
+
+        $('.addressinformation').removeClass('accordian_green');
+        $("#addressDetails").css('display','block');
+        $("#paymentDetails").css('display','block');
+
+
         return false;
 
     }else if(paymentMethod == '' || paymentMethod == undefined) {
@@ -213,9 +219,13 @@ function checkAddress() {
             $("#addressErr").addClass('error').html('Sorry, but we are unable to continue without a delivery address.');
             return false;
         }else {
+            $('.addressinformation').addClass('accordian_green');
+            $("#addressDetails").css('display','none');
             $("#paymentDetails").css('display','block');
         }
     }else {
+        $('.addressinformation').addClass('accordian_green');
+        $("#addressDetails").css('display','none');
         $("#paymentDetails").css('display','block');
     }
 

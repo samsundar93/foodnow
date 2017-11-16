@@ -31,68 +31,18 @@
             </div>
         </div>
         <div class="filter-content-part">
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> American
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> Indian
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> chinease
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> Italy
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> German
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> pasta
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> cafe
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> backery
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> fastfood
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> vegfood
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> Tandoori
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> Grill
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> Soups
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> Desserts
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> Salads
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> American
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> American
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> American
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> American
-            </div>
-            <div class="col-lg-2 col-sm-3 col-xs-4">
-                <input type="checkbox"> American
-            </div>
+            <?php if(!empty($allCuisinesLists)) {
+                foreach ($allCuisinesLists as $key => $value) { ?>
+                    <div class="col-lg-2 col-sm-3 col-xs-4">
+                        <input type="checkbox" name="filterCuisines" value="<?php echo $key; ?>"> <?php echo $value; ?>
+                    </div>
+            <?php
+                }
+            }?>
+
+
             <div class="col-xs-12">
-                <button class="btn cusine-filter-btn">Apply</button>
+                <button onclick="return filter()" class="btn cusine-filter-btn">Apply</button>
                 <button class="btn btn-default cusine-cancel-btn">cancel</button>
             </div>
         </div>
@@ -103,7 +53,7 @@
         <?php if(!empty($result)) {
             foreach ($result as $key => $value) {
                 ?>
-                <div class="col-sm-6">
+                <div class="col-sm-6 restLists" data-cuisines="<?php echo $value['restaurant_cuisine'] ?>">
                     <a href="<?php echo BASE_URL ?>menus/lists/<?php echo $value['id'] ?>">
                         <div class="res-white">
                         <div class="res-opacity"></div>
@@ -113,7 +63,7 @@
                         <div class="col-sm-6 no-padding p-l-15">
                             <div class="rest-top">
                                 <div class="res-title"><?php echo $value['restaurant_name'] ?></div>
-                                <div class="res-desc">American, Fast Food</div>
+                                <div class="res-desc"><?php echo $value['cuisineLists'] ?></div>
                             </div>
                             <div class="res-bottom">
                                 <div class="col-sm-5 no-padding"><span class="search-price">Min Price</span><span

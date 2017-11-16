@@ -18,6 +18,7 @@ class RestaurantsController extends AppController
     {
         parent::initialize();
         $this->viewBuilder()->layout('default');
+        $this->loadModel('Cuisines');
     }
 
     public function beforeFilter(Event $event)
@@ -59,7 +60,34 @@ class RestaurantsController extends AppController
                 $final = array();
                 $distance = array();
                 $result = array();
+                $allCuisinesList = array();
+
                 foreach($restaurantList as $key => $value) {
+
+                    $restaurantCuisine = explode(',',$value['restaurant_cuisine']);
+                    $cuisineList = '';
+                    if(!empty($restaurantCuisine)) {
+                        foreach ($restaurantCuisine as $ckey => $cvalue) {
+                            $cuisines = $this->Cuisines->find('all', [
+                                'conditions' => [
+                                    'id' => $cvalue
+                                ]
+                            ])->hydrate(false)->first();
+                            if(!empty($cuisines)) {
+                                $cuisineList[] = $cuisines['cuisine_name'];
+                                if(!in_array($cvalue,$allCuisinesList)) {
+                                    $allCuisinesList[] = $cvalue;
+                                    $allCuisinesLists[$cvalue] = $cuisines['cuisine_name'];
+                                    //$allCuisinesLists['cuisine'][] = $cuisines['cuisine_name'];
+                                }
+
+                            }
+                        }
+                    }
+
+                    $value['cuisineLists'] = implode(',',$cuisineList);
+
+
 
                     $latitudeTo  = $value['latitude'];
                     $longitudeTo = $value['longitude'];
@@ -95,7 +123,7 @@ class RestaurantsController extends AppController
                 if(!empty($final)) {
                     $result = Hash::sort($final, '{n}.to_distance', 'asc');
                 }
-                $this->set(compact('result'));
+                $this->set(compact('result','allCuisinesLists'));
 
             }
 
