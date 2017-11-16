@@ -1,0 +1,48 @@
+<div class="admin-sidebar">
+    <div class="sidemenu-title">Seller Details</div>
+    <ul class="side-menu">
+        <li class="<?php echo ($controller == 'Users' && $action == 'dashboard') ? 'buyer-active' : '' ?>"><a href="<?php echo BASE_URL ?>seller/users/dashboard">Dashboard</a></li>
+    </ul>
+    <div class="sidemenu-title">Shop</div>
+
+    <ul class="side-menu">
+        <li class="<?php echo ($controller == 'Shops' && $action == 'manage') ? 'buyer-active' : '' ?>"><a href="<?php echo BASE_URL ?>seller/shops/manage">Manage Shop</a></li>
+        <li class="<?php echo ($controller == 'Products') ? 'buyer-active' : '' ?>"><a href="<?php echo BASE_URL ?>seller/products">My Products</a></li>
+    </ul>
+
+    <div class="sidemenu-title">Sales</div>
+    <ul class="side-menu">
+        <li><a href="seller-sales.php">Sales</a></li>
+        <li><a href="seller-cancellation.php">Cancellation Requests</a></li>
+        <li><a href="seller-return.php">Order Return Requests</a></li>
+    </ul>
+    <div class="sidemenu-title">Manage Brands</div>
+    <ul class="side-menu">
+        <li class="<?php echo ($controller == 'Brands') ? 'buyer-active' : '' ?>"><a href="<?php echo BASE_URL ?>seller/brands">Brands</a></li>
+    </ul>
+
+    <div class="sidemenu-title">Manage Category</div>
+    <ul class="side-menu">
+        <li class="<?php echo ($controller == 'Categories') ? 'buyer-active' : '' ?>"><a href="<?php echo BASE_URL ?>seller/categories">Category</a></li>
+        <li class="<?php echo ($controller == 'Subcategories') ? 'buyer-active' : '' ?>"><a href="<?php echo BASE_URL ?>seller/subcategories">Sub Category</a></li>
+        <li class="<?php echo ($controller == 'Siblings') ? 'buyer-active' : '' ?>"><a href="<?php echo BASE_URL ?>seller/siblings">Sibilings</a></li>
+    </ul>
+
+
+    <div class="sidemenu-title">Profile</div>
+    <ul class="side-menu">
+        <li class="<?php echo ($controller == 'Users' && $action == 'myaccount') ? 'buyer-active' : '' ?>"><a href="<?php echo BASE_URL ?>seller/users/myaccount">My Account</a></li>
+        <li class="<?php echo ($controller == 'Users' && $action == 'changepassword') ? 'buyer-active' : '' ?>"><a href="<?php echo BASE_URL ?>seller/users/changepassword">Change Password</a></li>
+    </ul>
+
+
+    <div class="sidemenu-title">Offer Managemnet</div>
+    <ul class="side-menu">
+        <li><a href="seller-offer.php">Offers</a></li>
+    </ul>
+    <div class="sidemenu-title">Reports Managemnet</div>
+    <ul class="side-menu">
+        <li><a href="seller-invoice.php">Invoice</a></li>
+        <li><a href="seller-report.php">Reports</a></li>
+    </ul>
+</div>

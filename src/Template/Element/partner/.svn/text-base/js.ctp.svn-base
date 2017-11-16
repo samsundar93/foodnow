@@ -1,0 +1,17 @@
+<?= $this->Html->script([
+    SELLER_JS.'jquery.js',
+    SELLER_JS.'bootstrap.min.js',
+    SELLER_JS.'jquery-ui.min.js',
+    SELLER_JS.'slick.min.js',
+    SELLER_JS.'jquery.dataTables.min.js',
+    SELLER_JS.'common.js',
+    SELLER_JS.'bootstrap-tagsinput.js',
+    SELLER_JS.'product.js',
+]); ?>
+
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable({});
+    } );
+</script>
+

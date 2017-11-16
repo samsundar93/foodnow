@@ -1,0 +1,20 @@
+<?= $this->Html->css(SELLER_CSS.'bootstrap.css') ?>
+<?= $this->Html->css(SELLER_CSS.'slick.css') ?>
+<?= $this->Html->css(SELLER_CSS.'jquery-ui.css') ?>
+<?= $this->Html->css(SELLER_CSS.'font-awesome.css') ?>
+<?= $this->Html->css(SELLER_CSS.'style.css') ?>
+<?= $this->Html->css(SELLER_CSS.'jquery.dataTables.min.css') ?>
+<?= $this->Html->css(SELLER_CSS.'bootstrap-tagsinput.css') ?>
+
+<link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700" rel="stylesheet">
+<?php
+/*echo $this->Html->css(
+    [
+        'https://fonts.googleapis.com/css?family=Cabin:400,500,600,700'
+    ]
+);
+*/?>
+
+<?= $this->Html->script([
+    SELLER_JS.'jquery.js'
+]); ?>
