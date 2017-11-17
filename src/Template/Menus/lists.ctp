@@ -168,6 +168,15 @@
 </section>
 
 <script>
+    $(document).ready(function () {
+        var countryList = ["Afghanistan", "Albania", "Algeria"/*... and so on*/];
+
+        // Set the autocomplete for the countries input
+        $("#dishes").autocomplete({
+            source: countryList
+        });
+
+    });
     function addCart(menuId,type) {
         var quantity = $("#quantity_"+menuId).html();
         if(type == 'add') {

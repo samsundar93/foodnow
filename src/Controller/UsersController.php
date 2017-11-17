@@ -32,7 +32,9 @@ class UsersController extends AppController
     }
 
     public function index() {
-
+        if($this->request->session()->read('searchLocation') != '') {
+            return $this->redirect(BASE_URL.'restaurants');
+        }
     }
 
     //Check Customer Already Exists Or Not

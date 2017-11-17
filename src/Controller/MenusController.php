@@ -38,171 +38,176 @@ class MenusController extends AppController
 
     public function lists($resid = null) {
 
-        if($this->request->session()->read('sessionId') != '') {
-            $sessionId =  $this->request->session()->read('sessionId');
+        if($resid != '') {
 
-        }else {
-            $sessionId = session_id();
-            $this->request->session()->write('sessionId',$sessionId);
-        }
+            if($this->request->session()->read('sessionId') != '') {
+                $sessionId =  $this->request->session()->read('sessionId');
 
-
-        $restaurantDetails = $this->Restaurants->find('all', [
-            'conditions' => [
-                'id' => $resid
-            ]
-        ])->hydrate(false)->first();
-
-        if($this->request->session()->read('searchLocation') != '') {
-
-            $prepAddr = str_replace(' ','+',$this->request->session()->read('searchLocation'));
+            }else {
+                $sessionId = session_id();
+                $this->request->session()->write('sessionId',$sessionId);
+            }
 
 
-            /*$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.
-                '&sensor=false');
+            $restaurantDetails = $this->Restaurants->find('all', [
+                'conditions' => [
+                    'id' => $resid
+                ]
+            ])->hydrate(false)->first();
 
-            $output= json_decode($geocode);*/
+            if($this->request->session()->read('searchLocation') != '') {
 
-            $url = "https://maps.google.com/maps/api/geocode/json?address=$prepAddr&key=AIzaSyA_PDTRdxnfHvK3V6-pApjZQgY8F8E5zOM&sensor=false&region=India";
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-            $response = curl_exec($ch);
-            curl_close($ch);
-            $response_a = json_decode($response);
+                $prepAddr = str_replace(' ','+',$this->request->session()->read('searchLocation'));
 
-            /*$sourcelatitude = $output->results[0]->geometry->location->lat;
-            $sourcelongitude = $output->results[0]->geometry->location->lng;*/
 
-            $sourcelatitude = $response_a->results[0]->geometry->location->lat;
-            $sourcelongitude = $response_a->results[0]->geometry->location->lng;
+                /*$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.
+                    '&sensor=false');
 
-            if($sourcelatitude != '' && $sourcelongitude != '') {
+                $output= json_decode($geocode);*/
 
-                $final = array();
-                $distance = array();
-                $result = array();
+                $url = "https://maps.google.com/maps/api/geocode/json?address=$prepAddr&key=AIzaSyA_PDTRdxnfHvK3V6-pApjZQgY8F8E5zOM&sensor=false&region=India";
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                $response = curl_exec($ch);
+                curl_close($ch);
+                $response_a = json_decode($response);
 
-                $latitudeTo  = $restaurantDetails['latitude'];
-                $longitudeTo = $restaurantDetails['longitude'];
-                $unit='K';
-                $distance = $this->Common->getDistanceValue($sourcelatitude,$sourcelongitude,$latitudeTo,$longitudeTo,
-                    $unit);
+                /*$sourcelatitude = $output->results[0]->geometry->location->lat;
+                $sourcelongitude = $output->results[0]->geometry->location->lng;*/
 
-                $distance = str_replace(',','',$distance);
+                $sourcelatitude = $response_a->results[0]->geometry->location->lat;
+                $sourcelongitude = $response_a->results[0]->geometry->location->lng;
 
-                if (($distance <= $restaurantDetails['delivery_distance']) || (trim($distance) == 0)) {
-                    $restaurantDetails['to_distance'] = $distance;
+                if($sourcelatitude != '' && $sourcelongitude != '') {
+
+                    $final = array();
+                    $distance = array();
+                    $result = array();
+
+                    $latitudeTo  = $restaurantDetails['latitude'];
+                    $longitudeTo = $restaurantDetails['longitude'];
+                    $unit='K';
+                    $distance = $this->Common->getDistanceValue($sourcelatitude,$sourcelongitude,$latitudeTo,$longitudeTo,
+                        $unit);
+
+                    $distance = str_replace(',','',$distance);
+
+                    if (($distance <= $restaurantDetails['delivery_distance']) || (trim($distance) == 0)) {
+                        $restaurantDetails['to_distance'] = $distance;
+                    }
                 }
             }
-        }
 
-        $currentTime = strtotime(date('h:i A'));
-        $currentDay = strtolower(date('l'));
+            $currentTime = strtotime(date('h:i A'));
+            $currentDay = strtolower(date('l'));
 
-        $firstOpenTime = strtotime($restaurantDetails[$currentDay.'_firstopen_time']);
-        $firstCloseTime = strtotime($restaurantDetails[$currentDay.'_firstclose_time']);
+            $firstOpenTime = strtotime($restaurantDetails[$currentDay.'_firstopen_time']);
+            $firstCloseTime = strtotime($restaurantDetails[$currentDay.'_firstclose_time']);
 
-        $secondOpenTime = strtotime($restaurantDetails[$currentDay.'_secondopen_time']);
-        $secondCloseTime = strtotime($restaurantDetails[$currentDay.'_secondclose_time']);
-        if($restaurantDetails[$currentDay.'_status'] != 'Closed') {
-            if($currentTime > $firstOpenTime && $currentTime <= $firstCloseTime) {
-                $restaurantDetails['currentStatus'] = 'Open';
-                $final[] = $restaurantDetails;
-            }else if($currentTime > $secondOpenTime && $currentTime <= $secondCloseTime) {
-                $restaurantDetails['currentStatus'] = 'Open';
-                $final[] = $restaurantDetails;
-            }else if($currentTime > $firstCloseTime && $currentTime <= $secondOpenTime) {
-                $restaurantDetails['currentStatus'] = 'PreOrder';
-                $final[] = $restaurantDetails;
+            $secondOpenTime = strtotime($restaurantDetails[$currentDay.'_secondopen_time']);
+            $secondCloseTime = strtotime($restaurantDetails[$currentDay.'_secondclose_time']);
+            if($restaurantDetails[$currentDay.'_status'] != 'Closed') {
+                if($currentTime > $firstOpenTime && $currentTime <= $firstCloseTime) {
+                    $restaurantDetails['currentStatus'] = 'Open';
+                    $final[] = $restaurantDetails;
+                }else if($currentTime > $secondOpenTime && $currentTime <= $secondCloseTime) {
+                    $restaurantDetails['currentStatus'] = 'Open';
+                    $final[] = $restaurantDetails;
+                }else if($currentTime > $firstCloseTime && $currentTime <= $secondOpenTime) {
+                    $restaurantDetails['currentStatus'] = 'PreOrder';
+                    $final[] = $restaurantDetails;
+                }else {
+                    $restaurantDetails['currentStatus'] = 'Closed';
+                    $final[] = $restaurantDetails;
+                }
             }else {
                 $restaurantDetails['currentStatus'] = 'Closed';
                 $final[] = $restaurantDetails;
             }
-        }else {
-            $restaurantDetails['currentStatus'] = 'Closed';
-            $final[] = $restaurantDetails;
-        }
 
-        $menuDetails = $this->Categories->find('all', [
-            'conditions' => [
-                'Categories.status' => '1',
-                'Categories.delete_status' => 'N',
-                'Categories.restaurant_id' => $resid
-            ],
-            'contain' => [
-                'RestaurantMenus.MenuDetails'
-            ],
-            'order' => [
-                'Categories.id' => 'ASC'
-            ]
+            $menuDetails = $this->Categories->find('all', [
+                'conditions' => [
+                    'Categories.status' => '1',
+                    'Categories.delete_status' => 'N',
+                    'Categories.restaurant_id' => $resid
+                ],
+                'contain' => [
+                    'RestaurantMenus.MenuDetails'
+                ],
+                'order' => [
+                    'Categories.id' => 'ASC'
+                ]
 
 
-        ])->hydrate(false)->toArray();
+            ])->hydrate(false)->toArray();
 
 
 
-        $restaurantCuisine = explode(',',$restaurantDetails['restaurant_cuisine']);
+            $restaurantCuisine = explode(',',$restaurantDetails['restaurant_cuisine']);
 
 
-        if(!empty($restaurantCuisine)) {
-            foreach ($restaurantCuisine as $key => $value) {
-                $cuisines = $this->Cuisines->find('all', [
-                    'conditions' => [
-                        'id' => $value
-                    ]
-                ])->hydrate(false)->first();
-                if(!empty($cuisines)) {
-                    $cuisineList[] = $cuisines['cuisine_name'];
+            if(!empty($restaurantCuisine)) {
+                foreach ($restaurantCuisine as $key => $value) {
+                    $cuisines = $this->Cuisines->find('all', [
+                        'conditions' => [
+                            'id' => $value
+                        ]
+                    ])->hydrate(false)->first();
+                    if(!empty($cuisines)) {
+                        $cuisineList[] = $cuisines['cuisine_name'];
+                    }
+                }
+
+            }
+            $cuisinesList = implode(',',$cuisineList);
+
+
+            $cartsDetails = $this->Carts->find('all', [
+                'sum(Carts.price) AS ctotal',
+                'conditions' => [
+                    'session_id' => $sessionId,
+                ],
+                'contain' => [
+                    'RestaurantMenus'
+                ],
+                'order' => [
+                    'Carts.menu_id' => 'ASC'
+                ]
+            ])->hydrate(false)->toArray();
+
+            $cartCount = count($cartsDetails);
+            $subTotal = 0;
+            $taxAmount = 0;
+            if(!empty($cartsDetails)) {
+                foreach($cartsDetails as $ckey => $cvalue) {
+                    $subTotal = $cvalue['price'] + $subTotal;
+                }
+                if($restaurantDetails['restaurant_tax'] > 0) {
+                    $taxAmount = ($subTotal * $restaurantDetails['restaurant_tax'])/100;
                 }
             }
+            $deliveryCharge = (isset($final[0]['delivery_charge'])) ? $final[0]['delivery_charge'] : '0.00';
 
-        }
-        $cuisinesList = implode(',',$cuisineList);
+            $totalAmount = $subTotal + $taxAmount + $deliveryCharge;
 
+            $minimumOrder = $final[0]['minimum_order'];
 
-        $cartsDetails = $this->Carts->find('all', [
-            'sum(Carts.price) AS ctotal',
-            'conditions' => [
-                'session_id' => $sessionId,
-            ],
-            'contain' => [
-                'RestaurantMenus'
-            ],
-            'order' => [
-                'Carts.menu_id' => 'ASC'
-            ]
-        ])->hydrate(false)->toArray();
-
-        $cartCount = count($cartsDetails);
-        $subTotal = 0;
-        $taxAmount = 0;
-        if(!empty($cartsDetails)) {
-            foreach($cartsDetails as $ckey => $cvalue) {
-                $subTotal = $cvalue['price'] + $subTotal;
+            if($subTotal >= $minimumOrder ) {
+                $minimumOrder = '1';
+            }else {
+                $minimumOrder = '0';
             }
-            if($restaurantDetails['restaurant_tax'] > 0) {
-                $taxAmount = ($subTotal * $restaurantDetails['restaurant_tax'])/100;
-            }
-        }
-        $deliveryCharge = (isset($final[0]['delivery_charge'])) ? $final[0]['delivery_charge'] : '0.00';
 
-        $totalAmount = $subTotal + $taxAmount + $deliveryCharge;
 
-        $minimumOrder = $final[0]['minimum_order'];
-
-        if($subTotal >= $minimumOrder ) {
-            $minimumOrder = '1';
+            $this->set(compact('menuDetails','restaurantDetails','cuisinesList','cartsDetails','cartCount','taxAmount','subTotal','totalAmount','deliveryCharge','final','minimumOrder'));
         }else {
-            $minimumOrder = '0';
+            return $this->redirect(BASE_URL);
         }
 
-
-
-        $this->set(compact('menuDetails','restaurantDetails','cuisinesList','cartsDetails','cartCount','taxAmount','subTotal','totalAmount','deliveryCharge','final','minimumOrder'));
 
     }
 

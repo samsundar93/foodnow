@@ -1,8 +1,8 @@
 <?php
     echo $this->Html->script([
-        FRONT_JS.'jquery.min.js',
-        FRONT_JS.'bootstrap.min.js',
-        FRONT_JS.'jquery-ui.js',
+        //FRONT_JS.'jquery.min.js',
+        //FRONT_JS.'bootstrap.min.js',
+        //FRONT_JS.'jquery-ui.js',
         FRONT_JS.'bootstrap-datetimepicker.min.js',
         FRONT_JS.'slick.min.js',
         FRONT_JS.'bootstrap-select.min.js',

@@ -19,5 +19,14 @@ if($controller == 'Users' || $controller == 'Restaurants'|| $controller == 'Chec
 
 ?>
 
+<?php
+    echo $this->Html->script(
+        [
+            FRONT_JS.'jquery.min.js',
+            FRONT_JS.'bootstrap.min.js',
+            FRONT_JS.'jquery-ui.js',
+        ]);
+?>
+
 
 

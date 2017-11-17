@@ -122,7 +122,7 @@
                </div>
                <div class="col-sm-5">
                   <div class="search-dish">
-                     <input type="text" class="form-control cart-form-control" placeholder="search dishes">
+                     <input type="text" id="dishes" class="form-control cart-form-control" placeholder="search dishes">
                      <i class="fa fa-search"></i>
                   </div>
                </div>
