@@ -300,4 +300,84 @@ class UsersController extends AppController
         $this->Auth->logout();
         return $this->redirect(ADMIN_BASE_URL.'');
     }
+
+    public function banners() {
+        if($this->request->is('post')) {
+            //pr($this->request->getData());die();
+
+            require_once(ROOT . DS . 'vendor' . DS . 'Cloudinary' . DS . 'Cloudinary.php');
+            require_once(ROOT . DS . 'vendor' . DS . 'Cloudinary' . DS . 'Uploader.php');
+            require_once(ROOT . DS . 'vendor' . DS . 'Cloudinary' . DS . 'Api.php');
+
+            \Cloudinary::config(array(
+                "cloud_name" => "dntzmscli",
+                "api_key" => "213258421718748",
+                "api_secret" => "vTrAbTdKHswpiOQZcHvCv9LqZ3M"
+            ));
+            if(!empty($this->request->getData('banner1'))) {
+
+                $data = \Cloudinary\Uploader::upload($_FILES["banner1"]["tmp_name"],
+                    array(
+                        "public_id" => 'banner1'
+                    ));
+                $updateBanner['banner1'] = $data['url'];
+
+            }
+            if(!empty($this->request->getData('banner2'))) {
+
+                $data = \Cloudinary\Uploader::upload($_FILES["banner2"]["tmp_name"],
+                    array(
+                        "public_id" => 'banner2'
+                    ));
+                $updateBanner['banner2'] = $data['url'];
+
+            }
+
+            if(!empty($this->request->getData('banner3'))) {
+
+                $data = \Cloudinary\Uploader::upload($_FILES["banner3"]["tmp_name"],
+                    array(
+                        "public_id" => 'banner3'
+                    ));
+                #echo $data['eager'][0]['secure_url'];
+                #print_r($data);die();
+                $updateBanner['banner3'] = $data['url'];
+
+            }
+
+            if(!empty($this->request->getData('banner4'))) {
+
+                $data = \Cloudinary\Uploader::upload($_FILES["banner4"]["tmp_name"],
+                    array(
+                        "public_id" => 'banner4'
+                    ));
+                #echo $data['eager'][0]['secure_url'];
+                #print_r($data);die();
+                $updateBanner['banner4'] = $data['url'];
+
+            }
+
+            $smssetting = $this->Sitesettings->newEntity();
+            $smssetting = $this->Sitesettings->patchEntity($smssetting, $updateBanner);
+            $smssetting->id = $this->Auth->user('role_id');
+
+            if ($this->Sitesettings->save($smssetting)){
+                $this->Flash->success(_('Banner Image uplaod successful'));
+                return $this->redirect(ADMIN_BASE_URL.'users/banners/');
+            }
+        }
+
+        $bannerData = $this->Sitesettings->find('all',[
+            'fields' => [
+                'banner1',
+                'banner2',
+                'banner3',
+                'banner4'
+            ]
+        ])->hydrate(false)->first();
+
+
+        $this->set('bannerData',$bannerData);
+
+    }
 }

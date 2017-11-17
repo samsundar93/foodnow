@@ -2,15 +2,29 @@
     <div class="container">
         <div class="col-xs-12">
             <div class="seacr-banner">
-                <div class="seacr-banner-img">
-                    <img src="images/searchbanner2.png">
-                </div>
-                <div class="seacr-banner-img">
-                    <img src="images/searchbanner1.png">
-                </div>
-                <div class="seacr-banner-img">
-                    <img src="images/searchbanner3.png">
-                </div>
+                <?php if($siteSettings['banner1'] != '') { ?>
+                    <div class="seacr-banner-img">
+                        <img src="<?php echo $siteSettings['banner1']; ?>">
+                    </div>
+                <?php } ?>
+
+                <?php if($siteSettings['banner2'] != '') { ?>
+                    <div class="seacr-banner-img">
+                        <img src="<?php echo $siteSettings['banner2']; ?>">
+                    </div>
+                <?php } ?>
+
+                <?php if($siteSettings['banner3'] != '') { ?>
+                    <div class="seacr-banner-img">
+                        <img src="<?php echo $siteSettings['banner3']; ?>">
+                    </div>
+                <?php } ?>
+
+                <?php if($siteSettings['banner4'] != '') { ?>
+                    <div class="seacr-banner-img">
+                        <img src="<?php echo $siteSettings['banner4']; ?>">
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -58,7 +72,7 @@
                         <div class="res-white">
                         <div class="res-opacity"></div>
                         <div class="col-sm-6 no-padding">
-                            <div class="res-white-img"><img src="<?php echo BASE_URL ?>backend/images/restaurant/<?php echo $value['restaurant_logo'] ?>"></div>
+                            <div class="res-white-img"><img src="<?php echo $value['restaurant_logo'] ?>"></div>
                         </div>
                         <div class="col-sm-6 no-padding p-l-15">
                             <div class="rest-top">

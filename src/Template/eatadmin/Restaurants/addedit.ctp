@@ -111,7 +111,7 @@
                                                         <span class="logoErr"></span>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <img src="<?php echo BASE_URL.'backend/images/restaurant/'.$restaurantList['restaurant_logo'] ?>" alt="No image" class="img-responsive img-rounded" width="50"/>
+                                                        <img src="<?php echo $restaurantList['restaurant_logo'] ?>" alt="No image" class="img-responsive img-rounded" width="50"/>
                                                     </div>
                                                 </div>
                                             </div>

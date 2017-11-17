@@ -11,6 +11,7 @@ use App\Controller\AppController;
 use Cake\I18n\Time;
 use Cake\ORM\Table;
 use Excel\Controller\ExcelReaderController;
+
 class RestaurantsController extends AppController
 {
     public function initialize()
@@ -96,19 +97,37 @@ class RestaurantsController extends AppController
             $prepAddr = str_replace(' ','+',$this->request->getData('contact_address'));
 
 
-            $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.
+            /*$geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.
                 '&sensor=false');
 
-            $output= json_decode($geocode);
+            $output= json_decode($geocode);*/
 
-            $sourcelatitude = $output->results[0]->geometry->location->lat;
-            $sourcelongitude = $output->results[0]->geometry->location->lng;
+            $url = "https://maps.google.com/maps/api/geocode/json?address=$prepAddr&key=AIzaSyA_PDTRdxnfHvK3V6-pApjZQgY8F8E5zOM&sensor=false&region=India";
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            $response = curl_exec($ch);
+            curl_close($ch);
+            $response_a = json_decode($response);
+
+            /*$sourcelatitude = $output->results[0]->geometry->location->lat;
+            $sourcelongitude = $output->results[0]->geometry->location->lng;*/
+
+            $sourcelatitude = $response_a->results[0]->geometry->location->lat;
+            $sourcelongitude = $response_a->results[0]->geometry->location->lng;
 
             //Restaurant Logo
 
             if(isset($this->request->getData('restaurantlogo')['name']) && !empty($this->request->getData('restaurantlogo')['name'])
             ){
-                $valid     = getimagesize($_FILES['restaurantlogo']['tmp_name']);
+                require_once(ROOT . DS . 'vendor' . DS . 'Cloudinary' . DS . 'Cloudinary.php');
+                require_once(ROOT . DS . 'vendor' . DS . 'Cloudinary' . DS . 'Uploader.php');
+                require_once(ROOT . DS . 'vendor' . DS . 'Cloudinary' . DS . 'Api.php');
+
+                /*$valid     = getimagesize($_FILES['restaurantlogo']['tmp_name']);
                 $filePart  = pathinfo($this->request->getData('restaurantlogo')['name']);
                 $logo      = ['jpg','jpeg','gif','png'];
 
@@ -123,7 +142,28 @@ class RestaurantsController extends AppController
                     $image_detail   = $this->Common->UploadFile($this->request->getData('restaurantlogo'), $img_path);
                     $restaurant_logo  = $image_detail['refName'];
 
-                }
+                }*/
+                $restaurantName = $this->seoUrl($this->request->getData('restaurant_name'));
+
+                \Cloudinary::config(array(
+                    "cloud_name" => "dntzmscli",
+                    "api_key" => "213258421718748",
+                    "api_secret" => "vTrAbTdKHswpiOQZcHvCv9LqZ3M"
+                ));
+
+                $data = \Cloudinary\Uploader::upload($_FILES["restaurantlogo"]["tmp_name"],
+                    array(
+                        "public_id" => $restaurantName,
+                        //"crop" => "limit", "width" => "2000", "height" => "2000",
+                        "eager" => array(
+                            array( "width" => 269, "height" => 134,
+                                "crop" => "fit", "format" => "jpg" )
+                        ),
+                        "tags" => array( "special", "for_homepage" )
+                    ));
+                #echo $data['eager'][0]['secure_url'];
+                #print_r($data);die();
+                $restaurant_logo = $data['eager'][0]['secure_url'];
             }
             else
                 $restaurant_logo      = $restaurantDetails['restaurant_logo'];
@@ -841,6 +881,32 @@ class RestaurantsController extends AppController
 
         return $addonPriceList;
         die();
+    }
+
+    public function seoUrl($string)
+    {
+        $text = preg_replace('~[^\\pL\d]+~u', '-', $string);
+
+        // trim
+        $text = trim($text, '-');
+
+        // lowercase
+        $text = strtolower($text);
+
+        // remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+
+        if(strlen($text) > 70) {
+            $text = substr($text, 0, 70);
+        }
+
+        if (empty($text))
+        {
+            //return 'n-a';
+            return time();
+        }
+
+        return $text;
     }
 
 }

@@ -26,8 +26,8 @@
                                 <span class="text-left admin_user_head">Site Settings</span>
                             </a>
                             <span class="pull-right">
-            <?= $this->Flash->render() ?>
-        </span>
+                                <?= $this->Flash->render() ?>
+                            </span>
                         </div>
                         <div class="row">
                             <div class="col-md-12">

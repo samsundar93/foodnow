@@ -57,7 +57,7 @@
         <div class="searchpage-search">
             <div class="container">
                 <div class="col-sm-2">
-                    <li><a href="<?php echo BASE_URL ?>" class="search-logo">LIKEEAT</a></li>
+                    <a href="<?php echo BASE_URL ?>" class="search-logo">LIKEEAT</a>
                 </div>
                 <div class="col-sm-8">
                     <div class="col-sm-4 no-padding">
@@ -69,7 +69,7 @@
                         </label>
                     </div>
                     <div class="col-sm-8 no-padding serach-input">
-                        <input type="text" class="form-control serach-form-control" placeholder="Search for restaurants, dishes or cuisines">
+                        <input type="text" class="form-control serach-form-control" placeholder="Search for Restaurants">
                         <i class="fa fa-search"></i>
                     </div>
                 </div>

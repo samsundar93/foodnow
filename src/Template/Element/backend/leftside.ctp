@@ -30,6 +30,7 @@
                     <li> <a href="<?php echo ADMIN_BASE_URL?>users/location/">Location Setting</a></li>
                     <li> <a href="<?php echo ADMIN_BASE_URL?>users/payment/">Payment Setting</a></li>
                     <li> <a href="<?php echo ADMIN_BASE_URL?>users/sms/">SMS Setting</a></li>
+                    <li> <a href="<?php echo ADMIN_BASE_URL?>users/banners/">Banner Section</a></li>
                 </ul>
             </li>
 
