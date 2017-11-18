@@ -2,7 +2,7 @@
     <header class="header">
         <div class="container">
             <div class="header-menu">
-                <a class="logo">LIKEEAT</a>
+                <a class="logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
                 <ul class="top-menu">
                     <?php if(isset($logginUser) && empty($logginUser)) { ?>
                         <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
@@ -57,7 +57,7 @@
         <div class="searchpage-search">
             <div class="container">
                 <div class="col-sm-2">
-                    <a href="<?php echo BASE_URL ?>" class="search-logo">LIKEEAT</a>
+                    <a href="<?php echo BASE_URL ?>" class="search-logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
                 </div>
                 <div class="col-sm-8">
                     <div class="col-sm-4 no-padding">
@@ -103,7 +103,7 @@
          <div class="cartpage-search">
             <div class="container">
                <div class="col-sm-2">
-                  <a href="<?php echo BASE_URL ?>" class="search-logo">LIKEKET</a>
+                  <a href="<?php echo BASE_URL ?>" class="search-logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
                </div>
             </div>
          </div>
@@ -139,7 +139,7 @@
 
 <?php if($controller == 'Checkouts') { ?>
     <header class="search-header">
-        <div class="breadcrump">
+        <div class="breadcrump-checkout">
             <div class="container">
                 <div class="col-sm-6">Download Our app</div>
                 <div class="col-sm-6 pull-right text-right">
@@ -155,10 +155,10 @@
                 </div>
             </div>
         </div>
-        <div class="searchpage-search">
+        <div class="searchpage-search-checkout">
             <div class="container">
                 <div class="col-sm-2">
-                    <li><a href="<?php echo BASE_URL ?>" class="search-logo">LIKEEAT</a></li>
+                    <a href="<?php echo BASE_URL ?>" class="search-logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
                 </div>
             </div>
         </div>

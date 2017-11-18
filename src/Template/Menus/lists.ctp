@@ -44,7 +44,8 @@
                                                 <?php echo $mvalue['menu_name'] ?>
                                             </div>
                                             <div class="col-sm-2">
-                                                <span class="minus-icon"><i class="fa fa-minus" onclick="addCart('<?php echo $mvalue['id'] ?>','remove')"></i></span>
+                                                <span class="minus-icon">
+                                                <a><i class="fa fa-minus" onclick="addCart('<?php echo $mvalue['id'] ?>','remove')"></i></a></span>
                                                 <?php
                                                 if(!empty($cartsDetails)) { ?>
                                                     <?php
@@ -65,7 +66,10 @@
                                                 }else {?>
                                                     <span class="dishbox-item-count" id="quantity_<?php echo $mvalue['id'] ?>">0</span>
                                                 <?php } ?>
-                                                <span class="plus-icon"><i class="fa fa-plus" onclick="addCart('<?php echo $mvalue['id'] ?>','add')"></i></span>
+                                                <span class="plus-icon">
+                                                <a><i class="fa fa-plus" onclick="addCart('<?php echo $mvalue['id'] ?>','add')"></i>
+                                                </a>
+                                                </span>
                                             </div>
                                             <div class="col-sm-2 text-right">
                                                 <span class="final-price">$<?php echo $mvalue['menu_details'][0]['orginal_price'] ?></span>
@@ -98,13 +102,13 @@
                                             </div>
                                             <div class="col-sm-4 no-padding text-center">
                                                 <span class="minus-icon">
-                                                    <i class="fa fa-minus" onclick="addCart('<?php echo $value['menu_id'] ?>','remove')"></i>
+                                                    <a><i class="fa fa-minus" onclick="addCart('<?php echo $value['menu_id'] ?>','remove')"></i></a>
                                                 </span>
                                                 <span class="dishbox-item-count">
                                                     <?php echo $value['quantity'] ?>
                                                 </span>
                                                 <span class="plus-icon">
-                                                    <i class="fa fa-plus" onclick="addCart('<?php echo $value['menu_id'] ?>','add')"></i>
+                                                    <a><i class="fa fa-plus" onclick="addCart('<?php echo $value['menu_id'] ?>','add')"></i></a>
                                                 </span>
                                             </div>
                                             <div class="col-sm-2 no-padding text-right">

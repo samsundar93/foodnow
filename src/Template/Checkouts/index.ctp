@@ -1,6 +1,6 @@
 
 
-<section class="cartpage-sec">
+<section class="cartpage-sec checkout-sec">
    <div class="container">
       <?= $this->Form->create('checkoutForm',[
          'id' => 'checkoutForm',
@@ -57,7 +57,7 @@
                                </div>
                            <?php } ?>
                            <?php if(!empty($totalAddress) && ($totalAddress>1)){?>
-                               <div class="col-sm-12 no-padding clearfix">
+                               <div class="col-sm-12 no-padding save-pick-add clearfix">
                                    <span class="selectPickup"></span>
                                    Not the address you were looking for?
                                    <a href="javascript:;" data-toggle="modal" data-target="#alladdress_pop">
@@ -174,7 +174,7 @@
       </div>
       <div class="col-sm-4">
          <div class="cart-scrolladd-box">
-            <div class="cart-add-box-checkout">
+            <div class="cart-add-box-checkout cart-add-box-checkout-page">
                 <div class="pickup-door text-center">
                     <div class="col-sm-4 col-sm-offset-2 no-padding  pick-cus">
                         <input type="radio" id="pickradio" name="order_type" value="pickup" onclick="return orderType('pickup');">
