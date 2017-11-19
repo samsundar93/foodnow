@@ -100,6 +100,9 @@ $(document).ready(function(){
                 $(this).addClass('active');
                     }
             });
+        $('.search-label').click(function(){
+            $('.restaurant-search-location').toggle();
+        })
 
     });
 $(document).ready(function(){

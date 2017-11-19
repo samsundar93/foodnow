@@ -59,10 +59,10 @@
                 <div class="col-sm-2">
                     <a href="<?php echo BASE_URL ?>" class="search-logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-8 res-header-section">
                     <div class="col-sm-4 no-padding">
                         <label class="form-control serach-form-control search-label">
-                            <div class="serach-label-title">Delivery Location</div>
+                            <div class="serach-label-title">Delivery Location <i class="fa fa-angle-down"></i></div>
                             <div class="serach-label-loc"><i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <?php echo $this->request->session()->read('searchLocation') ?>
                             </div>
@@ -71,6 +71,14 @@
                     <div class="col-sm-8 no-padding serach-input">
                         <input type="text" class="form-control serach-form-control" placeholder="Search for Restaurants">
                         <i class="fa fa-search"></i>
+                    </div>
+
+                    <div class="restaurant-search-location" style="display:none;">
+                      <div class="add-search-title">SEARCH ANOTHER LOCATION</div>
+                      <div class="add-search-box">
+                        <input type="text" class="form-control" placeholder="Enter delivery location (Area, Street or Landmark)">
+                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                      </div>
                     </div>
                 </div>
                 <div class="col-sm-2">
@@ -109,6 +117,11 @@
          </div>
          <section class="restaurant-head-sec">
             <div class="container">
+              <div class="col-sm-2 no-padding-right">
+                <div class="res-image">
+                <img class="img-thumbnail" src="<?php echo BASE_URL ?>/images/res.jpg">
+                </div>
+              </div>
                <div class="col-sm-4">
                   <div class="cart-res-name">
                       <?php echo $restaurantDetails['restaurant_name'] ?>
@@ -120,17 +133,7 @@
                      </span>
                   </div>
                </div>
-               <div class="col-sm-5">
-                  <div class="search-dish">
-                     <input type="text" id="dishes" class="form-control cart-form-control" placeholder="search dishes">
-                     <i class="fa fa-search"></i>
-                  </div>
-               </div>
-               <div class="col-sm-3">
-                  <div class="veg-filter">
-                     <div class="btn-veg"><input type="checkbox"> Vegetarian</div>
-                  </div>
-               </div>
+              
             </div>
          </section>
       </header>
