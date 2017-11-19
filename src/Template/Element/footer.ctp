@@ -31,7 +31,7 @@
         </div>
     </div>
 </footer>
-<div class="copyright">All Rights Reserved By copyright @2017</div>
+    <div class="copyright">All Rights Reserved By <a href="<?php echo BASE_URL ?>">FoodDp </a>  copyright @2017</div>
 <?php } ?>
 <div id="login_popup" class="modal fade" role="dialog">
     <div class="modal-dialog modal-sm">

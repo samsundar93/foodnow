@@ -29,11 +29,22 @@ $(document).ready(function(){
     });
 
     $('.cusine').click(function(){
+        $('.filter-content-type').hide();
         $('.filter-content-part').toggle();
     });
     $('.cusine-cancel-btn').click(function(){
         $('.filter-content-part').hide();
     });
+
+    $('.resttype').click(function(){
+        $('.filter-content-part').hide();
+        $('.filter-content-type').toggle();
+    });
+    $('.type-cancel-btn').click(function(){
+        $('.filter-content-type').hide();
+    });
+
+
 
 });
 
@@ -218,36 +229,49 @@ function filter() {
     $(".filter-content-part").css('display','none');
     if($("input[name='filterCuisines']:checked").length > 0) {
 
+        var cuisineLen = $("input[name='filterCuisines']:checked").length;
         $.each($("input[name='filterCuisines']:checked"), function(){
             var i=0;
             var restLength = $('.restLists').length;
             var id = $(this).val();
             $('.restLists').each(function () {
+
                 var attr = $(this).attr('data-cuisines');
-
                 var matches = attr.match(id);
-                if (matches == null) {
-                    $(this).addClass('filterCuisine');
-                    //i++;
+
+                if(matches == null) {
+                   if($(this).hasClass('Cuisine removeCuisine') || $(this).hasClass('removeCuisine Cuisine')) {
+                        $(this).removeClass('Cuisine removeCuisine');
+                        $(this).removeClass('removeCuisine Cuisine');
+                    }else if($(this).hasClass('Cuisine')){
+                        $(this).addClass('Cuisine removeCuisine');
+                    }else {
+                        $(this).addClass('removeCuisine');
+                    }
+
                 }else {
-                    //i--;
-                    $(this).removeClass('filterCuisine');
+                    $(this).addClass('Cuisine');
                 }
-                restLength--;
-
-
-            })
+            });
+            cuisineLen--;
         });
+
     }else {
         $('.restLists').each(function () {
             $(this).removeClass('filterCuisine');
+            $(this).addClass('Cuisine');
         })
 
     }
 
-
+    if(cuisineLen == 0) {
+        $('.restLists').each(function () {
+            if(!$(this).hasClass('Cuisine')) {
+                $(this).addClass('filterCuisine');
+            }else {
+                $(this).removeClass('filterCuisine');
+            }
+        });
+    }
     return false;
-
-
-
 }

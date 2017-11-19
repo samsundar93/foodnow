@@ -33,11 +33,14 @@
     <div class="container">
         <div class="filter-part-div">
             <div class="col-sm-6">
-               <span>FITLTER BY <button class="btn btn-default cusine">Cusine <i class="fa fa-caret-down" aria-hidden="true"></i>
-               </button> <button class="btn btn-default">Budget <i class="fa fa-caret-down" aria-hidden="true"></i>
-               </button></span>
-                <button class="btn btn-default">MoreFilters <i class="fa fa-caret-down" aria-hidden="true"></i>
-                </button>
+               <span>FITLTER BY
+                   <button class="btn btn-default cusine">Cusine
+                       <i class="fa fa-caret-down" aria-hidden="true"></i>
+                   </button>
+                  <!-- <button class="btn btn-default resttype">Type
+                       <i class="fa fa-caret-down" aria-hidden="true"></i>
+                   </button>-->
+               </span>
             </div>
             <div class="col-sm-6">
                <span class="pull-right">SORT BY <button class="btn btn-default">Relavance <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -54,6 +57,21 @@
                 }
             }?>
 
+
+            <div class="col-xs-12">
+                <button onclick="return filter()" class="btn cusine-filter-btn">Apply</button>
+                <button class="btn btn-default cusine-cancel-btn">cancel</button>
+            </div>
+        </div>
+
+        <div class="filter-content-type" style="display: none">
+            <div class="col-lg-2 col-sm-3 col-xs-4">
+                <input type="checkbox" name="filterTypes" value="pickup"> Pickup
+            </div>
+
+            <div class="col-lg-2 col-sm-3 col-xs-4">
+                <input type="checkbox" name="filterTypes" value="delivery"> Delivery
+            </div>
 
             <div class="col-xs-12">
                 <button onclick="return filter()" class="btn cusine-filter-btn">Apply</button>

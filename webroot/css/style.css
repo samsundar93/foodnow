@@ -133,6 +133,32 @@ display: none;}
     z-index: 5;}
     .cusine-filter-btn {height: 35px; border-radius: 4px; background-color: #F5861F; color: #fff; font:500 13px "Montserrat"; margin-top: 20px; margin-right: 10px;}
 .cusine-cancel-btn {height: 35px; border-radius: 4px;font:500 13px "Montserrat"; margin-top: 20px;}
+
+
+.filter-content-type {position: absolute; left: 0; right: 0;background: #fff;}
+.filter-content-type {
+    background: #fff none repeat scroll 0 0;
+    -webkit-box-shadow: 1px 2px 5px 3px rgba(204,204,204,1);
+    -moz-box-shadow: 1px 2px 5px 3px rgba(204,204,204,1);
+    box-shadow: 1px 2px 5px 3px rgba(204,204,204,1);
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: 46px;
+    z-index: 20;
+    display: none;}
+.filter-content-type:after {border-bottom: 10px solid #ccc;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    content: "";
+    height: 0;
+    left: 184px;
+    position: absolute;
+    top: -11px;
+    width: 0;
+    z-index: 5;}
+
+
 .login_popup-border {border: 1px solid #e4e4e4; border-radius: 4px;float: left; width: 100%;}
 .login_popup_cont {float: left; width: 100%; background: #fff; padding: 20px;}
 .login-title {font:700 16px "Montserrat"; float: left; width: 100%; text-align: center;
