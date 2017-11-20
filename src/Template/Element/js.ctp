@@ -15,7 +15,7 @@
 
 <?php
 
-if($controller == 'Users') {
+if($controller == 'Users' || $controller == 'Restaurants') {
     echo $this->Html->script(
         [
             FRONT_JS.'address.js'

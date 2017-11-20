@@ -76,7 +76,7 @@
                     <div class="restaurant-search-location" style="display:none;">
                       <div class="add-search-title">SEARCH ANOTHER LOCATION</div>
                       <div class="add-search-box">
-                        <input type="text" class="form-control" placeholder="Enter delivery location (Area, Street or Landmark)">
+                        <input type="text" class="form-control" id="searchLocation" placeholder="Enter delivery location (Area, Street or Landmark)">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                       </div>
                     </div>
