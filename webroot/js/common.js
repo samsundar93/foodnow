@@ -106,6 +106,8 @@ $(document).ready(function(){
 
     });
 $(document).ready(function(){
+    $('#delivery_date').datepicker();
+    $('#delivery_time').timepicker();
         $(".message").addClass("success");
         setTimeout(function(){
             $(".message").removeClass("success");

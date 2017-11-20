@@ -3,6 +3,7 @@ echo $this->Html->css([
         FRONT_CSS.'bootstrap.min.css',
         FRONT_CSS.'font-awesome.min.css',
         FRONT_CSS.'slick.css',
+        FRONT_CSS.'jquery-ui.min.css',
         FRONT_CSS.'popModal.min.css',
         FRONT_CSS.'style.css',
         FRONT_CSS.'slick-theme.css',
@@ -19,14 +20,7 @@ if($controller == 'Users' || $controller == 'Restaurants'|| $controller == 'Chec
 
 ?>
 
-<?php
-    echo $this->Html->script(
-        [
-            FRONT_JS.'jquery.min.js',
-            FRONT_JS.'bootstrap.min.js',
-            FRONT_JS.'jquery-ui.js',
-        ]);
-?>
+
 
 
 

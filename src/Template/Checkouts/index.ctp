@@ -68,7 +68,20 @@
                        </div>
 
                    </div>
-
+                   <div class="date-time">
+                      <div class="col-sm-6 no-padding-left">
+                          <label class="col-sm-5 no-padding">Delivery Date</label>
+                          <div class="col-sm-7 no-padding">
+                            <input type="text" class="form-control" id="delivery_date">
+                          </div>
+                      </div>
+                      <div class="col-sm-6 no-padding-right">
+                          <label class="col-sm-5 no-padding">Delivery Time</label>
+                          <div class="col-sm-7 no-padding">
+                            <input type="text" class="form-control" id="delivery_time">
+                          </div>
+                      </div>
+                   </div>
                   <div class="order_notes">
                      <div class="order_notes_title">Order Notes:</div>
                      <div class="order_notes_text">Wish to share something that we can help you with?</div>
