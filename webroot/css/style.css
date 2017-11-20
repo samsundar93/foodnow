@@ -529,7 +529,6 @@ border-bottom: 10px solid #ccc;
 }
 #cartDetails {float: left;
     padding: 15px 0;
-    text-align: center;
     width: 100%}
 .res-image {float: left; width: 100%;}
 .res-image img {width:180px;max-width: 100%; height: 100px;}

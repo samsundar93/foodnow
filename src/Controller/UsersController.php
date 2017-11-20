@@ -126,6 +126,7 @@ class UsersController extends AppController
     }
 
     public function logout() {
+
         $this->request->session()->write('customername','');
         $this->Auth->logout();
         $this->Flash->success(__('Logout successful.'));
