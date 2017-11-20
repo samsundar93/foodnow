@@ -202,6 +202,9 @@
                             //var addCount = parseInt(quantity) -1;
                             $("#quantity_"+menuId).html(addCount);
                         }
+                        if($.trim(data) == 'cartError') {
+                            alert('Error');return false;
+                        }
                         var result = data.split('@@');
                         $("#cartDetails").html(result[0]);
                         $("#minimum_order").val(result[1]);
