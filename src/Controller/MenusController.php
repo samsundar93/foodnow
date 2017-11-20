@@ -40,12 +40,15 @@ class MenusController extends AppController
 
         if($resid != '') {
 
+
+
             if($this->request->session()->read('sessionId') != '') {
                 $sessionId =  $this->request->session()->read('sessionId');
 
             }else {
                 $sessionId = session_id();
                 $this->request->session()->write('sessionId',$sessionId);
+                $this->request->session()->write('resid',$resid);
             }
 
 
@@ -218,12 +221,27 @@ class MenusController extends AppController
     public function ajaxaction() {
         if($this->request->getData('action') == 'cartUpdate') {
 
+            $menuDetails = $this->RestaurantMenus->find('all', [
+                'conditions' => [
+                    'RestaurantMenus.id' => $this->request->getData('menuid')
+                ],
+                'contain' => [
+                    'MenuDetails'
+                ]
+            ])->hydrate(false)->first();
+
+            if($menuDetails['restaurant_id'] != $this->request->session()->read('resid')) {
+                session_regenerate_id();
+                $this->request->session()->write('sessionId','');
+            }
+
             if($this->request->session()->read('sessionId') != '') {
                 $sessionId =  $this->request->session()->read('sessionId');
 
             }else {
                 $sessionId = session_id();
                 $this->request->session()->write('sessionId',$sessionId);
+                $this->request->session()->write('resid',$menuDetails['restaurant_id']);
             }
             $cartDetails = $this->Carts->find('all', [
                 'fields' => [
@@ -233,17 +251,11 @@ class MenusController extends AppController
                 'conditions' => [
                     'menu_id' => $this->request->getData('menuid'),
                     'session_id' => $sessionId,
+                    'restaurant_id' => $this->request->session()->read('resid'),
                 ]
             ])->hydrate(false)->first();
 
-            $menuDetails = $this->RestaurantMenus->find('all', [
-                'conditions' => [
-                    'RestaurantMenus.id' => $this->request->getData('menuid')
-                ],
-                'contain' => [
-                    'MenuDetails'
-                ]
-            ])->hydrate(false)->first();
+
 
             if(!empty($cartDetails)) {
                 if($this->request->getData('type') == 'add') {

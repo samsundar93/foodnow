@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1a9164b-a4cc-4f3c-864a-d2b6a036cce1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Element/header.ctp" afterPath="$PROJECT_DIR$/src/Template/Element/header.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Element/js.ctp" afterPath="$PROJECT_DIR$/src/Template/Element/js.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/MenusController.php" afterPath="$PROJECT_DIR$/src/Controller/MenusController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,31 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="header.ctp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Template/Element/header.ctp">
+      <file leaf-file-name="MenusController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/MenusController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="address.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webroot/js/address.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="46" column="22" lean-forward="false" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="js.ctp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Template/Element/js.ctp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="56" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+            <state relative-caret-position="172">
+              <caret line="230" column="40" lean-forward="false" selection-start-line="230" selection-start-column="40" selection-end-line="230" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -127,7 +106,6 @@
         <option value="$PROJECT_DIR$/src/Template/eatadmin/Users/banners.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/RestaurantsController.php" />
         <option value="$PROJECT_DIR$/src/Controller/UsersController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/MenusController.php" />
         <option value="$PROJECT_DIR$/src/Template/Element/footer.ctp" />
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/UsersController.php" />
         <option value="$PROJECT_DIR$/src/Template/Layout/default.ctp" />
@@ -143,6 +121,7 @@
         <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/MenusController.php" />
         <option value="$PROJECT_DIR$/src/Template/Element/header.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Element/js.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/MenusController.php" />
       </list>
     </option>
   </component>
@@ -200,14 +179,7 @@
               <item name="foodnow" type="b2602c69:ProjectViewProjectNode" />
               <item name="foodnow" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Template" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="foodnow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="foodnow" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Template" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Element" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -257,12 +229,12 @@
       <workItem from="1511030022496" duration="576000" />
       <workItem from="1511062604154" duration="13864000" />
       <workItem from="1511115736081" duration="2417000" />
-      <workItem from="1511197225241" duration="426000" />
+      <workItem from="1511197225241" duration="1905000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126874000" />
+    <option name="totallyTimeSpent" value="128353000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -461,13 +433,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MenusController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="202" column="13" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Eatadmin/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -531,6 +496,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="91" column="38" lean-forward="false" selection-start-line="91" selection-start-column="38" selection-end-line="91" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -613,10 +579,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Element/header.ctp">
+    <entry file="file://$PROJECT_DIR$/src/Template/Element/js.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+        <state relative-caret-position="289">
+          <caret line="17" column="56" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -629,10 +595,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Element/js.ctp">
+    <entry file="file://$PROJECT_DIR$/src/Template/Element/header.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="56" lean-forward="false" selection-start-line="17" selection-start-column="56" selection-end-line="17" selection-end-column="56" />
+        <state relative-caret-position="373">
+          <caret line="30" column="53" lean-forward="false" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/MenusController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="230" column="40" lean-forward="false" selection-start-line="230" selection-start-column="40" selection-end-line="230" selection-end-column="40" />
           <folding />
         </state>
       </provider>
