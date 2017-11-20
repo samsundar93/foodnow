@@ -40,34 +40,36 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body clearfix">
-                <div class="login_popup_cont">
-                    <div class="login-title">Log in to your account</div>
-                    <div class="form-group">
-                        <?= $this->Form->input('loginUser',[
-                            'type' => 'text',
-                            'id'   => 'loginUser',
-                            'class' => 'form-control my-from-control',
-                            'placeholder' => 'Phone Number',
-                            'autocomplete' => 'off',
-                            'label' => false
-                        ]) ?>
-                        <span class="userLoginErr"></span>
+                <form>
+                    <div class="login_popup_cont">
+                        <div class="login-title">Log in to your account</div>
+                        <div class="form-group">
+                            <?= $this->Form->input('loginUser',[
+                                'type' => 'text',
+                                'id'   => 'loginUser',
+                                'class' => 'form-control my-from-control',
+                                'placeholder' => 'Phone Number',
+                                'autocomplete' => 'off',
+                                'label' => false
+                            ]) ?>
+                            <span class="userLoginErr"></span>
+                        </div>
+                        <div class="form-group">
+                            <?= $this->Form->input('loginPass',[
+                                'type' => 'password',
+                                'id'   => 'loginPass',
+                                'class' => 'form-control my-from-control',
+                                'placeholder' => 'Password',
+                                'autocomplete' => 'off',
+                                'label' => false
+                            ]) ?>
+                            <span class="userPassErr"></span>
+                        </div>
+                        <div class="login-btn"><button onclick="return customerRegister()" class="btn">Login</button></div>
+                        <div class="forget"><a href="">Forget your password?</a>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <?= $this->Form->input('loginPass',[
-                            'type' => 'password',
-                            'id'   => 'loginPass',
-                            'class' => 'form-control my-from-control',
-                            'placeholder' => 'Password',
-                            'autocomplete' => 'off',
-                            'label' => false
-                        ]) ?>
-                        <span class="userPassErr"></span>
-                    </div>
-                    <div class="login-btn"><button onclick="return customerRegister()" class="btn">Login</button></div>
-                    <div class="forget"><a href="">Forget your password?</a>
-                    </div>
-                </div>
+                </form>
                 <div class="login_popup_cont2">
                     <div class="login-title2">Not a member yet?</div>
                     <div class="join-family">Join Our Family</div>

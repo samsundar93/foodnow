@@ -64,7 +64,7 @@ $(window).on('scroll',function(){
     var sidebarwidth = $('.sidebar').outerWidth();
     var cartboxwidth = $('.cart-scrolladd-box').outerWidth();
     var middleheight = $(window).outerHeight() - ($('.cartpage-search').outerHeight() + $('.restaurant-head-sec').outerHeight() + $('.copyright').outerHeight());
-    var cart_item = $(window).outerHeight() - ($('.cartpage-search').outerHeight() + $('.restaurant-head-sec').outerHeight()+ $('.cart-add-box-tittle').outerHeight() + $('.cart-add-box-res').outerHeight()+ $('.cart-add-box-pay').outerHeight()+$('.checkout-btn').outerHeight()+$('.pickup-door').outerHeight() );
+    var cart_item = $(window).outerHeight() - ($('.cartpage-search').outerHeight() + $('.restaurant-head-sec').outerHeight()+ $('.cart-add-box-tittle').outerHeight() + $('.cart-add-box-res').outerHeight()+ $('.cart-add-box-pay').outerHeight()+$('.checkout-btn').outerHeight()+50);
 
 
     if($(window).scrollTop() > cartnavheight){
