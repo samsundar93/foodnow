@@ -106,8 +106,18 @@ $(document).ready(function(){
 
     });
 $(document).ready(function(){
-    $('#delivery_date').datepicker();
+    $('#delivery_date').datepicker({dateFormat: 'dd/mm/yy', minDate: 0});
     $('#delivery_time').timepicker();
+    $('.pick-cus input[type=radio]').change(function(){
+        if($('#delvradio').is(':checked',true)) {
+            $('.accordian_cont').show();
+            $('.order_notes').hide();
+        }
+        if($('#pickradio').is(':checked',true)) {
+            $('.accordian_cont').show();
+            $('.order_notes').show();
+        }
+    });
         $(".message").addClass("success");
         setTimeout(function(){
             $(".message").removeClass("success");

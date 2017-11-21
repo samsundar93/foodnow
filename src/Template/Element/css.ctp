@@ -7,6 +7,7 @@ echo $this->Html->css([
         FRONT_CSS.'popModal.min.css',
         FRONT_CSS.'style.css',
         FRONT_CSS.'slick-theme.css',
+        FRONT_CSS.'jquery.timepicker.min.css',
 ]);
 
 if($controller == 'Users' || $controller == 'Restaurants'|| $controller == 'Checkouts') {
@@ -20,7 +21,14 @@ if($controller == 'Users' || $controller == 'Restaurants'|| $controller == 'Chec
 
 ?>
 
-
+<?php
+    echo $this->Html->script(
+        [
+            FRONT_JS.'jquery.min.js',
+            FRONT_JS.'bootstrap.min.js',
+            FRONT_JS.'jquery-ui.js',
+        ]);
+?>
 
 
 

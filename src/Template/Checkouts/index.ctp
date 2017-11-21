@@ -66,9 +66,7 @@
                                </div>
                            <?php } ?>
                        </div>
-
-                   </div>
-                   <div class="date-time">
+                       <div class="date-time">
                       <div class="col-sm-6 no-padding-left">
                           <label class="col-sm-5 no-padding">Delivery Date</label>
                           <div class="col-sm-7 no-padding">
@@ -82,13 +80,15 @@
                           </div>
                       </div>
                    </div>
+                   </div>
+                   
                   <div class="order_notes">
                      <div class="order_notes_title">Order Notes:</div>
                      <div class="order_notes_text">Wish to share something that we can help you with?</div>
                      <textarea name="instruction" class="accordian_address_box_text margin-top-5 no-padding" placeholder="If you want to add any comment, e.g. about allergies or delivery instructions, this is the right place"></textarea>
                   </div>
-                  <button onclick="return checkAddress()" class="btn btn-lg place_green checkouts_btn">CONTINUE TO PAYMENT</button>
-                  <span id="addressErr"></span>
+                  <button onclick="return checkAddress()" class="btn btn-lg place_green checkouts_btn m-b-10">CONTINUE TO PAYMENT</button>
+                  <div id="addressErr"></div>
                </div>
             </div>
             <input type="hidden" name="resId" id='resId' value="<?php echo ($restaurantDetails['id'] != '') ? $restaurantDetails['id'] : ''; ?>">
@@ -103,25 +103,25 @@
                </div>
                <div class="accordian_cont" id="paymentDetails" style="display:none;" >
                   <div classs="accordian_cont2">
-                     <div class="col-sm-4 col-xs-12 pay-radio">
+                     <div class="col-sm-3 col-xs-12 pay-radio">
                         <input onclick="return showCheckout();" value="cod" type="radio" id="cod" name="payment_method">
                         <label for="cod">COD</label>
                      </div>
-                     <div class="col-sm-4 col-xs-12 pay-radio">
+                     <div class="col-sm-3 col-xs-12 pay-radio">
                         <input onclick="return showCheckout();" value="paytm" type="radio" id="paytm" name="payment_method">
                         <label for="paytm">PAYTM</label>
                      </div>
-                     <div class="col-sm-4 col-xs-12 pay-radio">
+                     <div class="col-sm-3 col-xs-12 pay-radio">
                         <input onclick="return showCheckout();" value="paypal" type="radio" id="paypal" name="payment_method">
                         <label for="paypal">PAYPAL</label>
                      </div>
 
-                      <div class="col-sm-4 col-xs-12 pay-radio">
+                      <div class="col-sm-3 col-xs-12 pay-radio">
                           <input onclick="return showCheckout();" value="stripe" type="radio" id="stripe" name="payment_method">
                           <label for="stripe">STRIPE</label>
                       </div>
 
-                      <div class="col-xs-12 no-padding" id="saveCards" style="display: none">
+                      <div class="col-xs-12 no-padding m-t-20 " id="saveCards" style="display: none">
                           <?php if(!empty($saveCardDetails)) {
                               foreach ($saveCardDetails as $key => $value) {
                                   ?>
