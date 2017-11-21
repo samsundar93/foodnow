@@ -124,7 +124,7 @@
                 <img class="img-thumbnail" src="<?php echo BASE_URL ?>/images/res.jpg">
                 </div>
               </div>
-               <div class="col-sm-4">
+               <div class="col-sm-6 p-t-b-15">
                   <div class="cart-res-name">
                       <?php echo $restaurantDetails['restaurant_name'] ?>
                   </div>
@@ -134,6 +134,9 @@
                      <span class="cart-del-time"><span class="search-time">39</span><span class="search-min">Mins</span>
                      </span>
                   </div>
+               </div>
+               <div class="col-sm-4 text-center">
+                 <div class="min-amount">Minimum amount order is $20</div>
                </div>
               
             </div>

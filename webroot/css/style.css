@@ -182,10 +182,11 @@ padding-bottom: 15px;}
 .my-from-group i {position: absolute;}
 
 .restaurant-head-sec {float: left; width: 100%;background: #F6F6F6; padding: 10px 0px;}
-.cart-res-name {font:500 16px "Montserrat"; color: #333; padding-left: 20px;}
+.cart-res-name {font:500 16px "Montserrat"; color: #333; padding-left: 20px;padding-bottom: 8px;}
+.p-t-b-15 {padding: 15px 0px;}
 .cart-res-cusine {font:400 13px "Montserrat"; color: #9a9a9a; width: 300px; overflow:hidden;text-overflow:ellipsis;white-space: nowrap;padding-left: 20px;}
 .cart-del-time {float: left;padding-left: 30px;}
-.cart-review-div {float: left; width: 100%; padding-top: 10px;padding-left: 20px;}
+.cart-review-div {float: left; width: 100%; padding-top: 8px;padding-left: 20px;}
 .cart-form-control {border:1px solid #e4e4e4; margin-top: 18px; padding-left: 30px;}
 .search-dish {float: left; width: 100%; position: relative;}
 .search-dish i {position: absolute; top: 28px;left: 10px;color: #9a9a9a;}
@@ -295,7 +296,7 @@ padding-bottom: 15px;}
 }
 .accordian_head.active_check{background:none;color:#106be0;padding: 10px 15px;font-size:17px;font-weight:600;}
 
-.accordian_green { float: left;width: 100%;  cursor: pointer; border-bottom: 1px solid #e4e4e4; padding: 10px 0px; color: #000;
+.accordian_green { float: left;width: 100%;  cursor: pointer; border-bottom: 1px solid #e4e4e4; padding: 10px 0px; color: #000;background: #C9FBB4 !important;
 }
 
 .accordian_head span {font:11px 'Montserrat';font-weight: 400; color: #a2a3a4;}
@@ -348,7 +349,7 @@ padding-bottom: 15px;}
 .order_notes_text {float: left; width: 100%; font-weight: 400; margin-bottom: 10px;}
 .accordian_green {
     background: #f0f8ea none repeat scroll 0 0;
-    border-bottom: 1px solid #f0f8ea;
+    border-bottom: 1px solid #69BB27;
     color: #000;
     cursor: pointer;
     float: left;
@@ -357,7 +358,8 @@ padding-bottom: 15px;}
 }
 .accordian_cont input[type=text] {
     border:1px solid #ccc;
-    padding: 3px 0px;
+    font-size: 12px;
+    padding: 3px 10px;
     width: 90%;
 }
 .item_catagoery {
@@ -403,7 +405,7 @@ padding-bottom: 15px;}
 .pac-container{z-index: 10000}
 
 
-.pickup-door {float: left;width: 100%; background: #BFE6F3; padding: 10px 0px;}
+.pickup-door {float: left;width: 100%; background: #C9FBB4; padding: 10px 0px;}
 .pick-cus input[type="radio"] {display: none;}
 .pick-cus label {position: relative; padding-left: 25px;font-size: 13px;line-height: 17px;cursor: pointer;}
 .pick-cus label:before {position: absolute;content: ""; width: 20px;height: 20px;border-radius: 50%;border:1px solid #dadada; background: #fff;left: 0;}
@@ -532,3 +534,17 @@ border-bottom: 10px solid #ccc;
     width: 100%}
 .res-image {float: left; width: 100%;}
 .res-image img {width:180px;max-width: 100%; height: 100px;}
+.date-time {float: left; width: 100%;border-top:1px solid #eaeaea;border-bottom:1px solid #eaeaea;padding: 15px 0px;margin-bottom: 20px;}
+.date-time label {font-size: 12px; font-weight: normal;line-height: 30px;}
+.ui-timepicker-wrapper {width: 150px !important}
+.m-t-20 {margin-top: 20px;}
+.m-b-10 {margin-bottom: 20px;}
+.error {color: #ff0000;}
+.min-amount {border: 1px solid #69bb27;
+    border-radius: 5px;
+    color: #69bb27;
+    display: inline-block;
+    margin: 30px 0;
+    padding: 10px;
+    text-align: center;
+    }
