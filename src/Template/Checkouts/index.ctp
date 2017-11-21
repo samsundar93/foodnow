@@ -22,9 +22,10 @@
                    <div id="deliveryDetails">
 
                        <p class="bold">
-                           Select Delivery Address<span class="pull-right red-font">
-                     <a href="javascript:;" data-toggle="modal" data-target="#address_pop">+ Add New Address</a>
-                     </span>
+                           Select Delivery Address
+                           <span class="pull-right red-font">
+                         <a href="javascript:;" data-toggle="modal" data-target="#address_pop">+ Add New Address</a>
+                         </span>
                        </p>
                        <div id="changeAddress" class="col-xs-12 no-padding">
                            <input type="hidden" id='pickupCount' value="<?php echo count($addressBookLists) ?>">
@@ -66,20 +67,20 @@
                                </div>
                            <?php } ?>
                        </div>
-                       <div class="date-time">
-                      <div class="col-sm-6 no-padding-left">
-                          <label class="col-sm-5 no-padding">Delivery Date</label>
-                          <div class="col-sm-7 no-padding">
-                            <input type="text" class="form-control" id="delivery_date">
-                          </div>
-                      </div>
-                      <div class="col-sm-6 no-padding-right">
-                          <label class="col-sm-5 no-padding">Delivery Time</label>
-                          <div class="col-sm-7 no-padding">
-                            <input type="text" class="form-control" id="delivery_time">
-                          </div>
-                      </div>
                    </div>
+                   <div class="date-time">
+                       <div class="col-sm-6 no-padding-left">
+                           <label class="col-sm-5 no-padding"><span id="orderTypeDate">Delivery</span> Date</label>
+                           <div class="col-sm-7 no-padding">
+                               <input type="text" class="form-control" id="delivery_date">
+                           </div>
+                       </div>
+                       <div class="col-sm-6 no-padding-right">
+                           <label class="col-sm-5 no-padding"><span id="orderTypeTime">Delivery</span> Time</label>
+                           <div class="col-sm-7 no-padding">
+                               <input type="text" class="form-control" id="delivery_time">
+                           </div>
+                       </div>
                    </div>
                    
                   <div class="order_notes">

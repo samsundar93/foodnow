@@ -175,9 +175,132 @@ class CheckoutsController extends AppController
                 ]
             ])->count();
 
+            //Timing Section
+            $array_of_time = array ();
+
+            $nowTime = date('h:i A');
+            //$nowTime = '12.35 PM';
+
+            $currentTime = strtotime($nowTime);
+            $currentDate = date('Y-m-d');
+
+            $currentDay = strtolower(date('l'));
+            //$currentDay = 'monday';
+
+            $firstStartTime = $restaurantDetails[$currentDay.'_firstopen_time'];
+            $firstEndTime = $restaurantDetails[$currentDay.'_firstclose_time'];
+
+            $secondStartTime = $restaurantDetails[$currentDay.'_secondopen_time'];
+            $secondEndTime = $restaurantDetails[$currentDay.'_secondclose_time'];
 
 
-            $this->set(compact('restaurantDetails','cuisinesList','cartsDetails','cartCount','taxAmount','subTotal','totalAmount','deliveryCharge','final','customerDetails','addressBooks','totalAddress','outOfDelivery','addressBookLists','saveCardDetails','withOutDelivery'));
+            $firstOpenTime = strtotime($restaurantDetails[$currentDay.'_firstopen_time']);
+            $firstCloseTime = strtotime($restaurantDetails[$currentDay.'_firstclose_time']);
+
+            $secondOpenTime = strtotime($restaurantDetails[$currentDay.'_secondopen_time']);
+            $secondCloseTime = strtotime($restaurantDetails[$currentDay.'_secondclose_time']);
+
+
+            //In first Timing section
+            if($restaurantDetails[$currentDay.'_status'] != 'Closed') {
+
+                if($currentTime < $firstOpenTime) {
+
+                    $restaurantDetails['currentStatus'] = 'Open';
+                    $final[] = $restaurantDetails;
+
+                    $nowTime = date("h:i A", strtotime('+45 minutes', $firstOpenTime));
+
+                    $start_time = strtotime($currentDate . ' ' . $nowTime);
+                    $end_time = strtotime($currentDate . ' ' . $firstEndTime);
+
+                    $fifteen_mins = 15 * 60;
+
+                    while ($start_time <= $end_time) {
+                        $array_of_time[] = date("Y-m-d h:i A", $start_time);
+                        $start_time += $fifteen_mins;
+                    }
+
+                }
+
+                if ($currentTime > $firstOpenTime && $currentTime <= $firstCloseTime) {
+                    $restaurantDetails['currentStatus'] = 'Open';
+                    $final[] = $restaurantDetails;
+
+                    $nowTime = date("h:i A", strtotime('+45 minutes', $currentTime));
+
+                    $start_time = strtotime($currentDate . ' ' . $nowTime);
+                    $end_time = strtotime($currentDate . ' ' . $firstEndTime);
+
+                    $fifteen_mins = 15 * 60;
+
+                    while ($start_time <= $end_time) {
+                        $array_of_time[] = date("Y-m-d h:i A", $start_time);
+                        $start_time += $fifteen_mins;
+                    }
+
+                    //print_r ($array_of_time);die();
+
+                }
+
+                if (empty($array_of_time)) {
+
+                    if ($currentTime > $firstCloseTime && $currentTime <= $secondOpenTime) {
+                        $restaurantDetails['currentStatus'] = 'PreOrder';
+                        $final[] = $restaurantDetails;
+
+                        $secondStartTime = date("h:i A", strtotime('+45 minutes', $secondOpenTime));
+
+                        $start_time = strtotime($currentDate . ' ' . $secondStartTime);
+                        $end_time = strtotime($currentDate . ' ' . $secondEndTime);
+
+                        $fifteen_mins = 15 * 60;
+
+                        while ($start_time <= $end_time) {
+                            $array_of_time[] = date("Y-m-d h:i A", $start_time);
+                            $start_time += $fifteen_mins;
+                        }
+
+                        //print_r ($array_of_time);
+                    }
+                } else {
+                    if ($currentTime < $secondOpenTime) {
+                        //$secondStartTime = 45 * 60;
+                        $secondStartTime = date("h:i A", strtotime('+45 minutes', $secondOpenTime));
+                        $start_time = strtotime($currentDate . ' ' . $secondStartTime);
+                        $end_time = strtotime($currentDate . ' ' . $secondEndTime);
+
+                        $fifteen_mins = 15 * 60;
+
+                        while ($start_time <= $end_time) {
+                            $array_of_time[] = date("Y-m-d h:i A", $start_time);
+                            $start_time += $fifteen_mins;
+                        }
+                    }
+                }
+
+                if ($currentTime > $secondOpenTime && $currentTime <= $secondCloseTime) {
+                    $restaurantDetails['currentStatus'] = 'Open';
+                    $final[] = $restaurantDetails;
+
+                    $nowTime = date("h:i A", strtotime('+45 minutes', $currentTime));
+
+                    $start_time = strtotime($currentDate . ' ' . $nowTime);
+                    $end_time = strtotime($currentDate . ' ' . $secondEndTime);
+
+                    $fifteen_mins = 15 * 60;
+
+                    while ($start_time <= $end_time) {
+                        $array_of_time[] = date("Y-m-d h:i A", $start_time);
+                        $start_time += $fifteen_mins;
+                    }
+
+                    //print_r ($array_of_time);
+                }
+            }
+            /*print_r ($array_of_time);die();*/
+
+            $this->set(compact('restaurantDetails','cuisinesList','cartsDetails','cartCount','taxAmount','subTotal','totalAmount','deliveryCharge','final','customerDetails','addressBooks','totalAddress','outOfDelivery','addressBookLists','saveCardDetails','withOutDelivery','array_of_time'));
         }
         //pr($customerDetails);die();
     }
@@ -351,6 +474,81 @@ class CheckoutsController extends AppController
             }
             $action = $this->request->getData('action');
             $this->set(compact('addressBookLists','action'));
+        }
+
+        if($this->request->getData('action') == 'getTiming') {
+
+            if($this->request->getData('date') != '') {
+
+                $restaurantDetails = $this->Restaurants->find('all', [
+                    'conditions' => [
+                        'id' => $this->request->session()->read('resid')
+                    ]
+                ])->hydrate(false)->first();
+
+
+                //Timing Section
+                $array_of_time = array ();
+
+                $nowTime = date('h:i A');
+                //$nowTime = '12.35 PM';
+
+                $currentTime = strtotime($nowTime);
+                $currentDate = $this->request->getData('date');
+
+                $currentDay = strtolower(date('l'));
+                //$currentDay = 'monday';
+
+                $firstStartTime = $restaurantDetails[$currentDay.'_firstopen_time'];
+                $firstEndTime = $restaurantDetails[$currentDay.'_firstclose_time'];
+
+                $secondStartTime = $restaurantDetails[$currentDay.'_secondopen_time'];
+                $secondEndTime = $restaurantDetails[$currentDay.'_secondclose_time'];
+
+
+                $firstOpenTime = strtotime($restaurantDetails[$currentDay.'_firstopen_time']);
+                $firstCloseTime = strtotime($restaurantDetails[$currentDay.'_firstclose_time']);
+
+                $secondOpenTime = strtotime($restaurantDetails[$currentDay.'_secondopen_time']);
+                $secondCloseTime = strtotime($restaurantDetails[$currentDay.'_secondclose_time']);
+
+
+                //In first Timing section
+                if($restaurantDetails[$currentDay.'_status'] != 'Closed') {
+
+                    $restaurantDetails['currentStatus'] = 'Open';
+                    $final[] = $restaurantDetails;
+
+                    $nowTime = date("h:i A", strtotime('+45 minutes', $firstOpenTime));
+
+                    $start_time = strtotime($currentDate . ' ' . $nowTime);
+                    $end_time = strtotime($currentDate . ' ' . $firstEndTime);
+
+                    $fifteen_mins = 15 * 60;
+
+                    while ($start_time <= $end_time) {
+                        $array_of_time[] = date("Y-m-d h:i A", $start_time);
+                        $start_time += $fifteen_mins;
+                    }
+
+                    $secondStartTime = date("h:i A", strtotime('+45 minutes', $secondOpenTime));
+                    $start_time = strtotime($currentDate . ' ' . $secondStartTime);
+                    $end_time = strtotime($currentDate . ' ' . $secondEndTime);
+
+                    $fifteen_mins = 15 * 60;
+
+                    while ($start_time <= $end_time) {
+                        $array_of_time[] = date("Y-m-d h:i A", $start_time);
+                        $start_time += $fifteen_mins;
+                    }
+
+                }
+                pr($array_of_time);die();
+
+                $action = $this->request->getData('action');
+                $this->set(compact('array_of_time','action'));
+            }
+
         }
     }
 
@@ -565,5 +763,9 @@ class CheckoutsController extends AppController
 
         }
         echo 'cmmmmm';die();
+    }
+
+    public function getTiming() {
+
     }
 }
