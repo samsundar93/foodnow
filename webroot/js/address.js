@@ -14,13 +14,32 @@ var componentForm = {
 };
 
 function initialize() {
-    // Create the autocomplete object, restricting the search
-    autocomplete1 = new google.maps.places.Autocomplete(
-        /** @type {HTMLInputElement} */ (document.getElementById('searchLocation')),
-        { types: ['geocode'],componentRestrictions: {country: "IND"} });
-    google.maps.event.addListener(autocomplete1, 'place_changed', function() {
-        fillInAddress();
+    $.ajax({
+        type   : 'POST',
+        url    : baseUrl+'users/getLocation',
+        success: function(data){
+
+            if($.trim(data) != '') {
+                //$("#countryCode").val($.trim(data));
+                var code = $.trim(data);
+            }else {
+                //$("#countryCode").val('IND');
+                var code = $.trim('IND');
+            }
+
+
+            // Create the autocomplete object, restricting the search
+            autocomplete1 = new google.maps.places.Autocomplete(
+                /** @type {HTMLInputElement} */ (document.getElementById('searchLocation')),
+                { types: ['geocode'],componentRestrictions: {country: code} });
+            google.maps.event.addListener(autocomplete1, 'place_changed', function() {
+                fillInAddress();
+            });
+
+        }
     });
+
+
 }
 
 // The START and END in square brackets define a snippet for our documentation:
