@@ -37,13 +37,13 @@
                                 <section id="food_<?php echo $value['id']; ?>">
                                     <div class="dishbox-item-row">
                                         <div class="border-bottom-1">
-                                            <div class="col-sm-8 item-name">
+                                            <div class="col-sm-7 item-name">
                                                 <span class="vegimage">
                                                     <img src="<?php echo BASE_URL ?>images/<?php echo ($mvalue['menu_type'] == 'veg') ? 'veg.png' : 'nonveg.jpg' ?> ">
                                                 </span>
                                                 <?php echo $mvalue['menu_name'] ?>
                                             </div>
-                                            <div class="col-sm-2">
+                                            <div class="col-sm-3">
                                                 <span class="minus-icon">
                                                 <a><i class="fa fa-minus" onclick="addCart('<?php echo $mvalue['id'] ?>','remove')"></i></a></span>
                                                 <?php

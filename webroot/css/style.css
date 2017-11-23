@@ -45,6 +45,9 @@ footer {background-color: #999; padding: 30px 0px;float: left; width: 100%;}
 .social-ul li {display: inline-block;padding: 10px;list-style: none;}
 .social-ul li a {color: #fff; font-size: 20px;width: 30px; height: 30px; border:1px solid #e4e4e4; border-radius: 50%; display: inline-block;text-align: center;line-height: 28px;}
 .copyright {float: left; width: 100%; background-color: #666; padding: 10px 0px; text-align: center;color: #e4e4e4;font:400 13px "Montserrat";}
+.ui-widget-header .ui-icon {
+    background-image: url("../images/ui-icons_444444_256x240.png");
+}
 
 /*---------------------serach css--------------------*/
 .search-header {float: left; width: 100%;}
@@ -237,7 +240,7 @@ padding-bottom: 15px;}
     line-height: 15px;
     text-align: center;
     width: 16px;}
-.dishbox-item-count {font:400 13px "Montserrat"; color: #333;display: inline-block;text-align: center;min-width: 15px;}
+.dishbox-item-count {font:400 13px "Montserrat"; color: #333;display: inline-block;text-align: center;min-width: 50px;}
 .item-name {font-size: 13px;}
 .item-price {text-decoration: line-through; color: #9a9a9a; padding-right: 5px;font-size: 13px;}
 .final-price {display: inline-block;}
@@ -253,7 +256,7 @@ padding-bottom: 15px;}
 .cart-add-box-total {float: left; width: 100%; padding:15px; border-top:1px solid #999;border-bottom:1px solid #999;}
 .cart-add-box-total-text {float: left; width: 100%; padding-bottom: 5px;}
 .cart-add-box-pay {float: left; width: 100%; padding: 15px; color: #69bb27;font-weight: 500;}
-.checkout-btn {float: left; width: 100%;}
+.checkout-btn {float: left; width: 100%;margin-bottom: 20px;}
 .check-btn {display: block; background: #F5861F;color: #fff; float: left; width: 100%; border-radius: 0 !important;padding: 10px 0px;}
 .cartpage-search {float: left; width: 100%; background-color:#fff; padding:0px;border-bottom: 1px solid #f5f5f5;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);}
