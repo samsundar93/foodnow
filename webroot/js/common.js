@@ -106,7 +106,24 @@ $(document).ready(function(){
 
     });
 $(document).ready(function(){
-    $('#delivery_date').datepicker({dateFormat: 'dd/mm/yy', minDate: 0});
+    $('#delivery_date').datepicker(
+        {
+            dateFormat: 'yy-mm-dd',
+            minDate: 0,
+            onSelect: function(dateText, inst) {
+                $.ajax({
+                    type   : 'POST',
+                    url    : baseUrl+'checkouts/ajaxaction',
+                    data   : {date:dateText,action:'getTiming'},
+                    success: function(data){
+                        alert(data);
+                        return false;
+
+                    }
+                });return false;
+            }
+        }
+    );
     $('#delivery_time').timepicker();
     $('.pick-cus input[type=radio]').change(function(){
         if($('#delvradio').is(':checked',true)) {

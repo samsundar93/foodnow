@@ -150,6 +150,9 @@ function placeOrder() {
     var paymentMethod = $('input:radio[name=payment_method]:checked').val();
     var orderType = $('input:radio[name=order_type]:checked').val();
 
+    var delivery_date = $("#delivery_date").val();
+
+
     if((deliveryAddress == '' || deliveryAddress == undefined) && orderType == 'delivery') {
         $("#checkoutBtn").attr('disabled',false);
         $("#addressErr").addClass('error').html('Sorry, but we are unable to continue without a delivery address.');
@@ -160,6 +163,13 @@ function placeOrder() {
 
 
         return false;
+
+    }else if(delivery_date == '') {
+        $("#checkoutBtn").attr('disabled',false);
+        $("#addressErr").addClass('error').html('Sorry, but we are unable to continue without a delivery date.');
+        $('.addressinformation').removeClass('accordian_green');
+        $("#addressDetails").css('display','block');
+        $("#paymentDetails").css('display','block');
 
     }else if(paymentMethod == '' || paymentMethod == undefined) {
         $("#checkoutBtn").attr('disabled',false);
@@ -213,20 +223,55 @@ function checkAddress() {
     //var deliveryAddress = $('input:radio[name=selectedAddress]:checked').val();
     var deliveryAddress = $('input:radio[name=checkout_address]:checked').val();
     var orderType = $('input:radio[name=order_type]:checked').val();
+
+    var delivery_date = $("#delivery_date").val();
+    var delivery_time = $("#delivery_time").val();
+
     if(orderType == 'delivery') {
         if(deliveryAddress == '' || deliveryAddress == undefined) {
             //Sorry, but we are unable to continue without a delivery address.
             $("#addressErr").addClass('error').html('Sorry, but we are unable to continue without a delivery address.');
             return false;
+        }else if(delivery_date == '') {
+            $("#checkoutBtn").attr('disabled',false);
+            $("#addressErr").addClass('error').html('Sorry, but we are unable to continue without a delivery date.');
+            $('.addressinformation').removeClass('accordian_green');
+            $("#addressDetails").css('display','block');
+            $("#paymentDetails").css('display','block');
+
+        }else if(delivery_time == '') {
+            $("#checkoutBtn").attr('disabled',false);
+            $("#addressErr").addClass('error').html('Sorry, but we are unable to continue without a delivery time.');
+            $('.addressinformation').removeClass('accordian_green');
+            $("#addressDetails").css('display','block');
+            $("#paymentDetails").css('display','block');
+
         }else {
             $('.addressinformation').addClass('accordian_green');
             $("#addressDetails").css('display','none');
             $("#paymentDetails").css('display','block');
         }
     }else {
-        $('.addressinformation').addClass('accordian_green');
-        $("#addressDetails").css('display','none');
-        $("#paymentDetails").css('display','block');
+        if(delivery_date == '') {
+            $("#checkoutBtn").attr('disabled',false);
+            $("#addressErr").addClass('error').html('Sorry, but we are unable to continue without a pickup date.');
+            $('.addressinformation').removeClass('accordian_green');
+            $("#addressDetails").css('display','block');
+            $("#paymentDetails").css('display','block');
+
+        }else if(delivery_time == '') {
+            $("#checkoutBtn").attr('disabled',false);
+            $("#addressErr").addClass('error').html('Sorry, but we are unable to continue without a pickup time.');
+            $('.addressinformation').removeClass('accordian_green');
+            $("#addressDetails").css('display','block');
+            $("#paymentDetails").css('display','block');
+
+        }else {
+            $('.addressinformation').addClass('accordian_green');
+            $("#addressDetails").css('display','none');
+            $("#paymentDetails").css('display','block');
+        }
+
     }
 
     return false;
@@ -245,11 +290,15 @@ function showCheckout() {
 
 function orderType(type) {
     if(type == 'pickup') {
+        $("#orderTypeDate").html('Pickup');
+        $("#orderTypeTime").html('Pickup');
         $("#deliveryAmt").css('display','none');
         $("#deliveryDetails").css('display','none');
         $(".deliveryTotal").css('display','none');
         $(".pickupTotal").css('display','block');
     }else {
+        $("#orderTypeDate").html('Delivery');
+        $("#orderTypeTime").html('Delivery');
         $("#deliveryAmt").css('display','block');
         $("#deliveryDetails").css('display','block');
         $(".deliveryTotal").css('display','block');

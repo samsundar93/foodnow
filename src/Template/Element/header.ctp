@@ -35,6 +35,8 @@
             </div>
         </div>
     </header>
+    <input type="hidden" id="countryCode">
+
 
 <?php }else if($controller == 'Restaurants') { ?>
     <header class="search-header">
@@ -170,4 +172,11 @@
         </div>
     </header>
 <?php } ?>
+
+<script>
+    $(document).ready(function () {
+
+
+    })
+</script>
 
