@@ -9,13 +9,17 @@
                             </div>
                             <div class="col-sm-4 no-padding text-center">
                                 <span class="minus-icon">
+                                    <a>
                                     <i class="fa fa-minus" onclick="addCart('<?php echo $value['menu_id'] ?>','remove')"></i>
+                                    </a>
                                 </span>
                                 <span class="dishbox-item-count">
                                     <?php echo $value['quantity'] ?>
                                 </span>
                                 <span class="plus-icon">
+                                    <a>
                                     <i class="fa fa-plus" onclick="addCart('<?php echo $value['menu_id'] ?>','add')"></i>
+                                    </a>
                                 </span>
                             </div>
                             <div class="col-sm-2 no-padding text-right">

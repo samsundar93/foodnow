@@ -256,7 +256,7 @@ padding-bottom: 15px;}
 .cart-add-box-total {float: left; width: 100%; padding:15px; border-top:1px solid #999;border-bottom:1px solid #999;}
 .cart-add-box-total-text {float: left; width: 100%; padding-bottom: 5px;}
 .cart-add-box-pay {float: left; width: 100%; padding: 15px; color: #69bb27;font-weight: 500;}
-.checkout-btn {float: left; width: 100%;margin-bottom: 20px;}
+.checkout-btn {float: left; width: 100%;}
 .check-btn {display: block; background: #F5861F;color: #fff; float: left; width: 100%; border-radius: 0 !important;padding: 10px 0px;}
 .cartpage-search {float: left; width: 100%; background-color:#fff; padding:0px;border-bottom: 1px solid #f5f5f5;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);}
@@ -541,6 +541,7 @@ border-bottom: 10px solid #ccc;
 .date-time label {font-size: 12px; font-weight: normal;line-height: 30px;}
 .ui-timepicker-wrapper {width: 150px !important}
 .m-t-20 {margin-top: 20px;}
+.m-b-20 {margin-bottom: 20px;}
 .m-b-10 {margin-bottom: 20px;}
 .error {color: #ff0000;}
 .min-amount {border: 1px solid #69bb27;
@@ -551,3 +552,53 @@ border-bottom: 10px solid #ccc;
     padding: 10px;
     text-align: center;
     }
+.myaccount-sec {float: left; width: 100%; padding: 20px 0px;}
+.myaccount-list-div {float: left;width: 100%; background: #fdfdfd;}
+.my-details {float: left; width: 100%; padding: 15px 0px 15px 15px; background: #FED88D;}
+.myaccountli {float: left; width: 100%; padding: 0px; margin:0px;}
+.myaccountli li {padding: 15px;list-style: none;border-top: 1px solid #dadada; cursor: pointer;}
+.myaccountli li a {color: #000;}
+.myaccountli li a:hover {text-decoration: none;}
+.myaccountli li:first-child {border-top:none;}
+.myaccount-content-div {float: left; width: 100%; padding: 20px;background: #f8f8f8;}
+.your-account {float: left;
+    font: 500 14px "Montserrat";
+    margin: 0 0 20px;
+    width: 100%;}
+.form-control-myaccount {
+    border-radius: 0;
+    font-size: 12px;
+}
+.my-order-box {float: left; width: 100%; border:1px solid #dadada; border-radius: 4px;padding: 15px;background: #fff;}
+.card-box {float: left; width: 100%; border:1px solid #dadada; border-radius: 4px;background: #fff;}
+.gray-txt {color: #9a9a9a; font-size: 12px;}
+.repeat-ordere {float: left; width: 100%;padding: 4px; border: 1px solid #F5861F;border-radius: 4px;color: #F5861F;text-align: center;background: none;}
+.profile_address_box {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    float: left;
+    margin: 10px 0;
+    padding: 15px;
+    width: 100%;
+}
+.profile_delete {
+    background: #FDEAED none repeat scroll 0 0;
+    border: 1px solid #F5861F;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 3px 5px;
+    color: #F76960;
+}
+.profile_edit {
+    background: #f2f2f2 none repeat scroll 0 0;
+    border: 1px solid #ececec;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    padding: 3px 5px;
+}
+.firstblock {float: left; width: 100%; padding: 15px;}
+.secondblock {float: left; width: 100%; padding: 15px;background: #eee;}
+.green-addcls {background: #E5FFF2;}
+.my-profile label {font-weight: normal;}

@@ -187,7 +187,7 @@
          </div>
       </div>
       <div class="col-sm-4">
-         <div class="cart-scrolladd-box">
+         <div class="cart-scrolladd-box m-b-20">
             <div class="cart-add-box-checkout cart-add-box-checkout-page">
                 <div class="pickup-door text-center">
                     <div class="col-sm-4 col-sm-offset-2 no-padding  pick-cus">

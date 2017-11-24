@@ -145,6 +145,16 @@ $(document).ready(function(){
         },3000);
     });
 
+$(document).ready(function(){
+    $('.myaccountli li').click(function(){
+        $('.myaccountli li').removeClass('green-addcls');
+        $('.common-hide').hide();
+        var id = $(this).attr("data-myaccount");
+        $(this).addClass('green-addcls')
+        $('#' + id).show();
+    });
+});
+
 
 
 function userRegister() {

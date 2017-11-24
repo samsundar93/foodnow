@@ -172,7 +172,33 @@
         </div>
     </header>
 <?php } ?>
-
+<?php if($controller == 'Myaccount') { ?>
+    <header class="search-header">
+        <div class="breadcrump">
+            <div class="container">
+                <div class="col-sm-6">Download Our app</div>
+                <div class="col-sm-6 pull-right text-right">
+                    <ul class="search-header-ul">
+                        <?php if(isset($logginUser) && empty($logginUser)) { ?>
+                            <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
+                            <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
+                        <?php }else { ?>
+                            <li><a href="" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
+                            <li><a href="<?php echo BASE_URL ?>/users/logout" class="">Logout</a></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="searchpage-search">
+            <div class="container">
+                <div class="col-sm-2">
+                    <a href="<?php echo BASE_URL ?>" class="search-logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+<?php } ?>
 <script>
     $(document).ready(function () {
 
