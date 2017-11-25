@@ -8,7 +8,7 @@
                         <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
                         <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
                     <?php }else { ?>
-                        <li><a href="" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
+                        <li><a href="<?php echo BASE_URL ?>myaccount" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
                         <li><a href="<?php echo BASE_URL ?>/users/logout" class="">Logout</a></li>
                     <?php } ?>
                 </ul>
@@ -49,7 +49,7 @@
                             <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
                             <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
                         <?php }else { ?>
-                            <li><a href="" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
+                            <li><a href="<?php echo BASE_URL ?>myaccount" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
                             <li><a href="<?php echo BASE_URL ?>/users/logout" class="">Logout</a></li>
                         <?php } ?>
                     </ul>
@@ -103,7 +103,7 @@
                           <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
                           <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
                       <?php }else { ?>
-                          <li><a href="" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
+                          <li><a href="<?php echo BASE_URL ?>myaccount" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
                           <li><a href="<?php echo BASE_URL ?>/users/logout" class="">Logout</a></li>
                       <?php } ?>
                   </ul>
@@ -156,7 +156,7 @@
                             <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
                             <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
                         <?php }else { ?>
-                            <li><a href="" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
+                            <li><a href="<?php echo BASE_URL ?>myaccount" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
                             <li><a href="<?php echo BASE_URL ?>/users/logout" class="">Logout</a></li>
                         <?php } ?>
                     </ul>
@@ -183,7 +183,7 @@
                             <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
                             <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
                         <?php }else { ?>
-                            <li><a href="" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
+                            <li><a href="<?php echo BASE_URL ?>myaccount" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
                             <li><a href="<?php echo BASE_URL ?>/users/logout" class="">Logout</a></li>
                         <?php } ?>
                     </ul>

@@ -167,4 +167,9 @@ class UsersController extends AppController
         }
 
     }
+
+    public function login() {
+        $this->Flash->error('Your session expired');
+        return $this->redirect(BASE_URL);
+    }
 }
