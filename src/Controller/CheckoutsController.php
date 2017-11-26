@@ -794,7 +794,7 @@ class CheckoutsController extends AppController
 
                         $orderId = base64_encode($orderSave->id);
                         $this->Flash->set(__('Your Order Placed Successful'));
-                        return $this->redirect(BASE_URL.'myaccount/order/'.$orderId);
+                        return $this->redirect(BASE_URL.'myaccount/trackOrder/'.$orderId);
                     }
                 }else if($this->request->getData('payment_method') == 'stripe') {
 
@@ -882,7 +882,7 @@ class CheckoutsController extends AppController
 
                         $orderId = base64_encode($orderSave->id);
                         $this->Flash->set(__('Your Order Placed Successful'));
-                        return $this->redirect(BASE_URL.'myaccount/order/'.$orderId);
+                        return $this->redirect(BASE_URL.'myaccount/trackOrder/'.$orderId);
                     }
                 }
             }else {

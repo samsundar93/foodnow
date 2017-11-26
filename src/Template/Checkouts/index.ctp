@@ -214,7 +214,7 @@
                               </span>
                            </div>
                            <div class="col-sm-2 no-padding text-right">
-                              <span class="final-price">$<?php echo number_format($value['price'],2) ?></span>
+                              <span class="final-price">$ <?php echo number_format($value['price'],2) ?></span>
                            </div>
                         </div>
                         <?php

@@ -32,8 +32,8 @@ class MyaccountController extends AppController
         // Before Login , these are the function we can access
 
         $this->Auth->allow([
-            'index',
-            'Orderview',
+            //'index',
+            //'Orderview',
         ]);
 
 
@@ -41,6 +41,7 @@ class MyaccountController extends AppController
     }
     public function index()
     {
+
         $customerId = $this->Auth->user('user_id');
 
         $customerDetails = $this->Customers->find('all', [
@@ -49,11 +50,17 @@ class MyaccountController extends AppController
             ],
             'contain' => [
                 'Addressbooks',
-                'Orders',
+                'Orders.Restaurants' => [
+                    'fields' => [
+                        'Restaurants.restaurant_name'
+                    ]
+                ],
                 'Stripecards'
             ]
         ])->hydrate(false)->first();
-        //pr($customerDetails);die();
+
+        $customerDetails['orders'] = Hash::sort($customerDetails['orders'], '{n}.id', 'desc');
+
 
         $this->set(compact('customerDetails','customerId'));
     }
@@ -114,8 +121,19 @@ class MyaccountController extends AppController
         echo json_encode($response,true);die();
 
     }
-     public function Orderview()
+    public function Orderview($id = null)
     {
+        $orderId = base64_decode($id);
+        $orderDetails = $this->Orders->find('all', [
+            'conditions' => [
+                'Orders.id' => $orderId
+            ],
+            'contain' => [
+                'Carts.RestaurantMenus'
+            ]
+        ])->hydrate(false)->first();
 
+
+        $this->set(compact('orderDetails'));
     }
 }

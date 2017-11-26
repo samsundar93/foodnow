@@ -119,7 +119,7 @@
                                     }?>
                                 </div>
                                 <div class="cart-add-box-total">
-                                    <div class="cart-add-box-total-text"><span class="pull-left">Item Total</span><span class="pull-right">$<span id="subTotal"><?php echo number_format($subTotal,2) ?></span></span></div>
+                                    <div class="cart-add-box-total-text"><span class="pull-left">Item Total</span><span class="pull-right">$ <span id="subTotal"><?php echo number_format($subTotal,2) ?></span></span></div>
                                     <div class="cart-add-box-total-text"><span class="pull-left">Tax</span><span class="pull-right">$<?php echo number_format($taxAmount,2) ?></span></div>
                                     <div id="deliveryAmt" class="cart-add-box-total-text"><span class="pull-left">Delivery Charge</span><span class="pull-right">$ <?php echo number_format($deliveryCharge,2); ?></span></div>
                                 </div>

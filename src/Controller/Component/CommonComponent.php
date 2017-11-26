@@ -224,8 +224,13 @@ class CommonComponent extends Component
 
     public function dispatch($data = null, $url = null) {
         $http = new Client();
-        $response = $http->post('http://localhost/fooddispatch/users/'.$url, $data);
-        echo "<pre>";print_r(json_decode($response->body(),true));die();
+        if($_SERVER['HTTP_HOST'] == 'localhost') {
+            $dispatchUrl = 'http://localhost/fooddispatch/users/';
+        }else {
+            $dispatchUrl = 'https://fooddp.com/dispatch/users/';
+        }
+        $response = $http->post($dispatchUrl.''.$url, $data);
+        return true;
 
     }
 
