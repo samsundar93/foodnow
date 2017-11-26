@@ -27,6 +27,11 @@ class CustomersTable extends Table
             'className' => 'Orders',
             'foreignKey' => 'customer_id'
         ]);
+
+        $this->hasMany('Stripecards',[
+            'className' => 'Stripecards',
+            'foreignKey' => 'customer_id'
+        ]);
     }
 }
 ?>
