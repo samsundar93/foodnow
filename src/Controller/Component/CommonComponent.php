@@ -4,6 +4,7 @@ use App\Controller\AppController;
 use cake\Controller\Component;
 use Cake\ORM\TableRegistry;
 use Cake\Mailer\Email;
+use Cake\Http\Client;
 
 class CommonComponent extends Component
 {
@@ -218,5 +219,14 @@ class CommonComponent extends Component
         $json_decode = json_decode($file_contents);
         return $json_decode->results[0]->formatted_address;
     }
+
     //--------------------------------------------------------------------------------------------------------
+
+    public function dispatch($data = null, $url = null) {
+        $http = new Client();
+        $response = $http->post('http://localhost/fooddispatch/users/'.$url, $data);
+        echo "<pre>";print_r(json_decode($response->body(),true));die();
+
+    }
+
 }

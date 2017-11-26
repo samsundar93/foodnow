@@ -12,7 +12,7 @@ use Cake\I18n\Time;
 use Cake\ORM\Table;
 use Cake\Network\Session;
 use Cake\Utility\Hash;
-
+use Cake\Http\Client;
 class CheckoutsController extends AppController
 {
     public function initialize()
@@ -26,6 +26,7 @@ class CheckoutsController extends AppController
         $this->loadModel('Orders');
         $this->loadModel('Stripecards');
         $this->loadComponent('Common');
+        $this->loadComponent('Common');
     }
 
     public function beforeFilter(Event $event)
@@ -37,12 +38,35 @@ class CheckoutsController extends AppController
     }
 
     public function index() {
+
+
         //pr($this->request->getData());die();
         if($this->request->session()->read('sessionId') != '') {
             $sessionId =  $this->request->session()->read('sessionId');
 
+        }else {
+            return $this->redirect(BASE_URL);
         }
         if($sessionId != '') {
+
+            //Cart Details
+            $cartsDetails = $this->Carts->find('all', [
+                'conditions' => [
+                    'session_id' => $sessionId,
+                ],
+                'contain' => [
+                    'RestaurantMenus'
+                ],
+                'order' => [
+                    'Carts.menu_id' => 'ASC'
+                ]
+            ])->hydrate(false)->toArray();
+
+            if(empty($cartsDetails)) {
+                return $this->redirect(BASE_URL);
+            }
+
+
             $customerDetails = $this->Customers->find('all', [
                 'conditions' => [
                     'id' => $this->Auth->user('user_id')
@@ -58,18 +82,7 @@ class CheckoutsController extends AppController
                 ]
             ])->hydrate(false)->toArray();
 
-            //Cart Details
-            $cartsDetails = $this->Carts->find('all', [
-                'conditions' => [
-                    'session_id' => $sessionId,
-                ],
-                'contain' => [
-                    'RestaurantMenus'
-                ],
-                'order' => [
-                    'Carts.menu_id' => 'ASC'
-                ]
-            ])->hydrate(false)->toArray();
+
 
             $singleCart = $this->Carts->find('all', [
                 'conditions' => [
@@ -298,7 +311,6 @@ class CheckoutsController extends AppController
                     //print_r ($array_of_time);
                 }
             }
-            /*print_r ($array_of_time);die();*/
 
             $this->set(compact('restaurantDetails','cuisinesList','cartsDetails','cartCount','taxAmount','subTotal','totalAmount','deliveryCharge','final','customerDetails','addressBooks','totalAddress','outOfDelivery','addressBookLists','saveCardDetails','withOutDelivery','array_of_time'));
         }
@@ -496,6 +508,8 @@ class CheckoutsController extends AppController
                 $currentTime = strtotime($nowTime);
                 $currentDate = $this->request->getData('date');
 
+                $today = date('Y-m-d');
+
                 $currentDay = strtolower(date('l'));
                 //$currentDay = 'monday';
 
@@ -519,32 +533,122 @@ class CheckoutsController extends AppController
                     $restaurantDetails['currentStatus'] = 'Open';
                     $final[] = $restaurantDetails;
 
-                    $nowTime = date("h:i A", strtotime('+45 minutes', $firstOpenTime));
+                    if(strtotime($today) != strtotime($currentDate)) {
 
-                    $start_time = strtotime($currentDate . ' ' . $nowTime);
-                    $end_time = strtotime($currentDate . ' ' . $firstEndTime);
+                        $nowTime = date("h:i A", strtotime('+45 minutes', $firstOpenTime));
 
-                    $fifteen_mins = 15 * 60;
+                        $start_time = strtotime($currentDate . ' ' . $nowTime);
+                        $end_time = strtotime($currentDate . ' ' . $firstEndTime);
 
-                    while ($start_time <= $end_time) {
-                        $array_of_time[] = date("Y-m-d h:i A", $start_time);
-                        $start_time += $fifteen_mins;
+                        $fifteen_mins = 15 * 60;
+
+                        while ($start_time <= $end_time) {
+                            $array_of_time[] = date("h:i A", $start_time);
+                            $start_time += $fifteen_mins;
+                        }
+
+                        $secondStartTime = date("h:i A", strtotime('+45 minutes', $secondOpenTime));
+                        $start_time = strtotime($currentDate . ' ' . $secondStartTime);
+                        $end_time = strtotime($currentDate . ' ' . $secondEndTime);
+
+                        $fifteen_mins = 15 * 60;
+
+                        while ($start_time <= $end_time) {
+                            $array_of_time[] = date("h:i A", $start_time);
+                            $start_time += $fifteen_mins;
+                        }
+
+                    }else {
+
+                        if($currentTime < $firstOpenTime) {
+
+                            $firstOpenTime = date("h:i A", strtotime('+45 minutes', $firstOpenTime));
+
+                            $start_time = strtotime($currentDate . ' ' . $firstOpenTime);
+                            $end_time = strtotime($currentDate . ' ' . $firstEndTime);
+
+                            $fifteen_mins = 15 * 60;
+
+                            while ($start_time <= $end_time) {
+                                $array_of_time[] = date("h:i A", $start_time);
+                                $start_time += $fifteen_mins;
+                            }
+
+                            $secondStartTime = date("h:i A", strtotime('+45 minutes', $secondOpenTime));
+                            $start_time = strtotime($currentDate . ' ' . $secondStartTime);
+                            $end_time = strtotime($currentDate . ' ' . $secondEndTime);
+
+                            $fifteen_mins = 15 * 60;
+
+                            while ($start_time <= $end_time) {
+                                $array_of_time[] = date("h:i A", $start_time);
+                                $start_time += $fifteen_mins;
+                            }
+
+                        }
+
+                        if($currentTime > $firstOpenTime && $currentTime <= $firstCloseTime) {
+
+
+                            $nowTime = date("h:i A", strtotime('+45 minutes', $currentTime));
+
+                            $start_time = strtotime($currentDate . ' ' . $nowTime);
+                            $end_time = strtotime($currentDate . ' ' . $firstEndTime);
+
+                            $fifteen_mins = 15 * 60;
+
+                            while ($start_time <= $end_time) {
+                                $array_of_time[] = date("h:i A", $start_time);
+                                $start_time += $fifteen_mins;
+                            }
+
+                            $secondStartTime = date("h:i A", strtotime('+45 minutes', $secondOpenTime));
+                            $start_time1 = strtotime($currentDate . ' ' . $secondStartTime);
+                            $end_time1 = strtotime($currentDate . ' ' . $secondEndTime);
+
+                            $fifteen_mins = 15 * 60;
+
+                            while ($start_time1 <= $end_time1) {
+                                $array_of_time[] = date("h:i A", $start_time1);
+                                $start_time1 += $fifteen_mins;
+                            }
+
+                        }
+
+                        if(empty($array_of_time)) {
+
+                            if($currentTime > $firstCloseTime && $currentTime < $secondOpenTime ) {
+
+                                $secondStartTime = date("h:i A", strtotime('+45 minutes', $secondOpenTime));
+                                $start_time = strtotime($currentDate . ' ' . $secondStartTime);
+                                $end_time = strtotime($currentDate . ' ' . $secondEndTime);
+
+                                $fifteen_mins = 15 * 60;
+
+                                while ($start_time <= $end_time) {
+                                    $array_of_time[] = date("h:i A", $start_time);
+                                    $start_time += $fifteen_mins;
+                                }
+
+                            }
+                        }
+
+                        if($currentTime > $secondOpenTime && $currentTime <= $secondCloseTime) {
+
+
+                            $currentTime = date("h:i A", strtotime('+45 minutes', $currentTime));
+                            $start_time = strtotime($currentDate . ' ' . $currentTime);
+                            $end_time = strtotime($currentDate . ' ' . $secondEndTime);
+
+                            $fifteen_mins = 15 * 60;
+
+                            while ($start_time <= $end_time) {
+                                $array_of_time[] = date("h:i A", $start_time);
+                                $start_time += $fifteen_mins;
+                            }
+                        }
                     }
-
-                    $secondStartTime = date("h:i A", strtotime('+45 minutes', $secondOpenTime));
-                    $start_time = strtotime($currentDate . ' ' . $secondStartTime);
-                    $end_time = strtotime($currentDate . ' ' . $secondEndTime);
-
-                    $fifteen_mins = 15 * 60;
-
-                    while ($start_time <= $end_time) {
-                        $array_of_time[] = date("Y-m-d h:i A", $start_time);
-                        $start_time += $fifteen_mins;
-                    }
-
                 }
-                pr($array_of_time);die();
-
                 $action = $this->request->getData('action');
                 $this->set(compact('array_of_time','action'));
             }
@@ -631,6 +735,8 @@ class CheckoutsController extends AppController
                 $orderUpdate['session_id'] = $sessionId;
                 $orderUpdate['payment_mode'] = $this->request->getData('payment_method');
                 $orderUpdate['taxamount'] = $taxAmount;
+                $orderUpdate['delivery_date'] = $this->request->getData('delivery_date');
+                $orderUpdate['delivery_time'] = $this->request->getData('deliveryTime');
                 $orderUpdate['delivery_charge'] = ($this->request->getData('order_type') == 'delivery') ?  $deliveryCharge : '';
                 $orderUpdate['subtotal'] = $subTotal;
                 $orderUpdate['order_type'] = $this->request->getData('order_type');
@@ -664,9 +770,31 @@ class CheckoutsController extends AppController
                         $this->request->session()->write('sessionId','');
                         session_regenerate_id();
 
+                        if($this->request->getData('order_type') == 'delivery') {
+                            $action = 'orderupdate';
+                            //Send Order to Dispatch
+                            $data = [
+                                'restaurant_id' => $this->request->getData('resId'),
+                                'restaurant_name' => $restaurantDetails['restaurant_name'],
+                                'restaurant_phone' => $restaurantDetails['contact_phone'],
+                                'customer_name' => $customerDetails['name'],
+                                'customer_phone' => $customerDetails['phone_number'],
+                                'delivery_address' => $addressBooks['address'],
+                                'customer_id' => $this->Auth->user('user_id'),
+                                'payment_type' => $this->request->getData('payment_method'),
+                                'total' => $totalAmount,
+                                'delivery_date' => $this->request->getData('delivery_date'),
+                                'delivery_time' => $this->request->getData('deliveryTime'),
+                                'order_id' => $finalorderid,
+                                'order_instruction' => $this->request->getData('instruction'),
+                            ];
+                            $data = $this->Common->dispatch($data,$action);
+
+                        }
+
                         $orderId = base64_encode($orderSave->id);
                         $this->Flash->set(__('Your Order Placed Successful'));
-                        return $this->redirect(BASE_URL.'thanks/'.$orderId);
+                        return $this->redirect(BASE_URL.'myaccount/order/'.$orderId);
                     }
                 }else if($this->request->getData('payment_method') == 'stripe') {
 
@@ -754,7 +882,7 @@ class CheckoutsController extends AppController
 
                         $orderId = base64_encode($orderSave->id);
                         $this->Flash->set(__('Your Order Placed Successful'));
-                        return $this->redirect(BASE_URL.'thanks/'.$orderId);
+                        return $this->redirect(BASE_URL.'myaccount/order/'.$orderId);
                     }
                 }
             }else {

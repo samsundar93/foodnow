@@ -111,6 +111,8 @@ class AppController extends Controller
         $controller = $this->request->params['controller'];
         $action     = $this->request->params['action'];
 
+        define('DISPATCH_KEY','FoodDp');
+
         //Logged User
         if(!empty($this->Auth->user()))
             $this->set('logginUser', $this->Auth->user());

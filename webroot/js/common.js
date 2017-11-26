@@ -132,8 +132,7 @@ $(document).ready(function(){
                     url    : baseUrl+'checkouts/ajaxaction',
                     data   : {date:dateText,action:'getTiming'},
                     success: function(data){
-                        alert(data);
-                        return false;
+                        $("#timeLists").html(data);return false;
 
                     }
                 });return false;
