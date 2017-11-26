@@ -5,8 +5,7 @@
                 <a class="logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
 
                 <span id="menu-icon">
-                <span class="pull-right visible-xs menubar" onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></span>
-</span>
+                <span class="pull-right visible-xs menubar" onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></span></span>
                 <ul class="top-menu hidden-xs">
                     <?php if(isset($logginUser) && empty($logginUser)) { ?>
                         <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
@@ -38,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <ul id="mobilemenu">
+        <ul id="mobilemenu" class="visible-xs">
           <?php if(isset($logginUser) && empty($logginUser)) { ?>
                         <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
                         <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
@@ -55,9 +54,11 @@
     <header class="search-header">
         <div class="breadcrump">
             <div class="container">
-                <div class="col-sm-6">Download Our app</div>
+                <div class="col-sm-6 col-xs-8 padding-5">Download Our app</div>
                 <div class="col-sm-6 pull-right text-right">
-                    <ul class="search-header-ul">
+                  <span id="menu-icon">
+                <span class="pull-right visible-xs menubar second-menubar" onclick="otheropenNav()"><i class="fa fa-bars" aria-hidden="true"></i></span></span>
+                    <ul class="search-header-ul hidden-xs">
                         <?php if(isset($logginUser) && empty($logginUser)) { ?>
                             <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
                             <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
@@ -69,21 +70,30 @@
                 </div>
             </div>
         </div>
+        <ul id="second-mobilemenu" class="visible-xs">
+          <?php if(isset($logginUser) && empty($logginUser)) { ?>
+                        <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
+                        <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
+                    <?php }else { ?>
+                        <li><a href="" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
+                        <li><a href="<?php echo BASE_URL ?>/users/logout" class="">Logout</a></li>
+                    <?php } ?>
+        </ul>
         <div class="searchpage-search">
             <div class="container">
                 <div class="col-sm-2">
                     <a href="<?php echo BASE_URL ?>" class="search-logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
                 </div>
                 <div class="col-sm-8 res-header-section">
-                    <div class="col-sm-4 no-padding">
-                        <label class="form-control serach-form-control search-label">
+                    <div class="col-sm-4 col-xs-12 no-padding">
+                        <label class="form-control serach-form-control search-label m-b-5">
                             <div class="serach-label-title">Delivery Location <i class="fa fa-angle-down"></i></div>
                             <div class="serach-label-loc"><i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <?php echo $this->request->session()->read('searchLocation') ?>
                             </div>
                         </label>
                     </div>
-                    <div class="col-sm-8 no-padding serach-input">
+                    <div class="col-sm-8 col-xs-12 no-padding serach-input">
                         <input type="text" class="form-control serach-form-control" placeholder="Search for Restaurants">
                         <i class="fa fa-search"></i>
                     </div>
@@ -96,7 +106,7 @@
                       </div>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2 col-xs-12">
                     <button class="btn seachpage-seach-btn">Search</button>
                 </div>
             </div>
