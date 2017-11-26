@@ -654,6 +654,7 @@ border-bottom: 10px solid #ccc;
 .order-pop-table th {
     background: #e8f6f5 none repeat scroll 0 0;
 }
+.padding-5 {padding: 5px 0px;}
 
 @media screen and (max-width: 767px) {
     .header-menu {padding: 0px !important;}
@@ -663,7 +664,7 @@ border-bottom: 10px solid #ccc;
         float: right;
         width: 0%;
         height: 100%;
-        background:rgba(0,0,0,0.8);
+        background:rgba(0,0,0,0.95);
         position: fixed;
         top:65px;
         right: 0;
@@ -674,4 +675,42 @@ border-bottom: 10px solid #ccc;
     }
     #mobilemenu li {float: right; width: 100%; text-align: right;list-style: none;border-bottom: 1px solid #999;}
     #mobilemenu li a {color: #fff; padding: 15px;display: block;}
+     #second-mobilemenu {
+        float: right;
+        width: 0%;
+        height: 100%;
+        background:rgba(0,0,0,0.95);
+        position: fixed;
+        top:40px;
+        right: 0;
+        width: 0;
+        z-index: 1;
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+    #second-mobilemenu li {float: right; width: 100%; text-align: right;list-style: none;border-bottom: 1px solid #999;}
+    #second-mobilemenu li a {color: #fff; padding: 15px;display: block;}
+   .banner-input .my-form-control {margin-bottom: 10px !important;}
+   .home-search-btn {border-radius: 4px !important;}
+   .header-title{font: 700 26px "Montserrat" !important;}
+   .app-title {font-size: 20px;}
+   .app-cont {
+    float: left;
+    width: 100%;
+    color: #999;
+    font: 400 13px/23px "Montserrat";
+}
+.app-image {margin-bottom: 10px;}
+.app-image span img {width: 125px !important;}
+.howit-works-title {padding: 20px 0px !important;}
+.app-title {padding-bottom: 15px !important;}
+#login_popup .modal-sm {width: 300px !important;}
+#signup_popup .modal-sm {
+    width: 300px !important;
+}
+.second-menubar {margin: 0px !important;}
+.search-label {float: left; width: 100%; background: 4px !important;}
+.serach-input {margin-bottom: 10px;}
+.m-b-5 {margin-bottom: 10px !important;}
+.searchpage-search {padding:0px 0px 20px 0px !important;}
 }

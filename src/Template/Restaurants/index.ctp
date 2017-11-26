@@ -32,7 +32,7 @@
 <section class="filter-searc-sec">
     <div class="container">
         <div class="filter-part-div">
-            <div class="col-sm-6">
+            <div class="col-xs-6 col-sm-6">
                <span>FITLTER BY
                    <button class="btn btn-default cusine">Cusine
                        <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -42,7 +42,7 @@
                    </button>-->
                </span>
             </div>
-            <div class="col-sm-6">
+            <div class="col-xs-6 col-sm-6">
                <span class="pull-right">SORT BY <button class="btn btn-default">Relavance <i class="fa fa-caret-down" aria-hidden="true"></i>
                </button></span>
             </div>
@@ -98,13 +98,13 @@
                                 <div class="res-desc"><?php echo $value['cuisineLists'] ?></div>
                             </div>
                             <div class="res-bottom">
-                                <div class="col-sm-5 no-padding"><span class="search-price">Min Price</span><span
+                                <div class="col-sm-5 col-xs-6 no-padding"><span class="search-price">Min Price</span><span
                                             class="search-rate">$<?php echo $value['minimum_order'] ?></span></div>
-                                <div class="col-sm-3 no-padding text-right"><span class="search-review"><i
+                                <div class="col-sm-3 col-xs-2 no-padding text-right"><span class="search-review"><i
                                                 class="fa fa-star" aria-hidden="true"></i>
                                    4.5</span>
                                 </div>
-                                <div class="col-sm-4 no-padding text-right"><span class="search-time"><?php echo $value['estimate_time'] ?></span><span
+                                <div class="col-sm-4 col-xs-4 no-padding text-right"><span class="search-time"><?php echo $value['estimate_time'] ?></span><span
                                             class="search-min">Mins</span></div>
                             </div>
                         </div>
