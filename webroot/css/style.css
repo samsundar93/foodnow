@@ -59,6 +59,8 @@ footer {background-color: #999; padding: 30px 0px;float: left; width: 100%;}
 .search-header-ul li a:hover {color:#F5861F; text-decoration: none; }
 .searchpage-search {float: left; width: 100%; background-color:#fff; padding: 20px 0px;border-bottom: 1px solid #f5f5f5;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);}
+.myaccount-search-header {float: left; width: 100%; background-color:#fff; padding: 0px 0px;border-bottom: 1px solid #f5f5f5;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);}
 .searchpage-search-checkout {float: left; width: 100%; background-color:#fff; padding: 5px 0px;border-bottom: 1px solid #f5f5f5;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);position: fixed;z-index: 5;top: 29px;}
 .serach-form-control {height: 50px;border-radius: 4px 0px 0px 4px;}
@@ -602,3 +604,74 @@ border-bottom: 10px solid #ccc;
 .secondblock {float: left; width: 100%; padding: 15px;background: #eee;}
 .green-addcls {background: #E5FFF2;}
 .my-profile label {font-weight: normal;}
+.order-viewrapper {background: #fff none repeat scroll 0 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+    float: left;
+    padding: 20px;
+    width: 100%;
+}
+.order-viewr-header {background: #f5861f none repeat scroll 0 0;
+    color: #fff;
+    font: 600 14px "Montserrat";padding: 15px;}
+.order-pop-payemt {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: rgba(0, 0, 0, 0.07) none repeat scroll 0 0;
+    border-color: -moz-use-text-color #ffffff #ffffff -moz-use-text-color;
+    border-image: none;
+    border-style: none solid solid none;
+    border-width: medium 0px 0px medium;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+    float: left;
+    margin-top: 20px;
+    padding: 15px;
+    width: 100%;
+}
+.order-pop-delivery {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: rgba(0, 0, 0, 0.07) none repeat scroll 0 0;
+    border-color: -moz-use-text-color #ffffff #ffffff -moz-use-text-color;
+    border-image: none;
+    border-style: none solid solid none;
+    border-width: medium 0px 0px medium;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+    float: left;
+    margin-top: 20px;
+    padding: 15px;
+    width: 100%;
+}
+.order-pop-table {
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+}
+.order-pop-table th {
+    background: #e8f6f5 none repeat scroll 0 0;
+}
+
+@media screen and (max-width: 767px) {
+    .header-menu {padding: 0px !important;}
+    .menubar {color: #F5861F; font-size: 20px; margin: 20px 0px; cursor: pointer;}
+    .logo img { max-width: 200px;}
+    #mobilemenu {
+        float: right;
+        width: 0%;
+        height: 100%;
+        background:rgba(0,0,0,0.8);
+        position: fixed;
+        top:65px;
+        right: 0;
+        width: 0;
+        z-index: 1;
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+    #mobilemenu li {float: right; width: 100%; text-align: right;list-style: none;border-bottom: 1px solid #999;}
+    #mobilemenu li a {color: #fff; padding: 15px;display: block;}
+}

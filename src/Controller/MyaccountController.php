@@ -32,9 +32,14 @@ class MyaccountController extends AppController
         // Before Login , these are the function we can access
         $this->Auth->allow([
             'index',
+            'Orderview',
         ]);
     }
      public function index()
+    {
+
+    }
+     public function Orderview()
     {
 
     }
