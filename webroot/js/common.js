@@ -171,7 +171,15 @@ $(document).ready(function(){
 });
 
 
+function openNav() {
+    document.getElementById("mobilemenu").style.width = "100%";
+    document.getElementById("menu-icon").innerHTML = '<span class="pull-right visible-xs menubar" onclick="closeNav()"><i class="fa fa-times" aria-hidden="true"></i></span>';
+}
 
+function closeNav() {
+    document.getElementById("mobilemenu").style.width = "0%";
+    document.getElementById("menu-icon").innerHTML = '<span class="pull-right visible-xs menubar" onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></span>';
+}
 function userRegister() {
 
 	$(".error").html('');

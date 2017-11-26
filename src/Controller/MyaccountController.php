@@ -31,6 +31,13 @@ class MyaccountController extends AppController
     {
         // Before Login , these are the function we can access
 
+        $this->Auth->allow([
+            'index',
+            'Orderview',
+        ]);
+
+
+
     }
     public function index()
     {
@@ -105,6 +112,10 @@ class MyaccountController extends AppController
             $response['message'] = 'Required Fields Missings';
         }
         echo json_encode($response,true);die();
+
+    }
+     public function Orderview()
+    {
 
     }
 }

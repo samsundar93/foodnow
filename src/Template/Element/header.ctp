@@ -3,7 +3,11 @@
         <div class="container">
             <div class="header-menu">
                 <a class="logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
-                <ul class="top-menu">
+
+                <span id="menu-icon">
+                <span class="pull-right visible-xs menubar" onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></span>
+</span>
+                <ul class="top-menu hidden-xs">
                     <?php if(isset($logginUser) && empty($logginUser)) { ?>
                         <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
                         <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
@@ -34,6 +38,15 @@
                 </div>
             </div>
         </div>
+        <ul id="mobilemenu">
+          <?php if(isset($logginUser) && empty($logginUser)) { ?>
+                        <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
+                        <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
+                    <?php }else { ?>
+                        <li><a href="" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
+                        <li><a href="<?php echo BASE_URL ?>/users/logout" class="">Logout</a></li>
+                    <?php } ?>
+        </ul>
     </header>
     <input type="hidden" id="countryCode">
 
@@ -190,7 +203,7 @@
                 </div>
             </div>
         </div>
-        <div class="searchpage-search">
+        <div class="myaccount-search-header">
             <div class="container">
                 <div class="col-sm-2">
                     <a href="<?php echo BASE_URL ?>" class="search-logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
