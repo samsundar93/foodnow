@@ -26,7 +26,7 @@ class CheckoutsController extends AppController
         $this->loadModel('Orders');
         $this->loadModel('Stripecards');
         $this->loadComponent('Common');
-        $this->loadComponent('Common');
+        $this->loadComponent('FcmNotification');
     }
 
     public function beforeFilter(Event $event)
@@ -793,6 +793,35 @@ class CheckoutsController extends AppController
                         }
 
                         $orderId = base64_encode($orderSave->id);
+
+                        if($_SERVER['HTTP_HOST'] == 'localhost') {
+
+                            $restaurantFCM = $this->Restaurants->find('all', [
+                                'fields' => [
+                                    'fcm_id'
+                                ],
+                                'conditions' => [
+                                    'id' => $this->request->getData('resId')
+                                ]
+                            ])->hydrate(false)->first();
+
+                            $restaurantFCM['fcm_id'] = 'd3l4kS_Hqgw:APA91bEQ2ygXLgrWjp7Q5qEyOL0cyTRB8QQV3TCRxSa9CVOZ212lQ3ZOKkn1V-yKGTYwJQ8oU_5Tv5EU2JFlM0TPul06-bk9MdtzhzUJoxEZtpfplXj7rJC663IiN0g3UAFzuYQNJytx';
+                            if($restaurantFCM['fcm_id'] != '') {
+
+                                $message      = 'New order came - '.$finalorderid;
+
+                                $notificationdata['data']['title']          = "Neworder";
+                                $notificationdata['data']['message']        = $message;
+                                $notificationdata['data']['is_background']  = false;
+                                $notificationdata['data']['payload']        = array('OrderDetails' => "",'type'    => "ordercanceled");
+                                $notificationdata['data']['timestamp']      = date('Y-m-d G:i:s');
+
+                                $this->FcmNotification->sendNotification($notificationdata, $restaurantFCM['fcm_id']);
+
+                            }
+                        }
+
+
                         $this->Flash->set(__('Your Order Placed Successful'));
                         return $this->redirect(BASE_URL.'myaccount/trackOrder/'.$orderId);
                     }
