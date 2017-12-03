@@ -1,7 +1,13 @@
 <?php if($controller !== 'Menus') { ?>
 <footer>
     <div class="container">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
+            <ul class="footer-ul">
+                <li><i class="fa fa-dot-circle-o"></i><a href="<?php echo PARTNER_BASE_URL ?>">Partner Login</a></li>
+                <li><i class="fa fa-dot-circle-o"></i><a href="#">Partner Signup</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-3">
             <ul class="footer-ul">
                 <li><i class="fa fa-dot-circle-o"></i><a href="#">About Us</a></li>
                 <li><i class="fa fa-dot-circle-o"></i><a href="#">Team</a></li>
@@ -9,7 +15,8 @@
                 <li><i class="fa fa-dot-circle-o"></i><a href="#">Help & support</a></li>
             </ul>
         </div>
-        <div class="col-sm-4">
+
+        <div class="col-sm-3">
             <ul class="footer-ul">
                 <li><i class="fa fa-dot-circle-o"></i><a href="#">Terms & Conditions </a></li>
                 <li><i class="fa fa-dot-circle-o"></i><a href="#">Refunds & Cancellation Policy</a></li>
@@ -17,7 +24,7 @@
                 <li><i class="fa fa-dot-circle-o"></i><a href="#">Offer Terms </a></li>
             </ul>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <ul class="social-ul">
                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>
                     </a></li>

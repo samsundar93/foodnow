@@ -1,3 +1,67 @@
+<section class="col-xs-12 col-sm-9">
+    <div class="buyer-title">Menu Add</div>
+    <div class="products-section no-padding-top">
+        <div class="clearfix">
+            <div class="checkout-wrapper buyer-checkout-wrapper no-margin-bottom">
+                <div class="checkout-body">
+                    <div class="checkout-body-title">
+                        <span class="pull-left checkout-body-left">&nbsp;</span>
+                    </div>
+                    <?php echo $this->Form->create('menuAdd',array('name'=>'menuAdd',
+                        'id'=>'menuAdd',
+                        'class'=>'form-horizontal'
+                    ));
+                    ?>
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="form-group clearfix">
+                            <div class="col-sm-4">
+                                <label for="category_name">Category Name<span class="help">*</span></label>
+                            </div>
+                            <div class="col-sm-8">
+                                <?= $this->Form->input('category_id',[
+                                    'type' => 'select',
+                                    'id'   => 'category_id',
+                                    'class' => 'form-control',
+                                    'options' => $categoryList,
+                                    'label' => false,
+                                    'empty'   =>'Please Choose Category'
+                                ]) ?>
+                            </div>
+                            <span class="categoryNameErr"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="form-group clearfix">
+                            <div class="col-sm-4">
+                                <label for="category_name">Menu Name<span class="help">*</span></label>
+                            </div>
+                            <div class="col-sm-8">
+                                <?= $this->Form->input('menu_name',[
+                                    'type' => 'text',
+                                    'id'   => 'menu_name',
+                                    'class' => 'form-control',
+                                    'label' => false,
+                                    'empty'   =>'Please Enter Menu Name'
+                                ]) ?>
+                            </div>
+                            <span class="menuNameErr"></span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <button class="btn btn-submit" type="submit" onclick=" return categoryValidation();">Submit</button>
+                        <a class="btn btn-cancel" href="<?php echo PARTNER_BASE_URL ?>menus"> Cancel</a>
+                    </div>
+                    <?= $this->Form->end();?>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row bg-title">

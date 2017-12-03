@@ -12,7 +12,7 @@
 
         <li class="<?php echo ($controller == 'Cuisines') ? 'buyer-active' : '' ?>"><a href="<?php echo PARTNER_BASE_URL ?>cuisines">Sub Category</a></li>
 
-        <li class="<?php echo ($controller == 'Addons') ? 'buyer-active' : '' ?>"><a href="<?php echo PARTNER_BASE_URL ?>addons">Addons</a></li>
+        <!--<li class="<?php /*echo ($controller == 'Addons') ? 'buyer-active' : '' */?>"><a href="<?php /*echo PARTNER_BASE_URL */?>addons">Addons</a></li>-->
     </ul>
 
     <div class="sidemenu-title">Restaurant</div>
