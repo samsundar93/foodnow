@@ -128,7 +128,9 @@
                                 <div class=""><span class="pull-left">Total Pay</span><span class="pull-right">$ <?php echo number_format($totalAmount,2) ?></span></div>
                             </div>
                         <?php }else { ?>
+                        <div class="text-center">
                             Your Cart Empty
+                         </div>   
                         <?php } ?>
 
                     </div>
