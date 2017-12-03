@@ -69,6 +69,22 @@ Router::scope('/', function (RouteBuilder $routes) {
         $routes->fallbacks('InflectedRoute');
     });
 
+    $routes->connect('myaccount/trackOrder/*', [
+            'controller' => 'Myaccount',
+            'action' => 'Orderview'
+        ]
+    );
+    $routes->fallbacks('InflectedRoute');
+
+    Router::prefix('Mobile', function ($routes) {
+
+        $routes->connect('/', [
+                'controller' => 'Restaurants',
+                'action' => 'index']
+        );
+        $routes->fallbacks('InflectedRoute');
+    });
+
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */

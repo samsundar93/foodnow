@@ -1,0 +1,4 @@
+30-11-2017
+------------
+
+ALTER TABLE `restaurants` ADD `fcm_id` VARCHAR(255) NOT NULL AFTER `restaurant_metadescription`;

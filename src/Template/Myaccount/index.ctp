@@ -56,42 +56,27 @@
 
            <div id="my_order" class="my-order common-hide"  style="display:none">
               <div class="your-account">YOUR ORDERS</div>
-              <div class="my-order-box m-b-10">
-                 <div class="col-sm-8 no-padding">
-                    <div>68Salem RR Briyani Unvagam <span class="gray-txt">(Order #: 1118285943)</span></div>
-                    <div class="gray-txt">Nov 17, 2017 3:01 PM</div>
-                 </div>
-                 <div class="col-sm-3">
-                    <button class="repeat-ordere">Repeat Order</button>
-                 </div>
-                 <div class="col-sm-1 no-padding text-right">
-                    <div class="order-price">$ &nbsp;10</div>
-                 </div>
-              </div>
-              <div class="my-order-box m-b-10">
-                 <div class="col-sm-8 no-padding">
-                    <div>68Salem RR Briyani Unvagam <span class="gray-txt">(Order #: 1118285943)</span></div>
-                    <div class="gray-txt">Nov 17, 2017 3:01 PM</div>
-                 </div>
-                 <div class="col-sm-3">
-                    <button class="repeat-ordere">Repeat Order</button>
-                 </div>
-                 <div class="col-sm-1 no-padding text-right">
-                    <div class="order-price">$ &nbsp;10</div>
-                 </div>
-              </div>
-              <div class="my-order-box m-b-10">
-                 <div class="col-sm-8 no-padding">
-                    <div>68Salem RR Briyani Unvagam <span class="gray-txt">(Order #: 1118285943)</span></div>
-                    <div class="gray-txt">Nov 17, 2017 3:01 PM</div>
-                 </div>
-                 <div class="col-sm-3">
-                    <button class="repeat-ordere">Repeat Order</button>
-                 </div>
-                 <div class="col-sm-1 no-padding text-right">
-                    <div class="order-price">$ &nbsp;10</div>
-                 </div>
-              </div>
+               <?php if(!empty($customerDetails['orders'])) { ?>
+
+                   <?php foreach ($customerDetails['orders'] as $okey => $ovalue) { ?>
+                       <div class="my-order-box m-b-10">
+                           <div class="col-sm-8 no-padding">
+                               <div><?php echo $ovalue['restaurant']['restaurant_name'] ?> <span class="gray-txt"> - <?php echo $ovalue['order_number'] ?> </span></div>
+                               <div class="gray-txt"><?php echo date('Y-m-d h:i A', strtotime($ovalue['created']));  ?></div>
+                           </div>
+                           <div class="col-sm-3">
+                               <a target="_blank" href="<?php echo BASE_URL ?>myaccount/trackOrder/<?php echo base64_encode($ovalue['id']) ?>" class="repeat-ordere">View</a>
+                           </div>
+                           <div class="col-sm-1 no-padding text-right">
+                               <div class="order-price">$ <?php echo number_format($ovalue['grand_total'],2) ?></div>
+                           </div>
+                       </div>
+
+                       <?php
+                   }
+               } ?>
+
+
            </div>
 
            <div id="my_address" class="my-address common-hide" style="display:none">

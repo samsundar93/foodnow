@@ -44,6 +44,7 @@ class AppController extends Controller
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
         $this->loadComponent('Auth');
+        $this->loadModel('Sitesettings');
 
         $this->prefix = (!empty($this->request->params['prefix']))
             ? $this->request->params['prefix'] : '';
@@ -111,14 +112,24 @@ class AppController extends Controller
         $controller = $this->request->params['controller'];
         $action     = $this->request->params['action'];
 
+        define('DISPATCH_KEY','FoodDp');
+
         //Logged User
         if(!empty($this->Auth->user()))
             $this->set('logginUser', $this->Auth->user());
         else
             $this->set('logginUser', '');
+        
+        $siteSettings = $this->Sitesettings->find('all', [
+            'id' => [
+                'id' => '1'
+            ]            
+        ])->hydrate(false)->first();
 
-        define('STRIPE_API_KEY','sk_test_BQokikJOvBiI2HlWgH4olfQ2');
-        define('STRIPE_PUBLISHERKEY','pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+
+
+        define('STRIPE_API_KEY',$siteSettings['stripe_apikey_test']);
+        define('STRIPE_PUBLISHERKEY',$siteSettings['publisher_key_test']);
 
         $this->set(compact('controller', 'action'));
     }

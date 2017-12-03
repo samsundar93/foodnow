@@ -23,6 +23,7 @@ class CartsTable extends Table
             'foreignKey' => 'menu_id'
         ]);
 
+
     }
 }
 ?>

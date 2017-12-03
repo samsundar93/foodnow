@@ -151,7 +151,7 @@ function placeOrder() {
     var orderType = $('input:radio[name=order_type]:checked').val();
 
     var delivery_date = $("#delivery_date").val();
-
+    var deliveryTime = $("#deliveryTime").val();
 
     if((deliveryAddress == '' || deliveryAddress == undefined) && orderType == 'delivery') {
         $("#checkoutBtn").attr('disabled',false);
@@ -170,6 +170,15 @@ function placeOrder() {
         $('.addressinformation').removeClass('accordian_green');
         $("#addressDetails").css('display','block');
         $("#paymentDetails").css('display','block');
+        return false;
+
+    }else if(deliveryTime == 'Closed') {
+        $("#checkoutBtn").attr('disabled',false);
+        $("#addressErr").addClass('error').html('Sorry, Restaurant was closed.');
+        $('.addressinformation').removeClass('accordian_green');
+        $("#addressDetails").css('display','block');
+        $("#paymentDetails").css('display','block');
+        return false;
 
     }else if(paymentMethod == '' || paymentMethod == undefined) {
         $("#checkoutBtn").attr('disabled',false);
@@ -225,7 +234,7 @@ function checkAddress() {
     var orderType = $('input:radio[name=order_type]:checked').val();
 
     var delivery_date = $("#delivery_date").val();
-    var delivery_time = $("#delivery_time").val();
+    var deliveryTime = $("#deliveryTime").val();
 
     if(orderType == 'delivery') {
         if(deliveryAddress == '' || deliveryAddress == undefined) {
@@ -238,18 +247,29 @@ function checkAddress() {
             $('.addressinformation').removeClass('accordian_green');
             $("#addressDetails").css('display','block');
             $("#paymentDetails").css('display','block');
+            return false;
 
-        }else if(delivery_time == '') {
+        }else if(deliveryTime == '') {
             $("#checkoutBtn").attr('disabled',false);
             $("#addressErr").addClass('error').html('Sorry, but we are unable to continue without a delivery time.');
             $('.addressinformation').removeClass('accordian_green');
             $("#addressDetails").css('display','block');
             $("#paymentDetails").css('display','block');
+            return false;
+
+        }else if(deliveryTime == 'Closed') {
+            $("#checkoutBtn").attr('disabled',false);
+            $("#addressErr").addClass('error').html('Sorry, Restaurant was closed.');
+            $('.addressinformation').removeClass('accordian_green');
+            $("#addressDetails").css('display','block');
+            $("#paymentDetails").css('display','block');
+            return false;
 
         }else {
             $('.addressinformation').addClass('accordian_green');
             $("#addressDetails").css('display','none');
             $("#paymentDetails").css('display','block');
+            return false;
         }
     }else {
         if(delivery_date == '') {
@@ -258,18 +278,29 @@ function checkAddress() {
             $('.addressinformation').removeClass('accordian_green');
             $("#addressDetails").css('display','block');
             $("#paymentDetails").css('display','block');
+            return false;
 
-        }else if(delivery_time == '') {
+        }else if(deliveryTime == '') {
             $("#checkoutBtn").attr('disabled',false);
             $("#addressErr").addClass('error').html('Sorry, but we are unable to continue without a pickup time.');
             $('.addressinformation').removeClass('accordian_green');
             $("#addressDetails").css('display','block');
             $("#paymentDetails").css('display','block');
+            return false;
+
+        }else if(deliveryTime == 'Closed') {
+            $("#checkoutBtn").attr('disabled',false);
+            $("#addressErr").addClass('error').html('Sorry, Restaurant was closed.');
+            $('.addressinformation').removeClass('accordian_green');
+            $("#addressDetails").css('display','block');
+            $("#paymentDetails").css('display','block');
+            return false;
 
         }else {
             $('.addressinformation').addClass('accordian_green');
             $("#addressDetails").css('display','none');
             $("#paymentDetails").css('display','block');
+            return false;
         }
 
     }

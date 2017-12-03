@@ -27,6 +27,11 @@ class OrdersTable extends Table
             'className' => 'Customers',
             'foreignKey' => 'customer_id'
         ]);
+
+        $this->hasMany('Carts',[
+            'className' => 'Carts',
+            'foreignKey' => 'order_id'
+        ]);
     }
 }
 ?>

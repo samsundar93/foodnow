@@ -2,7 +2,7 @@
     <header class="header">
         <div class="container">
             <div class="header-menu">
-                <a class="logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
+                <a class="logo" href="<?php echo BASE_URL ?>"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
 
                 <span id="menu-icon">
                 <span class="pull-right visible-xs menubar" onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></span></span>

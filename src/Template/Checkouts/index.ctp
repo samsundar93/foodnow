@@ -72,13 +72,13 @@
                        <div class="col-sm-6 no-padding-left">
                            <label class="col-sm-5 no-padding"><span id="orderTypeDate">Delivery</span> Date</label>
                            <div class="col-sm-7 no-padding">
-                               <input type="text" class="form-control" id="delivery_date">
+                               <input type="text" name="delivery_date" class="form-control" id="delivery_date">
                            </div>
                        </div>
                        <div class="col-sm-6 no-padding-right">
                            <label class="col-sm-5 no-padding"><span id="orderTypeTime">Delivery</span> Time</label>
-                           <div class="col-sm-7 no-padding">
-                               <input type="text" class="form-control" id="delivery_time">
+                           <div class="col-sm-7 no-padding" id="timeLists">
+                               <input type="text" name="deliveryTime" readonly class="form-control" id="deliveryTime" value="<?php echo (empty($array_of_time)) ? 'Closed' : ''; ?>">
                            </div>
                        </div>
                    </div>
@@ -214,7 +214,7 @@
                               </span>
                            </div>
                            <div class="col-sm-2 no-padding text-right">
-                              <span class="final-price">$<?php echo number_format($value['price'],2) ?></span>
+                              <span class="final-price">$ <?php echo number_format($value['price'],2) ?></span>
                            </div>
                         </div>
                         <?php

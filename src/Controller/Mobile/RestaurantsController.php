@@ -95,8 +95,98 @@ class RestaurantsController extends AppController
                         $response['message'] = 'Something wrong';
                     }
                     break;
+
+                case 'pendingList':
+
+                    //Load Model
+                    $this->loadModel('Orders');
+
+                    $pendingList = $this->Orders->find('all', [
+                        'conditions' => [
+                            'restaurant_id' => $this->request->getData('userId'),
+                            'status' => 'pending'
+                        ]
+                    ])->hydrate(false)->toArray();
+
+                    if(!empty($pendingList)) {
+                        $response['success'] = 1;
+                        $response['pendingList'] = $pendingList;
+                    }else {
+                        $response['success'] = 0;
+                        $response['message'] = 'No Record Found';
+                    }
+
+                    break;
+
+                case 'processingList':
+
+                    //Load Model
+                    $this->loadModel('Orders');
+
+                    $processingList = $this->Orders->find('all', [
+                        'conditions' => [
+                            'restaurant_id' => $this->request->getData('userId'),
+                            'status' => 'processing'
+                        ]
+                    ])->hydrate(false)->toArray();
+
+                    if(!empty($pendingList)) {
+                        $response['success'] = 1;
+                        $response['processingList'] = $processingList;
+                    }else {
+                        $response['success'] = 0;
+                        $response['message'] = 'No Record Found';
+                    }
+
+                    break;
+
+                case 'completedList':
+
+                    //Load Model
+                    $this->loadModel('Orders');
+
+                    $completedList = $this->Orders->find('all', [
+                        'conditions' => [
+                            'restaurant_id' => $this->request->getData('userId'),
+                            'status' => 'completed'
+                        ]
+                    ])->hydrate(false)->toArray();
+
+                    if(!empty($pendingList)) {
+                        $response['success'] = 1;
+                        $response['completedList'] = $completedList;
+                    }else {
+                        $response['success'] = 0;
+                        $response['message'] = 'No Record Found';
+                    }
+
+                    break;
+
+                case 'failedList':
+
+                    //Load Model
+                    $this->loadModel('Orders');
+
+                    $failedList = $this->Orders->find('all', [
+                        'conditions' => [
+                            'restaurant_id' => $this->request->getData('userId'),
+                            'status' => 'failed'
+                        ]
+                    ])->hydrate(false)->toArray();
+
+                    if(!empty($pendingList)) {
+                        $response['success'] = 1;
+                        $response['failedList'] = $failedList;
+                    }else {
+                        $response['success'] = 0;
+                        $response['message'] = 'No Record Found';
+                    }
+
+                    break;
             }
             die(json_encode($response));
+        }else {
+            die();
         }
     }
 }
