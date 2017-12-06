@@ -47,6 +47,7 @@
                                         <td>
                                             <a href="<?php echo PARTNER_BASE_URL ?>category/edit/<?php echo $value['id'] ?>"><span class="label label-default label-violet"><i class="fa fa-pencil"></i></span></a>
                                             <a data-original-title="Delete" data-placement="top" data-toggle="tooltip" id="<?php echo $value['id']; ?>" onclick="return deleteRecord(<?php echo $value['id']; ?>, 'category/deletecategory', 'Category', '', 'myTable')" href=""><span class="label label-danger"><i class="fa fa-trash"></i></span></a>
+                                            <a href="#"><span class="label label-primary"><i class="fa fa-eye"></i></span></a>
                                         </td>
                                     </tr>
                                     <?php
