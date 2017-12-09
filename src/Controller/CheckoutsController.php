@@ -27,6 +27,7 @@ class CheckoutsController extends AppController
         $this->loadModel('Stripecards');
         $this->loadComponent('Common');
         $this->loadComponent('FcmNotification');
+        $this->loadComponent('PushNotification');
     }
 
     public function beforeFilter(Event $event)
@@ -38,7 +39,6 @@ class CheckoutsController extends AppController
     }
 
     public function index() {
-
 
         //pr($this->request->getData());die();
         if($this->request->session()->read('sessionId') != '') {
@@ -805,7 +805,7 @@ class CheckoutsController extends AppController
                                 ]
                             ])->hydrate(false)->first();
 
-                            $restaurantFCM['fcm_id'] = 'd3l4kS_Hqgw:APA91bEQ2ygXLgrWjp7Q5qEyOL0cyTRB8QQV3TCRxSa9CVOZ212lQ3ZOKkn1V-yKGTYwJQ8oU_5Tv5EU2JFlM0TPul06-bk9MdtzhzUJoxEZtpfplXj7rJC663IiN0g3UAFzuYQNJytx';
+                            //$restaurantFCM['fcm_id'] = 'd3l4kS_Hqgw:APA91bEQ2ygXLgrWjp7Q5qEyOL0cyTRB8QQV3TCRxSa9CVOZ212lQ3ZOKkn1V-yKGTYwJQ8oU_5Tv5EU2JFlM0TPul06-bk9MdtzhzUJoxEZtpfplXj7rJC663IiN0g3UAFzuYQNJytx';
                             if($restaurantFCM['fcm_id'] != '') {
 
                                 $message      = 'New order came - '.$finalorderid;
@@ -820,6 +820,8 @@ class CheckoutsController extends AppController
 
                             }
                         }
+                        $message = 'New Order Placed';
+                        $this->PushNotification->pushNotification($message);
 
 
                         $this->Flash->set(__('Your Order Placed Successful'));

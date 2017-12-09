@@ -9,7 +9,8 @@
         FRONT_JS.'enscroll.js',
         FRONT_JS.'common.js',
         FRONT_JS.'page-scroll.js',
-        FRONT_JS.'jquery.timepicker.min.js'
+        FRONT_JS.'jquery.timepicker.min.js',
+        FRONT_JS.'pusher.js'
     ]);
 ?>
 

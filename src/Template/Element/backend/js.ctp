@@ -15,7 +15,8 @@ echo $this->Html->script([
     ADMIN_JS.'custom.js',
     ADMIN_JS.'jquery.validate.min.js',
     ADMIN_JS.'dataTables.scroller.min.js',
-    ADMIN_JS.'common.js'
+    ADMIN_JS.'common.js',
+    FRONT_JS.'pusher.js'
     ]);
 ?>
 

@@ -57,6 +57,10 @@ class RestaurantsController extends AppController
             if($sourcelatitude != '' && $sourcelongitude != '') {
                 $restaurantList = $this->Restaurants->find('all', [
                     'conditions' => [
+                        'OR' => [
+                            'restaurant_pickup' => 'Yes',
+                            'restaurant_delivery' => 'Yes'
+                        ],
                         'id IS NOT NULL',
                         'status' => '1',
                         'delete_status' => 'N'
