@@ -194,6 +194,11 @@ function othercloseNav() {
     document.getElementById("second-mobilemenu").style.width = "0%";
     document.getElementById("menu-icon").innerHTML = '<span class="pull-right visible-xs menubar second-menubar" onclick="otheropenNav()"><i class="fa fa-bars" aria-hidden="true"></i></span>';
 }
+(function($){
+        $(window).on("load",function(){
+            $("a[rel='m_PageScroll2id']").mPageScroll2id();
+        });
+    })(jQuery);
 function userRegister() {
 
 	$(".error").html('');

@@ -1,51 +1,6 @@
- <!-- <header class="search-header">
-         <div class="breadcrump">
-            <div class="container">
-               <div class="col-sm-6">Download Our app</div>
-               <div class="col-sm-6 pull-right text-right">
-                  <ul class="search-header-ul">
-                     <li><a href="">Help & Support</a></li>
-                     <li><a href="">Login</a></li>
-                     <li><a href="">SignUp</a></li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-         <div class="cartpage-search">
-            <div class="container">
-               <div class="col-sm-2">
-                  <a class="search-logo">EATNOW</a>
-               </div>
-            </div>
-         </div>
-         <section class="restaurant-head-sec">
-            <div class="container">
-               <div class="col-sm-4">
-                  <div class="cart-res-name">Restaurant Name</div>
-                  <div class="cart-res-cusine">Cusines:North Indian, Chinease, Indian, Italian, Continental</div>
-                  <div class="cart-review-div">
-                     <span class="search-review pull-left"><i class="fa fa-star" aria-hidden="true"></i>4.5</span>
-                     <span class="cart-del-time"><span class="search-time">39</span><span class="search-min">Mins</span>
-                     </span>
-                  </div>
-               </div>
-               <div class="col-sm-5">
-                  <div class="search-dish">
-                     <input type="text" class="form-control cart-form-control" placeholder="search dishes">
-                     <i class="fa fa-search"></i>
-                  </div>
-               </div>
-               <div class="col-sm-3">
-                  <div class="veg-filter">
-                     <div class="btn-veg"><input type="checkbox"> Vegetarian</div>
-                  </div>
-               </div>
-            </div>
-         </section>
-      </header> -->
       <section class="cartpage-sec">
          <div class="container">
-            <div class="col-sm-2 no-padding-right">
+            <div class="col-sm-2 col-xs-12 no-padding-right">
                <div class="sidebar">
                   <div class="cart-menu-box" id="myScrollspy">
                      <div class="cart-menu-box-title">Menu</div>
@@ -84,7 +39,7 @@
                   </div>
                </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6 col-xs-12">
                <div class="cart-dish-box">
                   <div class="dishbox-title">Dish Names</div>
                   <section id="food1">
@@ -772,6 +727,8 @@
                   </section>
                </div>
             </div>
+
+            
             <div class="col-sm-4">
                <div class="cart-scrolladd-box">
                   <div class="cart-add-box">
