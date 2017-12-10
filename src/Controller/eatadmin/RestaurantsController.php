@@ -357,7 +357,11 @@ class RestaurantsController extends AppController
                     'Mainaddons.status' => '1'
                 ],
                 'contain' => [
-                    'Subaddons'
+                    'Subaddons' => [
+                        'conditions' => [
+                            'Subaddons.restaurant_id' => $this->Auth->user('user_id')
+                        ]
+                    ]
                 ]
             ])->hydrate(false)->toArray();
 

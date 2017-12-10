@@ -1,5 +1,5 @@
 <section class="col-xs-12 col-sm-9">
-    <div class="buyer-title">Cuisine Manage</div>
+    <div class="buyer-title">Menu Manage</div>
     <div class="products-section no-padding-top">
         <div class="clearfix">
             <div class="checkout-wrapper buyer-checkout-wrapper no-margin-bottom">
@@ -45,9 +45,8 @@
                                         </td>
                                         <td><?php echo date('Y-m-d h:i A', strtotime($value['created'])); ?></td>
                                         <td>
-                                            <a href="<?php echo PARTNER_BASE_URL ?>category/edit/<?php echo $value['id'] ?>"><span class="label label-default label-violet"><i class="fa fa-pencil"></i></span></a>
+                                            <a href="<?php echo PARTNER_BASE_URL ?>menus/edit/<?php echo $value['id'] ?>"><span class="label label-default label-violet"><i class="fa fa-pencil"></i></span></a>
                                             <a data-original-title="Delete" data-placement="top" data-toggle="tooltip" id="<?php echo $value['id']; ?>" onclick="return deleteRecord(<?php echo $value['id']; ?>, 'category/deletecategory', 'Category', '', 'myTable')" href=""><span class="label label-danger"><i class="fa fa-trash"></i></span></a>
-                                            <a href="#"><span class="label label-primary"><i class="fa fa-eye"></i></span></a>
                                         </td>
                                     </tr>
                                     <?php

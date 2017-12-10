@@ -26,7 +26,7 @@ class CategoryController extends AppController
         $categoryList = $this->Categories->find('all', [
             'conditions' => [
                 'Categories.id IS NOT NULL',
-                'Categories.restaurant_id' => $this->Auth->user('id')
+                'Categories.restaurant_id' => $this->Auth->user('user_id')
             ],
             'contain' => [
                 'Restaurants' => [
@@ -59,7 +59,7 @@ class CategoryController extends AppController
 
             $category = $this->Categories->newEntity();
             $categoryPatch = $this->Categories->patchEntity($category,$this->request->getData());
-            $categoryPatch->restaurant_id = $this->Auth->user('id');
+            $categoryPatch->restaurant_id = $this->Auth->user('user_id');
             $categoryPatch->seo_url = $seoUrl;
             $saveCategory = $this->Categories->save($categoryPatch);
             if($saveCategory) {
@@ -78,7 +78,7 @@ class CategoryController extends AppController
 
             $category = $this->Categories->newEntity();
             $categoryPatch = $this->Categories->patchEntity($category,$this->request->getData());
-            $categoryPatch->restaurant_id = $this->Auth->user('id');
+            $categoryPatch->restaurant_id = $this->Auth->user('user_id');
             $categoryPatch->seo_url = $seoUrl;
             $categoryPatch->id = $this->request->getData('editId');
             $saveCategory = $this->Categories->save($categoryPatch);

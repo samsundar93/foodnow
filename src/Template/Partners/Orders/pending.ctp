@@ -1,14 +1,9 @@
 <section class="col-xs-12 col-sm-9">
-    <div class="buyer-title">Category Manage</div>
+    <div class="buyer-title">Cuisine Manage</div>
     <div class="products-section no-padding-top">
         <div class="clearfix">
             <div class="checkout-wrapper buyer-checkout-wrapper no-margin-bottom">
                 <div class="checkout-body">
-                    <div class="checkout-body-title">
-                        <span class="pull-right">
-                             <a href="<?php echo PARTNER_BASE_URL ?>cuisines/add" class="btn-submit">Add New</a>
-                        </span>
-                    </div>
 
                     <div class="clearfix"></div>
                     <div class="order-searcbox table-responsive tablecls" id="ajaxReplace">
@@ -16,20 +11,23 @@
                             <thead>
                             <tr>
                                 <th>S. No</th>
+                                <th>Order ID</th>
+                                <th>Customer Name</th>
                                 <th>Restaurant Name</th>
-                                <th>Category Name</th>
-                                <th>Added Date</th>
+                                <th>Delivey Date</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php if(!empty($categoryList)) { ?>
-                                <?php foreach ($categoryList as $key => $value) { ?>
+                            <?php if(!empty($orderDetails)) { ?>
+                                <?php foreach ($orderDetails as $key => $value) { ?>
                                     <tr>
                                         <td><?php echo $key+1 ?></td>
+                                        <td><?php echo $value['order_number'] ?></td>
+                                        <td><?php echo $value['customer_name'] ?></td>
                                         <td><?php echo $value['restaurant']['restaurant_name'] ?></td>
-                                        <td><?php echo $value['catname'] ?></td>
+                                        <td><?php echo date('Y-m-d h:i A', strtotime($value['delivery_date'])) ?></td>
                                         <td id="status_<?php echo $value['id'];?>">
                                             <?php if($value['status'] == '0') { ?>
                                                 <div class="label label-table label-danger">
@@ -43,10 +41,6 @@
 
                                         </td>
                                         <td><?php echo date('Y-m-d h:i A', strtotime($value['created'])); ?></td>
-                                        <td>
-                                            <a href="<?php echo PARTNER_BASE_URL ?>category/edit/<?php echo $value['id'] ?>"><span class="label label-default label-violet"><i class="fa fa-pencil"></i></span></a>
-                                            <a data-original-title="Delete" data-placement="top" data-toggle="tooltip" id="<?php echo $value['id']; ?>" onclick="return deleteRecord(<?php echo $value['id']; ?>, 'category/deletecategory', 'Category', '', 'myTable')" href=""><span class="label label-danger"><i class="fa fa-trash"></i></span></a>
-                                        </td>
                                     </tr>
                                 <?php }
                             }?>

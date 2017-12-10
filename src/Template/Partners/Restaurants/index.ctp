@@ -1,5 +1,5 @@
 <section class="col-xs-12 col-sm-9">
-    <div class="buyer-title">Products Add</div>
+    <div class="buyer-title">Restaurant Details</div>
     <div class="products-section no-padding-top">
         <div class="clearfix">
             <div class="checkout-wrapper buyer-checkout-wrapper no-margin-bottom">

@@ -2,16 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1a9164b-a4cc-4f3c-864a-d2b6a036cce1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/Component/PushNotificationComponent.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/Partners/OrdersController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Template/Partners/Orders/completed.ctp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Template/Partners/Orders/failed.ctp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Template/Partners/Orders/index.ctp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Template/Partners/Orders/pending.ctp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Template/Partners/Orders/processing.ctp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/CheckoutsController.php" afterPath="$PROJECT_DIR$/src/Controller/CheckoutsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/RestaurantsController.php" afterPath="$PROJECT_DIR$/src/Controller/RestaurantsController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UsersController.php" afterPath="$PROJECT_DIR$/src/Controller/UsersController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Element/backend/js.ctp" afterPath="$PROJECT_DIR$/src/Template/Element/backend/js.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Element/js.ctp" afterPath="$PROJECT_DIR$/src/Template/Element/js.ctp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Layout/backend.ctp" afterPath="$PROJECT_DIR$/src/Template/Layout/backend.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Component/PushNotificationComponent.php" afterPath="$PROJECT_DIR$/src/Controller/Component/PushNotificationComponent.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Partners/AddonsController.php" afterPath="$PROJECT_DIR$/src/Controller/Partners/AddonsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Partners/CategoryController.php" afterPath="$PROJECT_DIR$/src/Controller/Partners/CategoryController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/Partners/MenusController.php" afterPath="$PROJECT_DIR$/src/Controller/Partners/MenusController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/eatadmin/OrdersController.php" afterPath="$PROJECT_DIR$/src/Controller/eatadmin/OrdersController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/eatadmin/RestaurantsController.php" afterPath="$PROJECT_DIR$/src/Controller/eatadmin/RestaurantsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Element/partner/js.ctp" afterPath="$PROJECT_DIR$/src/Template/Element/partner/js.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Element/partner/leftside.ctp" afterPath="$PROJECT_DIR$/src/Template/Element/partner/leftside.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Partners/Addons/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Partners/Addons/index.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Partners/Category/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Partners/Category/index.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Partners/Menus/add.ctp" afterPath="$PROJECT_DIR$/src/Template/Partners/Menus/add.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Partners/Menus/ajaxaction.ctp" afterPath="$PROJECT_DIR$/src/Template/Partners/Menus/ajaxaction.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Partners/Menus/edit.ctp" afterPath="$PROJECT_DIR$/src/Template/Partners/Menus/edit.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Partners/Menus/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Partners/Menus/index.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Partners/Restaurants/index.ctp" afterPath="$PROJECT_DIR$/src/Template/Partners/Restaurants/index.ctp" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,27 +34,88 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
+    <leaf>
+      <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/Partners/Orders/index.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="41" column="10" lean-forward="false" selection-start-line="41" selection-start-column="8" selection-end-line="50" selection-end-column="13" />
+            <state relative-caret-position="493">
+              <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
               <folding>
-                <element signature="e#117#138#0#PHP" expanded="true" />
+                <marker date="1512916128761" expanded="true" signature="1276:1744" ph="{...}" />
+                <marker date="1512916128761" expanded="true" signature="1373:1440" ph="{&quot;cluster&quot;: 'ap2'...}" />
+                <marker date="1512916128761" expanded="true" signature="1587:1714" ph="{...}" />
+                <marker date="1512916128761" expanded="true" signature="1774:1786" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mailgun.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/Mailgun/Mailgun.php">
+      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1955">
-              <caret line="131" column="20" lean-forward="false" selection-start-line="131" selection-start-column="20" selection-end-line="131" selection-end-column="20" />
-              <folding>
-                <element signature="e#190#231#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="391">
+              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="backend.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/Layout/backend.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="js.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/Element/partner/js.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leftside.ctp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Template/Element/partner/leftside.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PushNotificationComponent.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Component/PushNotificationComponent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CheckoutsController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/CheckoutsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="823" column="107" lean-forward="false" selection-start-line="823" selection-start-column="107" selection-end-line="823" selection-end-column="107" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrdersController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Partners/OrdersController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="123" column="5" lean-forward="false" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -50,36 +124,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addCart</find>
-      <find>countryCode</find>
-      <find>ui-timepicker-am</find>
-      <find>delivery_time</find>
-      <find>ui-timepicker-wrapper</find>
-      <find>ui-timepicker-list</find>
-      <find>Delivery</find>
-      <find>$restaurantDetails</find>
-      <find>/myaccount</find>
-      <find>getti</find>
-      <find>delivery_date</find>
-      <find>$firstCloseTime</find>
-      <find>gettiming</find>
-      <find>base64_encode</find>
-      <find>myacc</find>
-      <find>$data = $this-&gt;Common-&gt;dispatch();</find>
-      <find>$data = $this-&gt;Common-&gt;dispatch</find>
-      <find>delivery</find>
-      <find>dataTables</find>
-      <find>.error</find>
-      <find>ajax</find>
-      <find>signup</find>
-      <find>myaccount</find>
-      <find>total</find>
-      <find>Orderview</find>
-      <find>logout</find>
-      <find>add</find>
-      <find>logo</find>
-      <find>$str</find>
-      <find>fcm</find>
+      <find>menu_image</find>
+      <find>menunameErr</find>
+      <find>optionValidate</find>
+      <find>categoryErr</find>
+      <find>orginal</find>
+      <find>sub_name</find>
+      <find>orginal_price</find>
+      <find>sub_name_</find>
+      <find>multiple_menu_</find>
+      <find>multipleprice</find>
+      <find>multipleMenu</find>
+      <find>addon_yes</find>
+      <find>getShowAddons</find>
+      <find>ajaxaction</find>
+      <find>getAddons</find>
+      <find>removeAppendAddon</find>
+      <find>subaddons_price</find>
+      <find>singleValidate</find>
+      <find>col-lg-</find>
+      <find>menuAddEditFrom</find>
+      <find>addon-radio</find>
+      <find>Cuisine Manage</find>
+      <find>checkMenu</find>
+      <find>price-option-multiple</find>
+      <find>menuaddons</find>
+      <find>restaurant_id</find>
+      <find>MenuAddons</find>
+      <find>editedId</find>
+      <find>changeStatus</find>
+      <find>$this-&gt;Auth-&gt;user(</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -94,25 +168,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Template/eatadmin/Users/site.ctp" />
-        <option value="$PROJECT_DIR$/src/Controller/eatadmin/RestaurantsController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/eatadmin/UsersController.php" />
-        <option value="$PROJECT_DIR$/src/Template/eatadmin/Users/banners.ctp" />
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/UsersController.php" />
-        <option value="$PROJECT_DIR$/webroot/css/partner/slick.css" />
-        <option value="$PROJECT_DIR$/src/Template/Element/css.ctp" />
-        <option value="$PROJECT_DIR$/webroot/css/slick-theme.css" />
-        <option value="$PROJECT_DIR$/src/Template/Restaurants/index.ctp" />
-        <option value="$PROJECT_DIR$/src/Controller/CustomersController.php" />
-        <option value="$USER_HOME$/AppData/Local/Temp/fz3temp-2/MenusController.php" />
-        <option value="$PROJECT_DIR$/src/Controller/MenusController.php" />
-        <option value="$PROJECT_DIR$/webroot/js/address.js" />
-        <option value="$PROJECT_DIR$/src/Model/Table/CustomersTable.php" />
-        <option value="$PROJECT_DIR$/webroot/js/common.js" />
-        <option value="$PROJECT_DIR$/webroot/js/checkout.js" />
-        <option value="$PROJECT_DIR$/src/Template/Checkouts/ajaxaction.ctp" />
-        <option value="$PROJECT_DIR$/src/Model/Table/OrdersTable.php" />
-        <option value="$PROJECT_DIR$/src/Model/Table/CartsTable.php" />
         <option value="$PROJECT_DIR$/src/Template/Checkouts/index.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Menus/lists.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Myaccount/Orderview.ctp" />
@@ -124,8 +179,6 @@
         <option value="$PROJECT_DIR$/src/Controller/Partners/UsersController.php" />
         <option value="$PROJECT_DIR$/src/Template/Element/partner/header.ctp" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/Template/Element/partner/leftside.ctp" />
-        <option value="$PROJECT_DIR$/src/Template/Partners/Menus/add.ctp" />
         <option value="$PROJECT_DIR$/src/Mobile/RestaurantsController.php" />
         <option value="$PROJECT_DIR$/config/routes.php" />
         <option value="$PROJECT_DIR$/src/Controller/Mobile/RestaurantsController.php" />
@@ -134,8 +187,6 @@
         <option value="$PROJECT_DIR$/src/Controller/RestaurantsController.php" />
         <option value="$PROJECT_DIR$/src/Template/Element/partner/footer.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Element/js.ctp" />
-        <option value="$PROJECT_DIR$/src/Controller/Component/PushNotificationComponent.php" />
-        <option value="$PROJECT_DIR$/src/Controller/CheckoutsController.php" />
         <option value="$PROJECT_DIR$/src/Template/Element/footer.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Element/backend/js.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Element/backend/footer.ctp" />
@@ -144,12 +195,42 @@
         <option value="$PROJECT_DIR$/src/Controller/AppController.php" />
         <option value="$USER_HOME$/Downloads/check.php" />
         <option value="$PROJECT_DIR$/vendor/Mailgun/Mailgun.php" />
+        <option value="$PROJECT_DIR$/src/Template/Checkouts/ajaxaction.ctp" />
+        <option value="$PROJECT_DIR$/webroot/js/checkout.js" />
+        <option value="$PROJECT_DIR$/src/Controller/Partners/CategoryController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/Eatadmin/RestaurantsController.php" />
+        <option value="$PROJECT_DIR$/src/Template/Partners/Menus/ajaxaction.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Partners/Menus/add.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Partners/Menus/index.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Partners/Menus/edit.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/Partners/MenusController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/Eatadmin/OrdersController.php" />
+        <option value="$PROJECT_DIR$/src/Template/Partners/Orders/pending.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/Partners/OrdersController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/Partners/ReportsController.php" />
+        <option value="$PROJECT_DIR$/src/Template/Partners/Reports/index.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Partners/Category/index.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Partners/Addons/index.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Partners/Restaurants/index.ctp" />
+        <option value="$PROJECT_DIR$/src/Template/Element/partner/leftside.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/Partners/AddonsController.php" />
+        <option value="$PROJECT_DIR$/src/Template/Element/partner/js.ctp" />
+        <option value="$PROJECT_DIR$/src/Controller/CheckoutsController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/Component/PushNotificationComponent.php" />
+        <option value="$PROJECT_DIR$/src/Template/Partners/Orders/index.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/UsersController.php" />
       </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
@@ -177,6 +258,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -184,16 +266,21 @@
               <item name="foodnow" type="b2602c69:ProjectViewProjectNode" />
               <item name="foodnow" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="foodnow" type="b2602c69:ProjectViewProjectNode" />
+              <item name="foodnow" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../benzichat" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -248,16 +335,17 @@
       <workItem from="1512317282372" duration="11689000" />
       <workItem from="1512758690157" duration="596000" />
       <workItem from="1512789162304" duration="5110000" />
-      <workItem from="1512826209325" duration="442000" />
+      <workItem from="1512826209325" duration="14248000" />
+      <workItem from="1512882666604" duration="184000" />
+      <workItem from="1512913419643" duration="8055000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196582000" />
+    <option name="totallyTimeSpent" value="218627000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -291,259 +379,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webroot/js/address.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
-          <caret line="89" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="89" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Element/backend/css.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="14" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webroot/backend/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="83" column="1" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="83" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/AddressbooksTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="26" column="2" lean-forward="false" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Eatadmin/CustomersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="114" column="106" lean-forward="false" selection-start-line="105" selection-start-column="12" selection-end-line="114" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/eatadmin/Customers/ajaxaction.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webroot/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6273">
-          <caret line="369" column="33" lean-forward="false" selection-start-line="369" selection-start-column="33" selection-end-line="369" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/eatadmin/Customers/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="61" column="45" lean-forward="false" selection-start-line="61" selection-start-column="45" selection-end-line="61" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/CustomersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="47" column="35" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="47" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/OrdersTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="32" column="37" lean-forward="false" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Table/CartsTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="11" lean-forward="false" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Menus/lists.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="121" column="141" lean-forward="false" selection-start-line="121" selection-start-column="141" selection-end-line="121" selection-end-column="141" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Checkouts/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="216" column="58" lean-forward="false" selection-start-line="216" selection-start-column="58" selection-end-line="216" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Myaccount/orderview.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1394">
-          <caret line="82" column="35" lean-forward="false" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MyaccountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/fz3temp-2/MyaccountController.php" />
-    <entry file="file://$PROJECT_DIR$/src/Template/Myaccount/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="67" column="48" lean-forward="false" selection-start-line="67" selection-start-column="48" selection-end-line="67" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Layout/default.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="31" lean-forward="false" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Component/CommonComponent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="231" column="45" lean-forward="false" selection-start-line="231" selection-start-column="45" selection-end-line="231" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Partners/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="56" column="61" lean-forward="false" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Element/partner/header.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="75" lean-forward="false" selection-start-line="9" selection-start-column="69" selection-end-line="9" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Menus/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="52" column="91" lean-forward="false" selection-start-line="52" selection-start-column="91" selection-end-line="52" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webroot/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="46" column="63" lean-forward="false" selection-start-line="46" selection-start-column="63" selection-end-line="46" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="78" column="49" lean-forward="false" selection-start-line="78" selection-start-column="49" selection-end-line="78" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Category/add.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="41" column="10" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Element/partner/footer.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="30" column="9" lean-forward="false" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Mobile/RestaurantsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="179" column="27" lean-forward="false" selection-start-line="179" selection-start-column="27" selection-end-line="179" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../fooddispatch/vendor/pusher/pusher-php-server/src/Pusher.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Component/FcmNotificationComponent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="20" column="10" lean-forward="true" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/RestaurantsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="61" column="40" lean-forward="false" selection-start-line="61" selection-start-column="40" selection-end-line="61" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Eatadmin/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Element/partner/leftside.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="14" column="148" lean-forward="false" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="159" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/pusher/Pusher.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Component/PushNotificationComponent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Element/header.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Element/js.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Element/backend/js.ctp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -568,13 +403,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Template/Layout/backend.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="61" lean-forward="false" selection-start-line="53" selection-start-column="61" selection-end-line="53" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../simple-php-chat-using-websocket/php-socket.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -589,18 +417,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/CheckoutsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13804">
-          <caret line="823" column="76" lean-forward="false" selection-start-line="823" selection-start-column="76" selection-end-line="823" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/AppController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1734">
           <caret line="115" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -613,21 +433,329 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vendor/Mailgun/Mailgun.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1955">
+        <state relative-caret-position="17">
           <caret line="131" column="20" lean-forward="false" selection-start-line="131" selection-start-column="20" selection-end-line="131" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Checkouts/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="41" column="103" lean-forward="false" selection-start-line="41" selection-start-column="91" selection-end-line="41" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Checkouts/ajaxaction.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="35" lean-forward="true" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/js/checkout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="114" column="36" lean-forward="false" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Partners/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="23" column="44" lean-forward="false" selection-start-line="23" selection-start-column="44" selection-end-line="23" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/backend/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webroot/backend/js/validator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Menus/ajaxaction.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1333">
+          <caret line="32" column="52" lean-forward="false" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/eatadmin/Restaurants/menuadd.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-356">
+          <caret line="280" column="20" lean-forward="false" selection-start-line="280" selection-start-column="12" selection-end-line="280" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../foodnow_15-11-2017/src/Template/eatadmin/Restaurants/ajaxaction.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3772">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/eatadmin/Addons/ajaxaction.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Menus/add.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="175" column="15" lean-forward="false" selection-start-line="175" selection-start-column="15" selection-end-line="175" selection-end-column="15" />
           <folding>
-            <element signature="e#190#231#0#PHP" expanded="true" />
+            <marker date="1512839895924" expanded="true" signature="14980:14986" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Menus/edit.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="468" column="49" lean-forward="false" selection-start-line="468" selection-start-column="49" selection-end-line="468" selection-end-column="49" />
+          <folding>
+            <marker date="1512842934997" expanded="true" signature="20856:20862" ph=" " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/eatadmin/Restaurants/ajaxaction.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1046">
+          <caret line="123" column="0" lean-forward="false" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Partners/MenusController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="291" column="68" lean-forward="false" selection-start-line="291" selection-start-column="68" selection-end-line="291" selection-end-column="68" />
+          <folding>
+            <marker date="1512842988259" expanded="true" signature="13126:13173" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/eatadmin/Restaurants/menuedit.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="32" column="33" lean-forward="false" selection-start-line="27" selection-start-column="28" selection-end-line="32" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Eatadmin/RestaurantsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="835" column="9" lean-forward="false" selection-start-line="799" selection-start-column="8" selection-end-line="835" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../admineat/src/Template/Restaurants/ajaxaction.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3477">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Orders/failed.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Orders/completed.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Orders/processing.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Partners/RestaurantsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="26" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Orders/pending.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="39" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding>
+            <marker date="1512914423408" expanded="true" signature="1968:2086" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Eatadmin/OrdersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2108">
+          <caret line="133" column="5" lean-forward="false" selection-start-line="121" selection-start-column="3" selection-end-line="133" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/eatadmin/Orders/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="115" column="0" lean-forward="false" selection-start-line="115" selection-start-column="0" selection-end-line="138" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Partners/OrdersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="123" column="5" lean-forward="false" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Partners/ReportsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="19" column="45" lean-forward="false" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Reports/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="46" column="36" lean-forward="false" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Category/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Addons/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="35" lean-forward="false" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Menus/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Restaurants/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="47" lean-forward="false" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Partners/AddonsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="190" column="61" lean-forward="false" selection-start-line="190" selection-start-column="61" selection-end-line="190" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Element/js.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Element/partner/js.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Element/partner/leftside.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/CheckoutsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="823" column="107" lean-forward="false" selection-start-line="823" selection-start-column="107" selection-end-line="823" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Component/PushNotificationComponent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Layout/backend.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Template/Partners/Orders/index.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+          <folding>
+            <marker date="1512916128761" expanded="true" signature="1276:1744" ph="{...}" />
+            <marker date="1512916128761" expanded="true" signature="1373:1440" ph="{&quot;cluster&quot;: 'ap2'...}" />
+            <marker date="1512916128761" expanded="true" signature="1587:1714" ph="{...}" />
+            <marker date="1512916128761" expanded="true" signature="1774:1786" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="41" column="10" lean-forward="false" selection-start-line="41" selection-start-column="8" selection-end-line="50" selection-end-column="13" />
-          <folding>
-            <element signature="e#117#138#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="391">
+          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

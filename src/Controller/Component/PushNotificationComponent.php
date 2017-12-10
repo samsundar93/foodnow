@@ -15,7 +15,7 @@ use Cake\Http\Client;
 class PushNotificationComponent extends Component
 {
 
-    public function pushNotification($message) {
+    public function pushNotification($message,$id = null) {
 
         require_once (ROOT . DS . 'vendor'. DS  . 'pusher' . DS . 'pusher-php-server'. DS . 'src' . DS . 'Pusher.php');
         //$pusher = new Pusher('8694af1d082e8c1da2fd', '2b8911e771da4a8e8313', '161814');
@@ -32,6 +32,7 @@ class PushNotificationComponent extends Component
         );
 
         $data['message'] = $message;
+        $data['id'] = $id;
         $pusher->trigger('my-channel', 'my-event', $data);
 
 

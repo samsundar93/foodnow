@@ -821,7 +821,7 @@ class CheckoutsController extends AppController
                             }
                         }
                         $message = 'New Order Placed';
-                        $this->PushNotification->pushNotification($message);
+                        $this->PushNotification->pushNotification($message,$this->request->getData('resId'));
 
 
                         $this->Flash->set(__('Your Order Placed Successful'));
