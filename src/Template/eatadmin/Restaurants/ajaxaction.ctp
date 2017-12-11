@@ -281,7 +281,7 @@ if($action == 'showMap'){
                         <button class="btn btn-icon-toggle" data-original-title="Delete"
                                 data-placement="top" data-toggle="tooltip" type="button"
                                 id="<?php echo $value['id']; ?>"
-                                onclick="return deleteRecord(<?php echo $value['id']; ?>, 'restaurants/deleteMenu', 'Restaurants', '', 'catTable')">
+                                onclick="return deleteRecord(<?php echo $value['id']; ?>, 'restaurants/deleteMenu', 'Menus', '', 'catTable')">
                             <i class="fa fa-trash-o"></i>
                         </button>
                     </td>

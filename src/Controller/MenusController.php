@@ -175,7 +175,11 @@ class MenusController extends AppController
                     'session_id' => $sessionId,
                 ],
                 'contain' => [
-                    'RestaurantMenus'
+                    'RestaurantMenus' => [
+                        'conditions' => [
+                            'RestaurantMenus.delete_status' => 'N'
+                        ]
+                    ]
                 ],
                 'order' => [
                     'Carts.menu_id' => 'ASC'
@@ -204,9 +208,10 @@ class MenusController extends AppController
             }else {
                 $minimumOrder = '0';
             }
+            $minimumOrderAmount = $final[0]['minimum_order'];
 
 
-            $this->set(compact('menuDetails','restaurantDetails','cuisinesList','cartsDetails','cartCount','taxAmount','subTotal','totalAmount','deliveryCharge','final','minimumOrder'));
+            $this->set(compact('menuDetails','restaurantDetails','cuisinesList','cartsDetails','cartCount','taxAmount','subTotal','totalAmount','deliveryCharge','final','minimumOrder','minimumOrderAmount'));
         }else {
             return $this->redirect(BASE_URL);
         }

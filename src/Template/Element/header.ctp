@@ -146,7 +146,7 @@
             <div class="container">
               <div class="col-sm-2 col-xs-12 no-padding-right">
                 <div class="res-image">
-                <img class="img-thumbnail" src="<?php echo BASE_URL ?>/images/res.jpg">
+                <img class="img-thumbnail" src="<?php echo $restaurantDetails['restaurant_logo'] ?>">
                 </div>
               </div>
                <div class="col-sm-6 col-xs-12 p-t-b-15 text-xs-center">
@@ -156,12 +156,12 @@
                   <div class="cart-res-cusine">Cusines: <?php echo $cuisinesList; ?></div>
                   <div class="cart-review-div">
                      <span class="search-review pull-left"><i class="fa fa-star" aria-hidden="true"></i>4.5</span>
-                     <span class="cart-del-time"><span class="search-time">39</span><span class="search-min">Mins</span>
+                     <span class="cart-del-time"><span class="search-time"><?php echo $restaurantDetails['estimate_time'] ?></span><span class="search-min">Mins</span>
                      </span>
                   </div>
                </div>
                <div class="col-sm-4 col-xs-12 text-center">
-                 <div class="min-amount">Minimum amount order is $20</div>
+                 <div class="min-amount">Minimum order amount is $ <?php echo $minimumOrderAmount; ?></div>
                </div>
               
             </div>
