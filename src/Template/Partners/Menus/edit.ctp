@@ -9,7 +9,8 @@
                     </div>
                     <?php echo $this->Form->create('menuAdd',array('name'=>'menuAdd',
                         'id'=>'menuAddForm',
-                        'class'=>'form-horizontal'
+                        'class'=>'form-horizontal',
+                        'enctype' => 'multipart/form-data'
                     ));
                     ?>
                     <?= $this->Form->input('username',[
@@ -110,7 +111,7 @@
                                 <div class="col-sm-8">
                                     <?php if($menuDetails['price_option'] == 'multiple') {
                                         foreach ($menuDetails['menu_details'] as $mkey => $mvalue) { ?>
-                                            <div class="col-sm-5 no-padding-left"><?php
+                                            <div class="col-sm-5 no-padding-left addPriceTop"><?php
                                                 echo $this->Form->input('MenuDetail.sub_name',
                                                     array('class' => 'form-control multipleValidate multipleprice',
                                                         'placeholder' => 'Menu Name',
@@ -136,7 +137,7 @@
                                         <?php }
                                     }else {?>
 
-                                        <div class="col-sm-5 no-padding-left"><?php
+                                        <div class="col-sm-5 no-padding-left addPriceTop"><?php
                                             echo $this->Form->input('MenuDetail.sub_name',
                                                 array('class' => 'form-control multipleValidate multipleprice',
                                                     'placeholder' => 'Menu Name',
@@ -186,11 +187,14 @@
                             <div class="col-sm-4">
                                 <label class="">Image <span class="star"></span></label>
                             </div>
-                            <div class="col-sm-8"><?php
+                            <div class="col-sm-6"><?php
                                 echo $this->Form->input("Menu.menu_image",
                                     array("label"=>false,
                                         "type"=>"file",
                                         "name"=>"menuImage")); ?>
+                            </div>
+                            <div class="col-sm-2">
+                                <img src="<?php echo MENU_LOGO_URL.'/'.$id.'/'.$menuDetails['menu_image'] ?>" alt="No image" class="img-responsive img-rounded" width="50"/>
                             </div>
                         </div>
                         <div class="form-group clearfix">
@@ -200,6 +204,7 @@
                             <div class="col-sm-8"><?php
                                 echo $this->Form->textarea('Menu.menu_description',
                                     array('class'=>'form-control',
+                                        'value' => $menuDetails['menu_description'],
                                         'label'=>false)); ?>
                             </div>
                         </div>
@@ -277,6 +282,8 @@
         var addons           = $.trim($("input[name='menuaddons']:checked").val());
         var menu_image       = $.trim($(".menu-menu-image").html());
 
+        var editedId        = $.trim($("#editedId").val()) ;
+
         // var img = $('#menu-menu-image').html().split('.').pop().toLowerCase();
         //alert(img);
         $('.error').html('');
@@ -315,7 +322,7 @@
             $("#menudetail-orginal-price").focus();
             error = 1;
             return false;
-        }else if(price_option != 'single' && addons == 'Yes') {
+        }else if(price_option != 'single') {
             var menuLength = $('.multipleprice').length;
             $('.multipleprice').each(function () {
                 var id = this.id;
@@ -357,7 +364,7 @@
             $.ajax({
                 type   : 'POST',
                 url    : jsSitePartner+'menus/checkMenu',
-                data   : {id:'', category_id:category_id,menu_name:menu_name},
+                data   : {id:editedId, category_id:category_id,menu_name:menu_name},
                 success: function(data){
                     if($.trim(data) == '1') {
                         $(".menunameErr").addClass('error').html('This menu name already exists');
@@ -389,10 +396,12 @@
     function multipleOption() {
 
         if($("#multiple_menu_"+i).length != 0) {
-            alert('comeee');
+            i++;
+            multipleOption();
+            return false;
         }
 
-        html =  '<div id = "moreProuct'+i+'" class="form-group clearfix">'+
+        html =  '<div id = "moreProuct'+i+'" class="form-group clearfix addPriceTop">'+
             '<label class="col-sm-4 control-label">&nbsp;</label>'+
             '<div class="col-sm-8">'+
             '<div  class="row addPriceTop multipleMenu">'+
@@ -443,7 +452,6 @@
     }
 
     function getAddons(option) {
-        alert('comeee');
         var category_id        = $.trim($("#category_id").val()) ;
         var price_option      = $.trim($("input[name='price_option']:checked").val());
         var editedId        = $.trim($("#editedId").val()) ;
@@ -458,15 +466,15 @@
 
         }else {
             if (option == 'Yes') {
-                var $menuLength = '';
+                var menuLength = '';
                 if (price_option == 'multiple') {
-                    $menuLength = $('.addPriceTop').length;
+                    menuLength = $('.addPriceTop').length;
                 }
 
                 $.ajax({
                     type   : 'POST',
                     url    : jsSitePartner+'menus/ajaxaction',
-                    data   : {'menuId' : editedId,'category_id' : category_id,'price_option' : price_option,'menuLength' : $menuLength,'action' : 'getAddons'},
+                    data   : {'menuId' : editedId,'category_id' : category_id,'price_option' : price_option,'menuLength' : menuLength,'action' : 'getAddons'},
                     success: function(response){
                         if (price_option == 'multiple') {
                             var multipleLength = $('.multipleMenu').length;

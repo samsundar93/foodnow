@@ -156,15 +156,48 @@
                             </div>
                          </div>
                          <div class="form-group clearfix">
-                         <div class="col-sm-4">
-                            <label class="">Description</label>
-                        </div>
+                             <div class="col-sm-4">
+                                <label class="">Description</label>
+                            </div>
                             <div class="col-sm-8"><?php
                                echo $this->Form->textarea('Menu.menu_description',
                                    array('class'=>'form-control',
                                        'label'=>false)); ?>
                             </div>
                         </div>
+                       <div class="form-group clearfix">
+
+                           <div class="col-sm-4">
+                               <label for="name">Popular<span class="help">*</span></label>
+                           </div>
+                           <div class="col-sm-8">
+                               <div class="col-sm-6 no-padding">
+                                   <input type="radio" id="popular_yes" name="popular_dish" value="Yes">
+                                   <label for="popular_yes">Yes</label>
+                               </div>
+                               <div class="col-sm-6 no-padding">
+                                   <input type="radio" id="popular_no" name="popular_dish" value="No" checked>
+                                   <label for="popular_no">No</label>
+                               </div>
+                           </div>
+                       </div>
+
+                       <div class="form-group clearfix">
+
+                           <div class="col-sm-4">
+                               <label for="name">Spicy<span class="help">*</span></label>
+                           </div>
+                           <div class="col-sm-8">
+                               <div class="col-sm-6 no-padding">
+                                   <input type="radio" id="spicy_dish_yes" name="spicy_dish" value="Yes">
+                                   <label for="spicy_dish_yes">Yes</label>
+                               </div>
+                               <div class="col-sm-6 no-padding">
+                                   <input type="radio" id="spicy_dish_no" name="spicy_dish" value="No" checked>
+                                   <label for="spicy_dish_no">No</label>
+                               </div>
+                           </div>
+                       </div>
                    </div>
                </div>
                <div class="col-xs-12 text-center">
@@ -240,7 +273,7 @@
            $("#menudetail-orginal-price").focus();
            error = 1;
             return false;
-       }else if(price_option != 'single' && addons == 'Yes') {
+       }else if(price_option != 'single') {
            var menuLength = $('.multipleprice').length;
             $('.multipleprice').each(function () {
                 var id = this.id;

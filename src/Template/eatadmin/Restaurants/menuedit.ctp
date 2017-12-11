@@ -24,6 +24,7 @@
                         <div class="col-sm-12 col-xs-12">
                             <?php
                             echo $this->Form->create('Product',array('class' =>"form-horizontal",
+                                'id' => 'menuEditForm',
                                 'type'  => 'file')); ?>
                             <?= $this->Form->input('username',[
                                 'type' => 'hidden',
@@ -46,6 +47,7 @@
                                             'empty'   =>'Please Choose Restaurant',
                                             'onchange' => 'return getCategory(this.value)'
                                         ]) ?>
+                                        <label class="restaurantErr"></label>
                                     </div>
                                 </div>
 
@@ -61,7 +63,7 @@
                                             'label' => false,
                                             'empty'   =>'Please Choose Category'
                                         ]) ?>
-                                        <label class="error" id="categoryError"></label>
+                                        <label class="categoryErr"></label>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -71,6 +73,7 @@
                                             array('class' => 'form-control',
                                                 'value'   => isset($menuDetails['menu_name']) ? $menuDetails['menu_name'] :  '',
                                                 'label' => false)); ?>
+                                        <label class="menunameErr" id=""></label>
                                     </div>
                                 </div>
 
@@ -117,6 +120,7 @@
                                                                 'value' => $menuDetails['menu_details'][0]['orginal_price'],
                                                                 'type' => 'text',
                                                                 'label'=>false)); ?>
+                                                        <label class="originalErr"></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -133,9 +137,9 @@
                                                         <div class="row">
                                                             <div class="col-md-6"><?php
                                                                 echo $this->Form->input('MenuDetail.sub_name',
-                                                                    array('class'=>'form-control multipleValidate',
+                                                                    array('class'=>'form-control multipleValidate multipleprice',
                                                                         'placeholder'=>'Menu Name',
-                                                                        'data-attr'=>'product name',
+                                                                        'id' => 'multiple_menu_'.$mkey,
                                                                         'name' => 'data[MenuDetail]['.$mkey.'][sub_name]',
                                                                         'value' => $mvalue['sub_name'],
                                                                         'label'=>false)); ?>
@@ -145,7 +149,7 @@
                                                                     array('class'=>'form-control multipleValidate',
                                                                         'placeholder'=>'Price',
                                                                         'type' => 'text',
-                                                                        'id' => 'ProductDetailOrginalPrice'.$mkey.'',
+                                                                        'id' => 'multiple_menuprice_'.$mkey,
                                                                         'data-attr'=>'original price',
                                                                         'name' => 'data[MenuDetail]['.$mkey.'][orginal_price]',
                                                                         'value' => $mvalue['orginal_price'],
@@ -163,9 +167,9 @@
                                                     <div class="row">
                                                         <div class="col-md-6"><?php
                                                             echo $this->Form->input('MenuDetail.sub_name',
-                                                                array('class'=>'form-control multipleValidate',
+                                                                array('class'=>'form-control multipleValidate multipleprice',
                                                                     'placeholder'=>'Menu Name',
-                                                                    'data-attr'=>'product name',
+                                                                    'id' => 'multiple_menu_0',
                                                                     'name' => 'data[MenuDetail][0][sub_name]',
                                                                     'label'=>false)); ?>
                                                         </div>
@@ -174,7 +178,7 @@
                                                                 array('class'=>'form-control multipleValidate',
                                                                     'placeholder'=>'Price',
                                                                     'type' => 'text',
-                                                                    'id' => 'ProductDetailOrginalPrice0',
+                                                                    'id' => 'multiple_menuprice_0',
                                                                     'data-attr'=>'original price',
                                                                     'name' => 'data[MenuDetail][0][orginal_price]',
                                                                     'label'=>false)); ?>
@@ -209,6 +213,9 @@
                                                 "type"=>"file",
                                                 "name"=>"menuImage")); ?>
                                     </div>
+                                    <div class="col-sm-2">
+                                        <img src="<?php echo MENU_LOGO_URL.'/'.$id.'/'.$menuDetails['menu_image'] ?>" alt="No image" class="img-responsive img-rounded" width="50"/>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-md-3 control-label">Description</label>
@@ -224,11 +231,11 @@
                                     <div class="col-md-6 col-lg-4">
                                         <div class="radio-list">
                                             <label class="radio-inline">
-                                                <input type="radio" id="menuaddons" name="popular_dish" value="Yes" <?php echo ($menuDetails['popular_dish'] == 'Yes') ? 'checked' : ''; ?>> Yes
+                                                <input type="radio" id="popular_dish" name="popular_dish" value="Yes" <?php echo ($menuDetails['popular_dish'] == 'Yes') ? 'checked' : ''; ?>> Yes
                                             </label>
                                             <label class="radio-inline">
 
-                                                <input type="radio" id="menuaddons" name="popular_dish" value="No" <?php echo ($menuDetails['popular_dish'] == 'No') ? 'checked' : ''; ?>> No
+                                                <input type="radio" id="popular_dish" name="popular_dish" value="No" <?php echo ($menuDetails['popular_dish'] == 'No') ? 'checked' : ''; ?>> No
                                             </label>
                                         </div>
                                     </div>
@@ -238,23 +245,19 @@
                                     <div class="col-md-6 col-lg-4">
                                         <div class="radio-list">
                                             <label class="radio-inline">
-                                                <input type="radio" id="menuaddons" name="spicy_dish" value="Yes" <?php echo ($menuDetails['spicy_dish'] == 'Yes') ? 'checked' : ''; ?>> Yes
+                                                <input type="radio" id="spicy_dish" name="spicy_dish" value="Yes" <?php echo ($menuDetails['spicy_dish'] == 'Yes') ? 'checked' : ''; ?>> Yes
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" id="menuaddons" name="spicy_dish" value="No" <?php echo ($menuDetails['spicy_dish'] == 'No') ? 'checked' : ''; ?>> No
+                                                <input type="radio" id="spicy_dish" name="spicy_dish" value="No" <?php echo ($menuDetails['spicy_dish'] == 'No') ? 'checked' : ''; ?>> No
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-actions">
                                     <div class="row">
-                                        <div class="col-md-offset-3 col-md-9"><?php
-                                            echo $this->Form->button(__('<i class="fa fa-check"></i>Save'),
-                                                array('class'=>'btn purple',
-                                                    'onclick'=>'return optionValidate();')); ?> <?php
-                                            echo $this->Html->link('Cancel',
-                                                array('action' => 'index'),
-                                                array('Class'=>'btn default')); ?>
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button class="btn btn-submit" type="button" onclick=" return menuAddEdit();">Save</button>
+                                            <a class="btn btn-cancel" href="<?php echo ADMIN_BASE_URL ?>restaurants/menu"> Cancel</a>
                                         </div>
                                     </div>
                                 </div>
@@ -272,6 +275,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var option      = $.trim($("input[name='menuaddons']:checked").val());
+
         getAddons(option);
         $("#price-option-multiple").click(function () {
             $("#singlePrice").css('display','none');
@@ -285,65 +289,101 @@
     });
     function menuAddEdit(){
 
-        var restaurant_id        = $.trim($("#restaurant_id").val()) ;
-        var category_id        = $.trim($("#category_id").val()) ;
-        var menu_name        = $.trim($("#menu_name").val()) ;
-        var editedId         = $.trim($("#editedId").val()) ;
+        var error = 0;
+        var restaurant_id      = $.trim($("#restaurant_id").val()) ;
+        var category_id      = $.trim($("#category_id").val()) ;
+        var menu_name        = $.trim($("#menu-menu-name").val()) ;
 
-        var menu_type      = $.trim($("input[name='menu_type']:checked").val());
-        var price_option      = $.trim($("input[name='price_option']:checked").val());
-        var menu_image        = $.trim($(".menu_image").html());
-        var img = $('.menu_image').html().split('.').pop().toLowerCase();
+        var originalPrice    = $.trim($("#menudetail-orginal-price").val());
+        var menu_type        = $.trim($("input[name='menu_type']:checked").val());
+        var price_option     = $.trim($("input[name='price_option']:checked").val());
+        var addons           = $.trim($("input[name='menuaddons']:checked").val());
+        var menu_image       = $.trim($(".menu-menu-image").html());
 
+        // var img = $('#menu-menu-image').html().split('.').pop().toLowerCase();
+        //alert(img);
         $('.error').html('');
 
+
+
         if(restaurant_id == ''){
-            $(".restaurantErr").addClass('error').html('Please choose restaurant');
+            $(".restaurantErr").addClass('error').html('Please enter select restaurant');
             $("#restaurant_id").focus();
+            error = 1;
             return false;
 
         }else if(category_id == ''){
             $(".categoryErr").addClass('error').html('Please enter the category name');
             $("#category_id").focus();
+            error = 1;
             return false;
 
         }else if(menu_name == ''){
             $(".menunameErr").addClass('error').html('Please enter the Menu Name');
-            $("#menu_name").focus();
+            $("#menu-menu-name").focus();
+            error = 1;
             return false;
 
         }else if(menu_type == ''){
             $(".menutypeErr").addClass('error').html('Please choose menu type');
             $("#menu_type").focus();
+            error = 1;
             return false;
 
-        }else if(price_option == ''){
+        }
+
+        if(price_option == ''){
             $(".categoryErr").addClass('error').html('Please choose price option');
             $("#menupriceErr").focus();
+            error = 1;
             return false;
 
-        }else if(menu_image == ''){
-            $(".imageErr").addClass('error').html('Please select Menu Image');
-            $(".menu_image").focus();
+        }
+        if(price_option != '' && price_option == 'single' && originalPrice == '' ) {
+            $(".originalErr").addClass('error').html('Please enter the amount');
+            $("#menudetail-orginal-price").focus();
+            error = 1;
             return false;
+        }else if(price_option != 'single') {
 
-        }else if(menu_image != '' && $.inArray(img, ['gif','png','jpg','jpeg']) == -1){
-            $(".imageErr").addClass('error').html("Please Select the Valid Image Type");
-            $(".menu_image").focus();
-            return false;
+            var menuLength = $('.multipleprice').length;
+            $('.multipleprice').each(function () {
+                var id = this.id;
+                var key = id.split('_');
+                if($("#"+id).val() == '') {
+                    $('.commonErr').addClass('error').html('Please enter the name');
+                    $("#"+id).focus();
+                    return false
+                }else if($("#multiple_menuprice_"+key[2]).val() == '') {
+                    $('.commonErr').addClass('error').html('Please enter the amount');
+                    $("#multiple_menuprice_"+key[2]).focus();
+                    return false
+                }else {
+                    menuLength--;
+                    if(menuLength == 0) {
+                        error = 0;
+                    }
 
-        }else{
+                }
+            });
+        }else {
+            var menuLength = 0;
+            error = 0;
+        }
+
+
+        if(error == 0 && menuLength == 0){
             $.ajax({
                 type   : 'POST',
                 url    : baseUrl+'restaurants/checkMenu',
-                data   : {id:editedId, category_id:category_id,restaurant_id:restaurant_id,menu_name:menu_name},
+                data   : {id:'', category_id:category_id,menu_name:menu_name},
                 success: function(data){
                     if($.trim(data) == '1') {
-                        $(".nameErr").addClass('error').html('This menu name already exists');
-                        $("#menu_name").focus();
+                        $(".menunameErr").addClass('error').html('This menu name already exists');
+                        $("#menu-menu-name").focus();
                         return false;
                     }else {
-                        $("#menuAddEditFrom").submit();
+                        $("#menuEditForm").submit();
                     }
 
                 }
@@ -373,17 +413,17 @@
             return false;
         }
 
-        html =  '<div id = "moreProuct'+i+'" class="row addPriceTop multipleMenu">'+
+        html =  '<div id = "moreProuct'+i+'" class="row addPriceTop multipleMenu addPriceTop">'+
             '<div class="col-lg-7">'+
             '<div class="row">'+
             '<div class="col-md-6">'+
             '<div class="input text">'+
-            '<input type="text" id="ProductDetailSubName" data-attr="product name" maxlength="100" placeholder="Menu Name" class="form-control multipleValidate" name="data[MenuDetail][' + i + '][sub_name]">'+
+            '<input type="text" id="multiple_menu_'+i+'" data-attr="product name" maxlength="100" placeholder="Menu Name" class="form-control multipleValidate" name="data[MenuDetail][' + i + '][sub_name]">'+
             '</div>'+
             '</div>'+
             '<div class="col-md-3">'+
             '<div class="input number">'+
-            '<input type="text" id="ProductDetailOrginalPrice'+i+'" data-attr="original price" step="any" placeholder="Price" class="form-control multipleValidate" name="data[MenuDetail][' + i + '][orginal_price]">'+
+            '<input type="text" id="multiple_menuprice_'+i+'" data-attr="original price" step="any" placeholder="Price" class="form-control multipleValidate" name="data[MenuDetail][' + i + '][orginal_price]">'+
             '</div>'+
             '</div>'+
             '<span class="ItemRemove" onclick="removeOption('+i+');"><i class="fa fa-times"></i></span>'+
@@ -419,6 +459,7 @@
     }
 
     function getAddons(option) {
+
         var category_id        = $.trim($("#category_id").val()) ;
         var editedId        = $.trim($("#editedId").val()) ;
         var price_option      = $.trim($("input[name='price_option']:checked").val());
@@ -434,15 +475,15 @@
 
         }else {
             if (option == 'Yes') {
-                var $menuLength = '';
+                var menuLength = '';
                 if (price_option == 'multiple') {
-                    $menuLength = $('.addPriceTop').length;
+                    menuLength = $('.addPriceTop').length;
                 }
 
                 $.ajax({
                     type   : 'POST',
                     url    : baseUrl+'restaurants/ajaxaction',
-                    data   : {'menuId' : editedId,'restaurant_id' : restaurant_id,'category_id' : category_id,'price_option' : price_option,'menuLength' : $menuLength,'action' : 'getAddons'},
+                    data   : {'menuId' : editedId,'restaurant_id' : restaurant_id,'category_id' : category_id,'price_option' : price_option,'menuLength' : menuLength,'action' : 'getAddons'},
                     success: function(response){
                         if (price_option == 'multiple') {
                             var multipleLength = $('.multipleMenu').length;

@@ -25,8 +25,8 @@
     <div class="sidemenu-title">Orders</div>
 
     <ul class="side-menu">
-        <li class="<?php echo ($controller == 'Restaurants' && $action == 'index') ? 'buyer-active' : '' ?>"><a href="<?php echo PARTNER_BASE_URL ?>orders">Orders</a></li>
-        <li class="<?php echo ($controller == 'Menus') ? 'buyer-active' : '' ?>"><a href="<?php echo PARTNER_BASE_URL ?>reports">Reports</a></li>
+        <li class="<?php echo ($controller == 'Orders') ? 'buyer-active' : '' ?>"><a href="<?php echo PARTNER_BASE_URL ?>orders">Orders</a></li>
+        <li class="<?php echo ($controller == 'Reports') ? 'buyer-active' : '' ?>"><a href="<?php echo PARTNER_BASE_URL ?>reports">Reports</a></li>
 
     </ul>
 
