@@ -10,7 +10,6 @@ use Cake\Event\Event;
 use App\Controller\AppController;
 use Cake\I18n\Time;
 use Cake\ORM\Table;
-use Excel\Controller\ExcelReaderController;
 
 class UsersController extends AppController
 {
