@@ -20,7 +20,7 @@
                 <div class="header-title">Order from restaurants near you</div>
                 <div class="col-sm-8 col-sm-offset-2">
                     <div class="col-sm-8 no-padding banner-input">
-                        <input autocomplete="off" id="searchLocation" type="text" class="form-control my-form-control" placeholder="Eg: Anna Nagar, Chennai, Tamil Nadu">
+                        <input autocomplete="off" id="searchLocation" type="text" class="form-control my-form-control" placeholder="Enter Your Location">
                         <i class="fa fa-search" aria-hidden="true"></i>
                         <?= $this->Form->input('enterSearch',[
                             'type' => 'hidden',
