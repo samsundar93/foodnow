@@ -1,6 +1,6 @@
 <section class="cartpage-sec">
     <div class="container">
-        <div class="col-sm-2 no-padding-right">
+        <div class="col-sm-2 col-xs-12 no-padding-right no-xs-padding">
             <div class="sidebar">
                 <div class="cart-menu-box" id="myScrollspy">
                     <div class="cart-menu-box-title active">Menu</div>
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-xs-12 no-xs-padding">
             <div class="cart-dish-box">
                 <?php if(!empty($menuDetails)) {
                     $catId = '';
@@ -37,13 +37,13 @@
                                 <section id="food_<?php echo $value['id']; ?>">
                                     <div class="dishbox-item-row">
                                         <div class="border-bottom-1">
-                                            <div class="col-sm-7 item-name">
+                                            <div class="col-sm-7 col-xs-5 no-xs-padding-left item-name">
                                                 <span class="vegimage">
                                                     <img src="<?php echo BASE_URL ?>images/<?php echo ($mvalue['menu_type'] == 'veg') ? 'veg.png' : 'nonveg.jpg' ?> ">
                                                 </span>
                                                 <?php echo $mvalue['menu_name'] ?>
                                             </div>
-                                            <div class="col-sm-3">
+                                            <div class="col-sm-3 col-xs-5">
                                                 <span class="minus-icon">
                                                 <a><i class="fa fa-minus" onclick="addCart('<?php echo $mvalue['id'] ?>','remove')"></i></a></span>
                                                 <?php
@@ -71,7 +71,7 @@
                                                 </a>
                                                 </span>
                                             </div>
-                                            <div class="col-sm-2 text-right">
+                                            <div class="col-sm-2 col-xs-2 text-right">
                                                 <span class="final-price">$<?php echo $mvalue['menu_details'][0]['orginal_price'] ?></span>
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@
                 } ?>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 col-xs-12 no-xs-padding">
             <div class="cart-scrolladd-box">
                 <input id="minimum_order" type="hidden" value="<?php echo $minimumOrder; ?>">
                 <div class="cart-add-box">
@@ -97,10 +97,10 @@
                                 <div class="cart-add-box-menu-sec">
                                     <?php foreach ($cartsDetails as $key => $value) { ?>
                                         <div class="cart-add-box-menu">
-                                            <div class="col-sm-6 no-padding">
+                                            <div class="col-sm-6 col-xs-5 no-xs-padding-left no-padding">
                                                 <span><?php echo $value['restaurant_menu']['menu_name'] ?></span>
                                             </div>
-                                            <div class="col-sm-4 no-padding text-center">
+                                            <div class="col-sm-4 col-xs-5 no-padding text-center">
                                                 <span class="minus-icon">
                                                     <a><i class="fa fa-minus" onclick="addCart('<?php echo $value['menu_id'] ?>','remove')"></i></a>
                                                 </span>
@@ -111,7 +111,7 @@
                                                     <a><i class="fa fa-plus" onclick="addCart('<?php echo $value['menu_id'] ?>','add')"></i></a>
                                                 </span>
                                             </div>
-                                            <div class="col-sm-2 no-padding text-right">
+                                            <div class="col-sm-2 col-xs-2 no-padding text-right">
                                                 <span class="final-price">$<?php echo number_format($value['price'],2) ?></span>
                                             </div>
                                         </div>
@@ -128,7 +128,9 @@
                                 <div class=""><span class="pull-left">Total Pay</span><span class="pull-right">$ <?php echo number_format($totalAmount,2) ?></span></div>
                             </div>
                         <?php }else { ?>
+                        <div class="text-center">
                             Your Cart Empty
+                         </div>   
                         <?php } ?>
 
                     </div>
@@ -168,6 +170,14 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div  class="cart-icon visible-xs">
+        <a href="#cartDetails" rel="m_PageScroll2id">
+            <div class="cart-icon-img">
+                <img src="<?php echo BASE_URL ?>/images/cart.png">
+                <div class="cart-icon-count">10</div>
+            </div>
+        </a>
     </div>
 </section>
 

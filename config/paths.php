@@ -119,11 +119,8 @@ define('SITESETTINGS_LOGO_URL', BASE_URL."webroot/images/");
 define('CATEGORY_LOGO_PATH', WWW_ROOT."images/category");
 define('CATEGORY_LOGO_URL', BASE_URL."images/category");
 
-define('RESTAURANTMENU_IMAGE_PATH', WWW_ROOT."images/menu");
-define('RESTAURANTMENU_IMAGE_URL', BASE_URL."images/menu");
-
-define('ITEM_LOGO_PATH', WWW_ROOT."images/item");
-define('ITEM_LOGO_URL', BASE_URL."images/item");
+define('MENU_LOGO_PATH', WWW_ROOT."images/menu");
+define('MENU_LOGO_URL', BASE_URL."images/menu");
 
 
 define('PROFILE_PATH', WWW_ROOT."images/profile");

@@ -45,5 +45,25 @@
     ?>
 
     <?= $this->element('backend/js') ?>
+    <script>
+        $(document).ready(function () {
+
+            // Enable pusher logging - don't include this in production
+            Pusher.logToConsole = true;
+
+            var pusher = new Pusher('7f51f4507b4bb821abc5', {
+                cluster: 'ap2',
+                encrypted: true
+            });
+
+            var channel = pusher.subscribe('my-channel');
+            channel.bind('my-event', function(data) {
+                alert(data.message);
+            });
+
+        })
+
+
+    </script>
 </body>
 </html>

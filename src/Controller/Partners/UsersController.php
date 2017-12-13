@@ -61,6 +61,12 @@ class UsersController extends AppController
                 return $this->redirect(PARTNER_BASE_URL.'users/changepassword');
             }
         }
+    }
 
+    public function logout() {
+
+        $this->Auth->logout();
+        $this->Flash->success(__('Logout successful.'));
+        return $this->redirect(PARTNER_BASE_URL);
     }
 }

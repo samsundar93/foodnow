@@ -9,11 +9,11 @@
       <div class="item_head">
          Restaurant: <?php echo $restaurantDetails['restaurant_name']; ?>
       </div>
-      <div class="col-sm-8 checkouts">
+      <div class="col-sm-8 col-xs-12 checkouts no-xs-padding">
          <div class="item_list2">
             <div class="accordian">
                <div class="addressinformation accordian_head active_check">
-                  <div class="col-sm-1 col-xs-12">
+                  <div class="col-sm-1 col-xs-3">
                      <div class="checkouts_round">1</div>
                   </div>
                   <div class="col-sm-8 col-xs-9 no-padding mobile_headbar">Delivery Details<br><span>Address, order notes & coupons</span></div>
@@ -33,12 +33,12 @@
                                <div class="col-sm-12 address-choose-div no-padding-left">
                                    <input type="radio" id="home_address" name="checkout_address" value="<?php echo $addressBookLists[0]['id']; ?>" >
                                    <label for="home_address">
-                                       <div class="col-sm-1">
+                                       <div class="col-sm-1 hidden-xs">
                                            <div class="address-icon">
                                                <i class="fa fa-address-card-o"></i>
                                            </div>
                                        </div>
-                                       <div class="col-sm-10">
+                                       <div class="col-sm-10 col-xs-10 ">
                                            <div class="clearfix accordian_address_box" id="selectPickup">
                                                <div class="">
                                                    <input id="selectedAddress" name="selectedAddress" type="radio" value="<?php echo $addressBookLists[0]['id']; ?>">
@@ -51,7 +51,7 @@
                                                </div>
                                            </div>
                                        </div>
-                                       <div class="col-sm-1 no-padding">
+                                       <div class="col-sm-1 col-xs-2 no-xs-padding no-padding">
                                            <div class="address-right"></div>
                                        </div>
                                    </label>
@@ -69,18 +69,20 @@
                        </div>
                    </div>
                    <div class="date-time">
-                       <div class="col-sm-6 no-padding-left">
-                           <label class="col-sm-5 no-padding"><span id="orderTypeDate">Delivery</span> Date</label>
-                           <div class="col-sm-7 no-padding">
+                       <div class="col-sm-6 col-xs-12 no-padding-left no-xs-padding">
+                           <label class="col-sm-5 col-xs-12 no-padding no-xs-padding"><span id="orderTypeDate">Delivery</span> Date</label>
+                           <div class="col-sm-7 col-xs-12 no-padding no-xs-padding">
                                <input type="text" name="delivery_date" class="form-control" id="delivery_date">
                            </div>
                        </div>
-                       <div class="col-sm-6 no-padding-right">
-                           <label class="col-sm-5 no-padding"><span id="orderTypeTime">Delivery</span> Time</label>
-                           <div class="col-sm-7 no-padding" id="timeLists">
-                               <input type="text" name="deliveryTime" readonly class="form-control" id="deliveryTime" value="<?php echo (empty($array_of_time)) ? 'Closed' : ''; ?>">
-                           </div>
-                       </div>
+                       <div class="col-sm-6 col-xs-12 no-padding-right no-xs-padding">
+                           <label class="col-sm-5  no-padding no-xs-padding"><span id="orderTypeTime">Delivery</span> Time</label>
+                         <div class="col-sm-6 col-xs-12 no-padding-right no-xs-padding">
+                             <div class="col-sm-7  no-padding no-xs-padding" id="timeLists">
+                                 <input type="text" name="deliveryTime" readonly class="form-control" id="deliveryTime" value="<?php echo (empty($array_of_time)) ? 'Closed' : ''; ?>">
+                             </div>
+                         </div>
+                      </div>   
                    </div>
                    
                   <div class="order_notes">
@@ -97,10 +99,10 @@
             <input type="hidden" name="res-sp-payed" id='res-sp-payed' value="">
             <div class="accordian">
                <div class="accordian_head">
-                  <div class="col-sm-1 col-xs-12">
+                  <div class="col-sm-1 col-xs-3">
                      <div class="checkouts_round">2</div>
                   </div>
-                  <div class="col-sm-11 col-xs-12 no-padding mobile_headbar">Payment Details<br><span>How do you wish to pay?</span></div>
+                  <div class="col-sm-11 col-xs-9 no-padding mobile_headbar">Payment Details<br><span>How do you wish to pay?</span></div>
                </div>
                <div class="accordian_cont" id="paymentDetails" style="display:none;" >
                   <div classs="accordian_cont2">
@@ -186,15 +188,15 @@
             </div>
          </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-4 col-xs-12 no-xs-padding">
          <div class="cart-scrolladd-box m-b-20">
             <div class="cart-add-box-checkout cart-add-box-checkout-page">
                 <div class="pickup-door text-center">
-                    <div class="col-sm-4 col-sm-offset-2 no-padding  pick-cus">
+                    <div class="col-sm-4 col-sm-offset-2 col-xs-6 no-padding  pick-cus">
                         <input type="radio" id="pickradio" name="order_type" value="pickup" onclick="return orderType('pickup');">
                         <label for="pickradio">Pickup</label>
                     </div>
-                    <div class="col-sm-4 no-padding pick-cus">
+                    <div class="col-sm-4 col-xs-6 no-padding pick-cus">
                         <input type="radio" id="delvradio" name="order_type" value="delivery" checked onclick="return orderType('delivery');">
                         <label for="delvradio">Delivery</label>
                     </div>

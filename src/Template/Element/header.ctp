@@ -2,7 +2,7 @@
     <header class="header">
         <div class="container">
             <div class="header-menu">
-                <a class="logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
+                <a class="logo" href="<?php echo BASE_URL ?>"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
 
                 <span id="menu-icon">
                 <span class="pull-right visible-xs menubar" onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></span></span>
@@ -118,9 +118,11 @@
     <header class="search-header">
          <div class="breadcrump">
             <div class="container">
-               <div class="col-sm-6">Download Our app</div>
-               <div class="col-sm-6 pull-right text-right">
-                  <ul class="search-header-ul">
+               <div class="col-sm-6 col-xs-8 padding-5">Download Our app</div>
+               <div class="col-sm-6 col-xs-4 pull-right text-right">
+                  <span id="menu-icon">
+                <span class="pull-right visible-xs menubar second-menubar" onclick="otheropenNav()"><i class="fa fa-bars" aria-hidden="true"></i></span></span>
+                  <ul class="search-header-ul hidden-xs">
                      <li><a href="">Help & Support</a></li>
                       <?php if(isset($logginUser) && empty($logginUser)) { ?>
                           <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
@@ -135,35 +137,45 @@
          </div>
          <div class="cartpage-search">
             <div class="container">
-               <div class="col-sm-2">
+               <div class="col-sm-2 col-xs-12">
                   <a href="<?php echo BASE_URL ?>" class="search-logo"><img src="<?php echo BASE_URL ?>/images/logo.png"></a>
                </div>
             </div>
          </div>
          <section class="restaurant-head-sec">
             <div class="container">
-              <div class="col-sm-2 no-padding-right">
+              <div class="col-sm-2 col-xs-12 no-padding-right">
                 <div class="res-image">
-                <img class="img-thumbnail" src="<?php echo BASE_URL ?>/images/res.jpg">
+                <img class="img-thumbnail" src="<?php echo $restaurantDetails['restaurant_logo'] ?>">
                 </div>
               </div>
-               <div class="col-sm-6 p-t-b-15">
+               <div class="col-sm-6 col-xs-12 p-t-b-15 text-xs-center">
                   <div class="cart-res-name">
                       <?php echo $restaurantDetails['restaurant_name'] ?>
                   </div>
                   <div class="cart-res-cusine">Cusines: <?php echo $cuisinesList; ?></div>
                   <div class="cart-review-div">
                      <span class="search-review pull-left"><i class="fa fa-star" aria-hidden="true"></i>4.5</span>
-                     <span class="cart-del-time"><span class="search-time">39</span><span class="search-min">Mins</span>
+                     <span class="cart-del-time"><span class="search-time"><?php echo $restaurantDetails['estimate_time'] ?></span><span class="search-min">Mins</span>
                      </span>
                   </div>
                </div>
-               <div class="col-sm-4 text-center">
-                 <div class="min-amount">Minimum amount order is $20</div>
+               <div class="col-sm-4 col-xs-12 text-center">
+                 <div class="min-amount">Minimum order amount is $ <?php echo $minimumOrderAmount; ?></div>
                </div>
               
             </div>
          </section>
+         <ul id="second-mobilemenu" class="visible-xs">
+                     <li><a href="">Help & Support</a></li>
+                      <?php if(isset($logginUser) && empty($logginUser)) { ?>
+                          <li><a href="" data-toggle="modal" data-target="#login_popup" class="" >Login</a></li>
+                          <li><a href="" data-toggle="modal" data-target="#signup_popup" class="">Signup</a></li>
+                      <?php }else { ?>
+                          <li><a href="<?php echo BASE_URL ?>myaccount" class="" >Welcome <?php echo $this->request->session()->read('customername')  ?></a></li>
+                          <li><a href="<?php echo BASE_URL ?>/users/logout" class="">Logout</a></li>
+                      <?php } ?>
+                  </ul>
       </header>
 <?php } ?>
 

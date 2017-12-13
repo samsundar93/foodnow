@@ -2,43 +2,33 @@
 /**
  * Created by PhpStorm.
  * User: Sundar
- * Date: 9/29/2017
- * Time: 10:53 PM
+ * Date: 12/10/2017
+ * Time: 7:18 PM
  */
-namespace App\Controller\Eatadmin;
+namespace App\Controller\Partners;
 use Cake\Event\Event;
 use App\Controller\AppController;
-use Cake\I18n\Time;
-use Cake\ORM\Table;
-use Excel\Controller\ExcelReaderController;
+
 
 class OrdersController extends AppController
 {
     public function initialize()
     {
         parent::initialize();
-        $this->viewBuilder()->layout('backend');
+        $this->viewBuilder()->layout('partner');
 
+        $this->loadModel('Mainaddons');
+        $this->loadModel('Subaddons');
+        $this->loadModel('Categories');
+        $this->loadModel('Restaurants');
         $this->loadModel('Users');
-        $this->loadModel('Sitesettings');
-        $this->loadModel('Timezones');
+        $this->loadModel('Orders');
     }
 
     public function index() {
 
     }
 
-    public function orderview($id = null) {
-
-    }
-
-    public function ajaxaction() {
-
-    }
-
-    public function report() {
-
-    }
 
     public function getOrderDetails() {
 
@@ -98,9 +88,9 @@ class OrdersController extends AppController
                 $field = 'status';
                 $Response['data'][$key]['Id']                = $key+1;
                 $Response['data'][$key]['Order ID']              = "<a href='".ADMIN_BASE_URL."orders/view/".$value['id']."' >".$value['order_number']."</a>";
-                $Response['data'][$key]['Customer Name']         = $value['customer_name'];
+                $Response['data'][$key]['Customer Name']        = $value['customer_name'];
                 $Response['data'][$key]['Restaurant Name']      = $value['restaurant']['restaurant_name'];
-                $Response['data'][$key]['Delivery Date']      = date('Y-m-d h:i A', strtotime($value['delivery_date']));
+                $Response['data'][$key]['Delivery Date']        =$value['delivery_date'];
                 //$Response['data'][$key]['Order Date']      = $value['created'];
                 if($value['status'] == 'Pending') {
                     $Response['data'][$key]['Status']            = "<select id='currentStatus_".$value['id']."' onchange='changeOrderStatus(".$value['id'].");'><option value='pending'>Pending</option><option value='Accept'>Accept</option><option value='Failed'>Reject</option></select> ";
@@ -132,5 +122,4 @@ class OrdersController extends AppController
             echo '0';die();
         }
     }
-
 }

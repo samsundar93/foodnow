@@ -81,7 +81,7 @@ class AddonsController extends AppController
         $conditions = [
             'delete_status' => 'N',
             'status' => '1',
-            'restaurant_id' => $this->Auth->user('id')
+            'restaurant_id' => $this->Auth->user('user_id')
         ];
 
         $categoryList = $this->Categories->find('list', [
@@ -100,12 +100,12 @@ class AddonsController extends AppController
 
             $addons = $this->Mainaddons->newEntity();
             $addonsPatch = $this->Mainaddons->patchEntity($addons,$this->request->getData());
-            $addonsPatch->restaurant_id = $this->Auth->user('id');
+            $addonsPatch->restaurant_id = $this->Auth->user('user_id');
             $addonsPatch->id = $this->request->getData('editedId');
             $addonsSave = $this->Mainaddons->save($addonsPatch);
             if($addonsSave) {
                 $this->Subaddons->deleteAll([
-                    'restaurant_id' => $this->Auth->user('id'),
+                    'restaurant_id' => $this->Auth->user('user_id'),
                     'mainaddons_id' => $addonsSave->id,
                 ]);
 
@@ -113,7 +113,7 @@ class AddonsController extends AppController
                     $addons = $this->Subaddons->newEntity();
                     $addonsPatch = $this->Subaddons->patchEntity($addons,$value);
                     $addonsPatch->mainaddons_id = $addonsSave->id;
-                    $addonsPatch->restaurant_id = $this->Auth->user('id');
+                    $addonsPatch->restaurant_id = $this->Auth->user('user_id');
                     $addonsPatch->category_id = $this->request->getData('category_id');
                     $subaddonsSave = $this->Subaddons->save($addonsPatch);
                 }
@@ -128,7 +128,7 @@ class AddonsController extends AppController
         $conditions = [
             'delete_status' => 'N',
             'status' => '1',
-            'restaurant_id' => $this->Auth->user('id')
+            'restaurant_id' => $this->Auth->user('user_id')
         ];
 
         $categoryList = $this->Categories->find('list', [
@@ -140,7 +140,7 @@ class AddonsController extends AppController
         $addonsList = $this->Mainaddons->find('all', [
             'conditions' => [
                 'Mainaddons.id' => $id,
-                'Mainaddons.restaurant_id' => $this->Auth->user('id')
+                'Mainaddons.restaurant_id' => $this->Auth->user('user_id')
             ],
             'contain' => [
                 'Restaurants' => [
@@ -182,13 +182,13 @@ class AddonsController extends AppController
             $conditions = [
                 'id != ' => $this->request->getData('id'),
                 'category_id' => $this->request->getData('category_id'),
-                'restaurant_id' => $this->Auth->user('id'),
+                'restaurant_id' => $this->Auth->user('user_id'),
                 'mainaddons_name' => $this->request->getData('mainaddons_name'),
             ];
         }else {
             $conditions = [
                 'category_id' => $this->request->getData('category_id'),
-                'restaurant_id' => $this->Auth->user('id'),
+                'restaurant_id' => $this->Auth->user('user_id'),
                 'mainaddons_name' => $this->request->getData('mainaddons_name'),
             ];
 

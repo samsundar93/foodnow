@@ -127,22 +127,7 @@ class RestaurantsController extends AppController
                 require_once(ROOT . DS . 'vendor' . DS . 'Cloudinary' . DS . 'Uploader.php');
                 require_once(ROOT . DS . 'vendor' . DS . 'Cloudinary' . DS . 'Api.php');
 
-                /*$valid     = getimagesize($_FILES['restaurantlogo']['tmp_name']);
-                $filePart  = pathinfo($this->request->getData('restaurantlogo')['name']);
-                $logo      = ['jpg','jpeg','gif','png'];
 
-                if( $this->request->getData('restaurantlogo')['error'] == 0 &&
-                    ($this->request->getData('restaurantlogo')['size'] > 0 ) &&
-                    in_array(strtolower($filePart['extension']),$logo) && !empty($valid) ) {
-
-                    $img_path       = RESTAURANT_LOGO_PATH;
-                    if(isset($restaurantDetails['restaurant_logo']) && !empty($restaurantDetails['restaurant_logo'])
-                        && file_exists(RESTAURANT_LOGO_PATH.'/'.$restaurantDetails['restaurant_logo']))
-                        $this->Common->unlinkFile($restaurantDetails['restaurant_logo'], $img_path);
-                    $image_detail   = $this->Common->UploadFile($this->request->getData('restaurantlogo'), $img_path);
-                    $restaurant_logo  = $image_detail['refName'];
-
-                }*/
                 $restaurantName = $this->seoUrl($this->request->getData('restaurant_name'));
 
                 \Cloudinary::config(array(
@@ -357,7 +342,11 @@ class RestaurantsController extends AppController
                     'Mainaddons.status' => '1'
                 ],
                 'contain' => [
-                    'Subaddons'
+                    'Subaddons' => [
+                        'conditions' => [
+                            'Subaddons.restaurant_id' => $this->request->getData('restaurant_id')
+                        ]
+                    ]
                 ]
             ])->hydrate(false)->toArray();
 
@@ -414,7 +403,26 @@ class RestaurantsController extends AppController
         }
     }
 
-    public function menu() {
+    public function deleteMenu($id = null){
+        if($this->request->is('ajax')){
+            if($this->request->getData('action') == 'Menus'){
+
+                $outlet         = $this->RestaurantMenus->newEntity();
+                $outlet         = $this->RestaurantMenus->patchEntity($outlet,$this->request->getData());
+                $outlet->id            = $this->request->getData('id');
+                $outlet->delete_status = 'Y';
+                $this->RestaurantMenus->save($outlet);
+            }
+            list($menuDetails) = $this->menu('Menus');
+            if($this->request->is('ajax')) {
+                $action         = 'Menus';
+                $this->set(compact('action', 'menuDetails'));
+                $this->render('ajaxaction');
+            }
+        }
+    }
+
+    public function menu($process = null) {
 
         $menuDetails = $this->RestaurantMenus->find('all', [
             'conditions' => [
@@ -432,6 +440,11 @@ class RestaurantsController extends AppController
         //echo "<pre>";print_r($menuDetails);die();
 
         $this->set(compact('menuDetails'));
+
+        if($process == 'Menus' ){
+            $value = array($menuDetails);
+            return $value;
+        }
     }
 
     public function menuaddedit($id = null) {
@@ -525,6 +538,9 @@ class RestaurantsController extends AppController
             $menuPatch['category_id'] = $this->request->getData('category_id');
             $menuPatch['menu_type'] = $this->request->getData('menu_type');
             $menuPatch['price_option'] = $this->request->getData('price_option');
+            $menuPatch['menuaddons'] = $this->request->getData('menuaddons');
+            $menuPatch['popular_dish'] = $this->request->getData('popular_dish');
+            $menuPatch['spicy_dish'] = $this->request->getData('spicy_dish');
             $menuSave = $this->RestaurantMenus->save($menuPatch);
 
             if($this->request->getData('price_option') == "single") {
@@ -548,7 +564,7 @@ class RestaurantsController extends AppController
 
             }
 
-            if ($this->request->getData('Menu')['menuaddons'] == "Yes") {
+            if ($this->request->getData('menuaddons') == "Yes") {
 
                 $menuAddons = $this->request->getData('data')['MenuAddon'];
                 $category_id = $this->request->getData('category_id');
@@ -675,6 +691,7 @@ class RestaurantsController extends AppController
             $menuPatch['popular_dish'] = $this->request->getData('popular_dish');
             $menuPatch['spicy_dish'] = $this->request->getData('spicy_dish');
             $menuPatch['id'] = $this->request->getData('editedId');
+            $menuPatch['menuaddons'] = $this->request->getData('menuaddons');
             $menuSave = $this->RestaurantMenus->save($menuPatch);
 
             //Delete Menu Detail

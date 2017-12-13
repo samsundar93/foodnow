@@ -76,6 +76,15 @@ Router::scope('/', function (RouteBuilder $routes) {
     );
     $routes->fallbacks('InflectedRoute');
 
+    Router::prefix('Mobile', function ($routes) {
+
+        $routes->connect('/', [
+                'controller' => 'Restaurants',
+                'action' => 'index']
+        );
+        $routes->fallbacks('InflectedRoute');
+    });
+
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */

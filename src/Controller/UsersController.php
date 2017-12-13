@@ -11,6 +11,8 @@ use App\Controller\AppController;
 use Cake\I18n\Time;
 use Cake\ORM\Table;
 use Cake\Network\Session;
+use Mailgun\Mailgun;
+
 
 class UsersController extends AppController
 {
@@ -33,6 +35,22 @@ class UsersController extends AppController
     }
 
     public function index() {
+
+        require_once(ROOT . DS . 'vendor' . DS . 'Mailgun'. DS . 'Mailgun.php');
+
+        # First, instantiate the SDK with your API credentials
+        /*$mg = Mailgun::create('key-d446caa439f4436a87de9ec76f801694');
+
+        # Now, compose and send your message.
+        # $mg->messages()->send($domain, $params);
+        $mg->messages()->send('fooddp.com', [
+            'from'    => 'fooddp.com@fooddp.com',
+            'to'      => 'agsgroup93@gmail.com',
+            'subject' => 'The PHP SDK is awesome!',
+            'text'    => 'It is so simple to send a message.'
+        ]);*/
+
+
         if($this->request->session()->read('searchLocation') != '') {
             return $this->redirect(BASE_URL.'restaurants');
         }

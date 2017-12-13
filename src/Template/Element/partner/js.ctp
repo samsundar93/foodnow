@@ -7,6 +7,7 @@
     PARTNER_JS.'common.js',
     PARTNER_JS.'bootstrap-tagsinput.js',
     PARTNER_JS.'product.js',
+    FRONT_JS.'pusher.js'
 ]); ?>
 
 <script>
