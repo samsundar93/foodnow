@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a1a9164b-a4cc-4f3c-864a-d2b6a036cce1" name="Default" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/eatadmin/UsersController.php" afterPath="$PROJECT_DIR$/src/Controller/eatadmin/UsersController.php" />
 =======
@@ -10,6 +11,10 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/Element/header.ctp" afterPath="$PROJECT_DIR$/src/Template/Element/header.ctp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Template/eatadmin/Restaurants/ajaxaction.ctp" afterPath="$PROJECT_DIR$/src/Template/eatadmin/Restaurants/ajaxaction.ctp" />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UsersController.php" afterPath="$PROJECT_DIR$/src/Controller/UsersController.php" />
+>>>>>>> ca3c7debde9f9f4b33d49b68f96f508f406412ff
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,7 +39,7 @@
       <file leaf-file-name="RestaurantsController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/RestaurantsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1930">
+            <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -44,14 +49,15 @@
       <file leaf-file-name="MenusController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/MenusController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="138" column="56" lean-forward="true" selection-start-line="138" selection-start-column="56" selection-end-line="138" selection-end-column="56" />
+            <state relative-caret-position="2193">
+              <caret line="138" column="56" lean-forward="false" selection-start-line="138" selection-start-column="56" selection-end-line="138" selection-end-column="56" />
               <folding />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Entity/User.php">
@@ -63,10 +69,23 @@
               </folding>
 =======
       <file leaf-file-name="lists.ctp" pinned="false" current-in-tab="true">
+=======
+      <file leaf-file-name="lists.ctp" pinned="false" current-in-tab="false">
+>>>>>>> ca3c7debde9f9f4b33d49b68f96f508f406412ff
         <entry file="file://$PROJECT_DIR$/src/Template/Menus/lists.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="34">
+              <caret line="2" column="71" lean-forward="false" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UsersController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="215" column="82" lean-forward="false" selection-start-line="215" selection-start-column="82" selection-end-line="215" selection-end-column="82" />
               <folding />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
             </state>
@@ -83,7 +102,7 @@
       <file leaf-file-name="header.ctp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/Element/header.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="2516">
               <caret line="148" column="77" lean-forward="false" selection-start-line="148" selection-start-column="77" selection-end-line="148" selection-end-column="77" />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
               <folding />
@@ -104,7 +123,7 @@
       <file leaf-file-name="ajaxaction.ctp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/eatadmin/Restaurants/ajaxaction.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
+            <state relative-caret-position="4811">
               <caret line="283" column="122" lean-forward="false" selection-start-line="283" selection-start-column="122" selection-end-line="283" selection-end-column="122" />
               <folding />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
@@ -117,7 +136,7 @@
       <file leaf-file-name="index.ctp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Template/Restaurants/index.ctp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="1564">
               <caret line="92" column="104" lean-forward="false" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="104" />
               <folding />
             </state>
@@ -265,7 +284,6 @@
 =======
         <option value="$PROJECT_DIR$/src/Controller/Component/PushNotificationComponent.php" />
         <option value="$PROJECT_DIR$/src/Template/Partners/Orders/index.ctp" />
-        <option value="$PROJECT_DIR$/src/Controller/UsersController.php" />
         <option value="$PROJECT_DIR$/config/paths.php" />
         <option value="$PROJECT_DIR$/src/Template/Partners/Menus/add.ctp" />
         <option value="$PROJECT_DIR$/src/Template/Partners/Menus/edit.ctp" />
@@ -280,7 +298,11 @@
         <option value="$PROJECT_DIR$/src/Template/Element/header.ctp" />
         <option value="$PROJECT_DIR$/src/Template/eatadmin/Restaurants/ajaxaction.ctp" />
         <option value="$PROJECT_DIR$/src/Controller/MenusController.php" />
+<<<<<<< HEAD
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
+=======
+        <option value="$PROJECT_DIR$/src/Controller/UsersController.php" />
+>>>>>>> ca3c7debde9f9f4b33d49b68f96f508f406412ff
       </list>
     </option>
   </component>
@@ -320,6 +342,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -343,14 +366,7 @@
               <item name="foodnow" type="b2602c69:ProjectViewProjectNode" />
               <item name="foodnow" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="foodnow" type="b2602c69:ProjectViewProjectNode" />
-              <item name="foodnow" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Model" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Table" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
           </expand>
@@ -358,7 +374,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -425,21 +440,29 @@
       <workItem from="1512826209325" duration="14248000" />
       <workItem from="1512882666604" duration="184000" />
       <workItem from="1512913419643" duration="8055000" />
+<<<<<<< HEAD
       <workItem from="1513001698117" duration="10023000" />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
+=======
+      <workItem from="1513001698117" duration="10070000" />
+      <workItem from="1513101499266" duration="1760000" />
+>>>>>>> ca3c7debde9f9f4b33d49b68f96f508f406412ff
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="181696000" />
 =======
     <option name="totallyTimeSpent" value="228650000" />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
+=======
+    <option name="totallyTimeSpent" value="230457000" />
+>>>>>>> ca3c7debde9f9f4b33d49b68f96f508f406412ff
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20937042" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -573,7 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2108">
           <caret line="133" column="5" lean-forward="false" selection-start-line="121" selection-start-column="3" selection-end-line="133" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -588,7 +610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="19" column="45" lean-forward="false" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -621,8 +642,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="190" column="61" lean-forward="false" selection-start-line="190" selection-start-column="61" selection-end-line="190" selection-end-column="61" />
+<<<<<<< HEAD
           <folding />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
+=======
+>>>>>>> ca3c7debde9f9f4b33d49b68f96f508f406412ff
         </state>
       </provider>
     </entry>
@@ -630,7 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -638,7 +661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="24" lean-forward="false" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -646,7 +668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -654,15 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -670,7 +682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -678,7 +689,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
           <caret line="123" column="5" lean-forward="false" selection-start-line="123" selection-start-column="5" selection-end-line="123" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -694,9 +704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1512916128761" expanded="true" signature="1774:1786" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -704,7 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-101">
           <caret line="340" column="27" lean-forward="false" selection-start-line="340" selection-start-column="20" selection-end-line="340" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -725,9 +731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="275" column="40" lean-forward="false" selection-start-line="275" selection-start-column="40" selection-end-line="275" selection-end-column="40" />
-          <folding>
-            <marker date="1513010262390" expanded="true" signature="16804:16810" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -735,7 +738,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
           <caret line="126" column="46" lean-forward="false" selection-start-line="126" selection-start-column="46" selection-end-line="126" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -743,7 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
           <caret line="172" column="5" lean-forward="true" selection-start-line="152" selection-start-column="4" selection-end-line="172" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,7 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="911">
           <caret line="177" column="12" lean-forward="false" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -760,7 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="60" column="142" lean-forward="false" selection-start-line="60" selection-start-column="137" selection-end-line="60" selection-end-column="142" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,7 +767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
           <caret line="445" column="26" lean-forward="true" selection-start-line="444" selection-start-column="12" selection-end-line="445" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -790,7 +788,6 @@
 =======
         <state relative-caret-position="348">
           <caret line="56" column="32" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="56" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -798,10 +795,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-109">
           <caret line="32" column="20" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="20" />
+<<<<<<< HEAD
           <folding>
             <marker date="1513013433589" expanded="true" signature="21146:21193" ph="..." />
           </folding>
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
+=======
+>>>>>>> ca3c7debde9f9f4b33d49b68f96f508f406412ff
         </state>
       </provider>
     </entry>
@@ -841,7 +841,6 @@
 =======
         <state relative-caret-position="179">
           <caret line="303" column="16" lean-forward="false" selection-start-line="303" selection-start-column="10" selection-end-line="303" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -849,8 +848,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2546">
           <caret line="374" column="0" lean-forward="false" selection-start-line="374" selection-start-column="0" selection-end-line="374" selection-end-column="0" />
+<<<<<<< HEAD
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
           <folding />
+=======
+>>>>>>> ca3c7debde9f9f4b33d49b68f96f508f406412ff
         </state>
       </provider>
     </entry>
@@ -858,9 +860,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="706">
           <caret line="415" column="55" lean-forward="false" selection-start-line="415" selection-start-column="36" selection-end-line="415" selection-end-column="55" />
-          <folding>
-            <marker date="1513010262313" expanded="true" signature="21389:21395" ph=" " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -868,7 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="467">
           <caret line="27" column="54" lean-forward="false" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,7 +878,7 @@
 =======
     <entry file="file://$PROJECT_DIR$/src/Controller/RestaurantsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1930">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
           <folding />
@@ -909,7 +907,7 @@
 =======
     <entry file="file://$PROJECT_DIR$/src/Template/Restaurants/index.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="1564">
           <caret line="92" column="104" lean-forward="false" selection-start-line="92" selection-start-column="65" selection-end-line="92" selection-end-column="104" />
           <folding />
         </state>
@@ -917,7 +915,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Element/header.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="2516">
           <caret line="148" column="77" lean-forward="false" selection-start-line="148" selection-start-column="77" selection-end-line="148" selection-end-column="77" />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
           <folding />
@@ -932,7 +930,7 @@
 =======
     <entry file="file://$PROJECT_DIR$/src/Template/eatadmin/Restaurants/ajaxaction.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
+        <state relative-caret-position="4811">
           <caret line="283" column="122" lean-forward="false" selection-start-line="283" selection-start-column="122" selection-end-line="283" selection-end-column="122" />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
           <folding />
@@ -989,14 +987,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1326">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/MenusController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="138" column="56" lean-forward="true" selection-start-line="138" selection-start-column="56" selection-end-line="138" selection-end-column="56" />
+        <state relative-caret-position="2193">
+          <caret line="138" column="56" lean-forward="false" selection-start-line="138" selection-start-column="56" selection-end-line="138" selection-end-column="56" />
           <folding />
         </state>
       </provider>
@@ -1005,15 +1002,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-111">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Template/Menus/lists.ctp">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> 7e5b01360bf8fc30891bfc8aba819a2516a4dedd
+=======
+        <state relative-caret-position="34">
+          <caret line="2" column="71" lean-forward="false" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="215" column="82" lean-forward="false" selection-start-line="215" selection-start-column="82" selection-end-line="215" selection-end-column="82" />
+>>>>>>> ca3c7debde9f9f4b33d49b68f96f508f406412ff
           <folding />
         </state>
       </provider>
