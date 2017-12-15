@@ -129,7 +129,7 @@ class RestaurantsController extends AppController
                                 $final[] = $value;
                             }
                         }else {
-                            $value['currentStatus'] = 'Open';
+                            $value['currentStatus'] = 'Closed';
                             $final[] = $value;
                         }
                     }

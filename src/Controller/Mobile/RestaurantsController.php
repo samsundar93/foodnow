@@ -9,6 +9,7 @@ namespace App\Controller\Mobile;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Utility\Hash;
 
 class RestaurantsController extends AppController
 {

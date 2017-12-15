@@ -9,12 +9,16 @@ namespace App\Controller\Mobile;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Utility\Hash;
 
 class CustomersController extends AppController
 {
     public function initialize()
     {
         parent::initialize();
+        $this->loadModel('Restaurants');
+        $this->loadModel('Cuisines');
+        $this->loadComponent('Common');
     }
 
     public function beforeFilter(Event $event)
@@ -28,8 +32,10 @@ class CustomersController extends AppController
     {
         $action = $this->request->getData('action');
 
-        if (!empty($action)) {
-            switch ($action) {
+        if (!empty($action))
+        {
+            switch ($action)
+            {
 
                 case "getAddress":
                     //http://maps.googleapis.com/maps/api/geocode/json?latlng='.trim($latitude).','.trim($longitude).'&sensor=false'
@@ -38,6 +44,7 @@ class CustomersController extends AppController
                     $longitude = $this->request->getData('longitude');
 
                     $url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=".$latitude.','.$longitude."&key=AIzaSyA_PDTRdxnfHvK3V6-pApjZQgY8F8E5zOM&sensor=false";
+
 
 
                     $ch = curl_init();
@@ -50,9 +57,10 @@ class CustomersController extends AppController
                     curl_close($ch);
                     $response_a = json_decode($output,true);
 
+
                     if($response_a['status'] == 'OK') {
                         $response['success'] = 1;
-                        $response['address'] = $response_a['results']['1']['formatted_address'];
+                        $response['address'] = $response_a['results']['0']['formatted_address'];
                     }else {
                         $response['success'] = 0;
                         $response['address'] = "Can't get current location";
@@ -123,6 +131,184 @@ class CustomersController extends AppController
                     }
 
                     break;
+
+                case 'RestaurantLists':
+
+
+                    $sourcelatitude = $this->request->getData('latitude');
+                    $sourcelongitude = $this->request->getData('longitude');
+
+                    $currentTime = strtotime(date('h:i A'));
+                    $currentDay = strtolower(date('l'));
+
+                    if($sourcelatitude != '' && $sourcelongitude != '') {
+                        $restaurantList = $this->Restaurants->find('all', [
+                            'fields' => [
+                                'restaurant_name',
+                                'restaurant_phone',
+                                'restaurant_logo',
+                                'contact_email',
+                                'restaurant_cuisine',
+                                'estimate_time',
+                                'minimum_order',
+                                'delivery_charge',
+                                'delivery_distance',
+                                'latitude',
+                                'longitude',
+                                $currentDay.'_firstopen_time',
+                                $currentDay.'_firstclose_time',
+                                $currentDay.'_secondopen_time',
+                                $currentDay.'_secondclose_time',
+                                $currentDay.'_status'
+                            ],
+                            'conditions' => [
+                                'OR' => [
+                                    'restaurant_pickup' => 'Yes',
+                                    'restaurant_delivery' => 'Yes'
+                                ],
+                                'id IS NOT NULL',
+                                'status' => '1',
+                                'delete_status' => 'N'
+                            ]
+                        ])->hydrate(false)->toArray();
+
+                        $final = array();
+                        $distance = array();
+                        $result = array();
+                        $allCuisinesList = array();
+
+                        $cuisinesLists = '';
+                        foreach($restaurantList as $key => $value) {
+
+                            $restaurantCuisine = explode(',',$value['restaurant_cuisine']);
+                            $cuisineList = '';
+
+                            if(!empty($restaurantCuisine)) {
+                                foreach ($restaurantCuisine as $ckey => $cvalue) {
+                                    $cuisines = $this->Cuisines->find('all', [
+                                        'conditions' => [
+                                            'id' => $cvalue
+                                        ]
+                                    ])->hydrate(false)->first();
+                                    if(!empty($cuisines)) {
+                                        $cuisineList[] = $cuisines['cuisine_name'];
+                                        if(!in_array($cvalue,$allCuisinesList)) {
+                                            $allCuisinesList[] = $cvalue;
+                                            $allCuisinesLists[$cvalue] = $cuisines['cuisine_name'];
+                                            $cuisinesLists .= $cuisines['cuisine_name'].',';
+                                        }
+                                    }
+                                }
+                            }
+
+                            $value['cuisineLists'] = implode(',',$cuisineList);
+
+
+                            $latitudeTo  = $value['latitude'];
+                            $longitudeTo = $value['longitude'];
+
+                            $unit='K';
+                            $distance = $this->Common->getDistanceValue($sourcelatitude,$sourcelongitude,$latitudeTo,$longitudeTo,
+                                $unit);
+
+                            $distance = str_replace(',','',$distance);
+
+                            if (($distance <= $value['delivery_distance']) || (trim($distance) == 0)) {
+                                $value['to_distance'] = $distance;
+
+                                $firstOpenTime = strtotime($value[$currentDay.'_firstopen_time']);
+                                $firstCloseTime = strtotime($value[$currentDay.'_firstclose_time']);
+
+                                $secondOpenTime = strtotime($value[$currentDay.'_secondopen_time']);
+                                $secondCloseTime = strtotime($value[$currentDay.'_secondclose_time']);
+                                if($value[$currentDay.'_status'] != 'Closed') {
+                                    if($currentTime > $firstOpenTime && $currentTime <= $firstCloseTime) {
+                                        $final[] = $value;
+                                    }else if($currentTime > $secondOpenTime && $currentTime <= $secondCloseTime) {
+                                        $final[] = $value;
+                                    }else {
+                                        $value['currentStatus'] = 'Open';
+                                        $final[] = $value;
+                                    }
+                                }else {
+                                    $value['currentStatus'] = 'Closed';
+                                    $final[] = $value;
+                                }
+                            }
+                        }
+                        if(!empty($final)) {
+                            $result = Hash::sort($final, '{n}.to_distance', 'asc');
+                        }
+
+                        if(!empty($result)) {
+                            $response['success'] = 1;
+                            $response['restaurantLists'] = $result;
+                            $response['cuisinesLists'] = trim($cuisinesLists,',');
+                        }else {
+                            $response['success'] = 0;
+                            $response['message'] = 'There is no restaurants';
+                        }
+
+                    }
+
+                    break;
+
+                case 'restuarantDetails':
+
+                    $this->loadModel('RestaurantMenus');
+                    $restaurantMenuList = $this->RestaurantMenus->find('all', [
+                        'conditions' => [
+                            'RestaurantMenus.restaurant_id' => $this->request->getData('id'),
+                            'RestaurantMenus.status' => '1',
+                            'RestaurantMenus.delete_status' => 'N',
+                        ],
+                        'contain' => [
+                            'Categories' => [
+                                'fields' => [
+                                    'Categories.catname'
+                                ],
+                                'conditions' => [
+                                    'Categories.status' => '1'
+                                ]
+                            ]
+                        ]
+
+                    ])->hydrate(false)->toArray();
+                    /*$restaurantDetails = $this->Restaurants->find('all', [
+                        'fields' => [
+                            'id'
+                        ],
+                        'conditions' => [
+                            'Restaurants.id' => $this->request->getData('id')
+                        ],
+                        'contain' => [
+                            'RestaurantMenus' => [
+                                'conditions' => [
+                                    'RestaurantMenus.status' => '1',
+                                    'RestaurantMenus.delete_status' => 'N',
+                                ],
+                                'Categories' => [
+                                    'fields' => [
+                                        'Categories.catname'
+                                    ],
+                                    'conditions' => [
+                                        'Categories.status' => '1'
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ])->hydrate(false)->first();*/
+
+                    if(!empty($restaurantMenuList)) {
+                        $response['success'] = 1;
+                        $response['restaurantMenuList'] = $restaurantMenuList;
+                    }else {
+                        $response['success'] = 0;
+                        $response['message'] = 'There is no menu';
+                    }
+                    break;
+
+
             }
             die(json_encode($response));
         }
