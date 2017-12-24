@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: roamadmin
+ * User: Support
  * Date: 21-11-2017
  * Time: 16:39
  */
@@ -9,6 +9,7 @@ namespace App\Controller\Mobile;
 
 use App\Controller\AppController;
 use Cake\Event\Event;
+use Cake\Utility\Hash;
 
 class RestaurantsController extends AppController
 {
