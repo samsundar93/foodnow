@@ -13,6 +13,7 @@ use Cake\ORM\Table;
 use Cake\Network\Session;
 use Mailgun\Mailgun;
 
+require_once(ROOT . DS . 'vendor' . DS . 'Mailgun'. DS . 'Mailgun.php');
 
 class UsersController extends AppController
 {
@@ -31,25 +32,33 @@ class UsersController extends AppController
             'customerLogin',
             'search',
             'getLocation',
-            'sendMessage'
+            'sendMessage',
+            'terms',
+            'refund',
+            'privacy',
+            'aboutus',
+            'career',
+            'help'
         ]);
     }
 
     public function index() {
 
-        require_once(ROOT . DS . 'vendor' . DS . 'Mailgun'. DS . 'Mailgun.php');
+
 
         # First, instantiate the SDK with your API credentials
-        /*$mg = Mailgun::create('key-d446caa439f4436a87de9ec76f801694');
+        $mg = Mailgun::create('key-d446caa439f4436a87de9ec76f801694');
 
         # Now, compose and send your message.
         # $mg->messages()->send($domain, $params);
-        $mg->messages()->send('fooddp.com', [
+        /*$mg->messages()->send('fooddp.com', [
             'from'    => 'fooddp.com@fooddp.com',
             'to'      => 'agsgroup93@gmail.com',
             'subject' => 'The PHP SDK is awesome!',
-            'text'    => 'It is so simple to send a message.'
-        ]);*/
+            'text'    => 'It is so simple to send a message.',
+            'html'    => $html
+        ]);
+        die();*/
 
 
         if($this->request->session()->read('searchLocation') != '') {
@@ -88,6 +97,95 @@ class UsersController extends AppController
                 $usersPatch = $this->Users->patchEntity($user, $userDetails);
                 $saveuser = $this->Users->save($usersPatch);
                 $this->Flash->success(__('Registered successful '));
+
+                //Email Section
+                $mg = Mailgun::create('key-d446caa439f4436a87de9ec76f801694');
+
+                $html = '<!DOCTYPE html>
+                            <html>
+                               <head>
+                                  <title></title>
+                                  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                                  <meta name="viewport" content="width=device-width, initial-scale=1">
+                                  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                               <body style="margin: 0 !important; padding: 0 !important; background-color: #eeeeee;" bgcolor="#eeeeee">
+                                  <table border="0" cellpadding="0" cellspacing="0" width="60%" style="margin:0px auto;padding:50px 0px;">
+                                     <tr>
+                                        <td align="center" style="background-color: #eeeeee;" bgcolor="#eeeeee">
+                                           <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                                              <tr>
+                                                 <td align="center" valign="top" style="font-size:0; padding:20px 35px;" bgcolor="#252525">
+                                                    <div style="display:inline-block; max-width:50%; min-width:100px; vertical-align:top; width:100%;">
+                                                       <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
+                                                          <tr>
+                                                             <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 36px; font-weight: 800; line-height: 48px;" >
+                                                                <img src="'.BASE_URL.'images/logo.png" width="150">
+                                                             </td>
+                                                          </tr>
+                                                       </table>
+                                                    </div>
+                                                    <div style="display:inline-block; max-width:50%; min-width:100px; vertical-align:top; width:100%;" class="mobile-hide">
+                                                       <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
+                                                          <tr>
+                                                             <td align="right" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; line-height: 25px;">
+                                                                <table cellspacing="0" cellpadding="0" border="0" align="right">
+                                                                   <tr>
+                                                                      <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400;">
+                                                                         <p style="font-size: 18px; font-weight: 400; margin: 0; color: #ffffff;"><a style="color: #ffffff; text-decoration: none;">Date : 12/19/2017</a></p>
+                                                                         <div style="font-size: 15px; font-weight: 400; margin: 0; color: #ffffff;">Time : '. date("h:i A").'</div>
+                                                                      </td>
+                                                                   </tr>
+                                                                </table>
+                                                             </td>
+                                                          </tr>
+                                                       </table>
+                                                    </div>
+                                                 </td>
+                                              </tr>
+                                              <tr>
+                                                 <td align="center" style="padding:20px 35px; background-color: #ffffff;" bgcolor="#ffffff">
+                                                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                                                       <tr>
+                                                          <td align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;">
+                                                             Dear '.$this->request->getData('name').'!
+                                                          </td>                              
+                                                       </tr>
+                                                       <tr>
+                                                          <td align="left" style="font-family: sans-serif, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 24px; padding-top: 25px;">
+                                                             Welcome to Fooddp! Thanks so much for joining with us. Enjoy your favorite food and drinks ordered in and avail these awesome offers from top restaurants. Don’t miss out, order now! 
+                                                          </td>
+                                                       </tr>
+                                                       
+                                                       <!--<tr align="left" style="font-family: sans-serif, Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 50px; padding-top: 25px;">
+                                                          <td>
+                                                             Please <a target="_blank" href="https://fooddp.com/users/activate">Click Here</a> to activate your account: 
+                                                          </td>
+                                                       </tr>-->
+                                                       
+                                                    </table>
+                                                 </td>
+                                              </tr>
+                                              
+                                              <tr>
+                                                 <td align="center" style=" padding:15px 35px; background-color: #f5861f;" bgcolor="#f5861f">
+                                                    <div style="color:#fff;font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400;">All Rights Reserved by fooddp.com</div>
+                                                 </td>
+                                              </tr>
+                                           </table>
+                                        </td>
+                                     </tr>
+                                  </table>
+                               </body>
+                            </html>';
+
+                # Now, compose and send your message.
+                # $mg->messages()->send($domain, $params);
+                $mg->messages()->send('fooddp.com', [
+                    'from'    => 'fooddp.com@fooddp.com',
+                    'to'      => $this->request->getData('username'),
+                    'subject' => 'Welcome To FoodDp',
+                    'html'    => $html
+                ]);
                 echo 'true';die();
             }
         }else {
@@ -226,4 +324,29 @@ class UsersController extends AppController
         pr($response);die();
 
     }
+
+    public function terms() {
+
+    }
+
+    public function refund() {
+
+    }
+
+    public function privacy() {
+
+    }
+
+    public function aboutus() {
+
+    }
+
+    public function career() {
+
+    }
+
+    public function help() {
+
+    }
+
 }

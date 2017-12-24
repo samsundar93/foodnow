@@ -13,6 +13,9 @@ use Cake\ORM\Table;
 use Cake\Network\Session;
 use Cake\Utility\Hash;
 use Cake\Http\Client;
+use Mailgun\Mailgun;
+
+require_once(ROOT . DS . 'vendor' . DS . 'Mailgun'. DS . 'Mailgun.php');
 class CheckoutsController extends AppController
 {
     public function initialize()
@@ -39,6 +42,7 @@ class CheckoutsController extends AppController
     }
 
     public function index() {
+
 
         //pr($this->request->getData());die();
         if($this->request->session()->read('sessionId') != '') {
@@ -687,7 +691,32 @@ class CheckoutsController extends AppController
                     ]
                 ])->hydrate(false)->first();
 
-
+                //Menu Details For Email Content
+                $carts = $this->Carts->find('all', [
+                    'conditions' => [
+                        'session_id' => $sessionId
+                    ],
+                    'contain' =>[
+                        'RestaurantMenus' => [
+                            'fields' => [
+                                'menu_name'
+                            ]
+                        ]
+                    ]
+                ])->hydrate(false)->toArray();
+                $menus = '';
+                if(!empty($carts)) {
+                    foreach ($carts as $key => $value) {
+                        $menus .= ' <tr>
+                                       <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 10px 10px 5px 10px;">'.
+                                            $value['restaurant_menu']['menu_name'].
+                                       '</td>
+                                       <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 10px 10px 5px 10px;">
+                                       '.SITE_CURRENCY.' '.number_format($value['price'],2).
+                                       '</td>
+                                    </tr>';
+                    }
+                }
 
                 $cartCount = count($cartsDetails);
                 $subTotal = 0;
@@ -722,6 +751,9 @@ class CheckoutsController extends AppController
                     ])->hydrate(false)->first();
 
                     $orderUpdate['delivery_address'] = $addressBooks['address'];
+
+                }else {
+                    $addressBooks['address'] = $restaurantDetails['contact_address'];
                 }
 
 
@@ -742,6 +774,35 @@ class CheckoutsController extends AppController
                 $orderUpdate['order_type'] = $this->request->getData('order_type');
                 $orderUpdate['grand_total'] = $totalAmount;
                 $orderUpdate['instruction'] = $this->request->getData('instruction');
+
+
+                if($this->request->getData('order_type') == 'delivery') {
+
+                    $deliveryInfo = '<tr>
+                                               <td width="75%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                                  Delivery Fees
+                                               </td>
+                                               <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                                  '.SITE_CURRENCY.' '.number_format($deliveryCharge,2).'
+                                               </td>
+                                            </tr>';
+
+                    $deliveryAddress = '<tr>
+                                                  <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
+                                                     <p style="font-weight: 800;">Delivery Address</p>
+                                                     <p>'.$addressBooks['address'].'</p>
+                                                  </td>
+                                               </tr>';
+
+                }else {
+                    $deliveryInfo = '';
+                    $deliveryAddress = '<tr>
+                                                  <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
+                                                     <p style="font-weight: 800;">Restaurant Address</p>
+                                                     <p>'.$addressBooks['address'].'</p>
+                                                  </td>
+                                               </tr>';
+                }
 
                 $orderPatch = $this->Orders->patchEntity($orderEntity,$orderUpdate);
 
@@ -824,8 +885,6 @@ class CheckoutsController extends AppController
                         $this->PushNotification->pushNotification($message,$this->request->getData('resId'));
 
 
-                        $this->Flash->set(__('Your Order Placed Successful'));
-                        return $this->redirect(BASE_URL.'myaccount/trackOrder/'.$orderId);
                     }
                 }else if($this->request->getData('payment_method') == 'stripe') {
 
@@ -889,7 +948,7 @@ class CheckoutsController extends AppController
                     if($orderSave) {
 
                         $ordergenid = $this->Common->generateId($orderSave->id);
-                        $finalorderid = "EAT".$ordergenid;
+                        $finalorderid = "FDP".$ordergenid;
 
                         $orderUpdate['order_number']  =  $finalorderid;
                         $orderUpdate['transaction_id']  =  $charge['balance_transaction'];
@@ -912,10 +971,159 @@ class CheckoutsController extends AppController
                         session_regenerate_id();
 
                         $orderId = base64_encode($orderSave->id);
-                        $this->Flash->set(__('Your Order Placed Successful'));
-                        return $this->redirect(BASE_URL.'myaccount/trackOrder/'.$orderId);
+
                     }
                 }
+
+                //Email Section
+
+                $html = '<!DOCTYPE html>
+                            <html>
+                               <head>
+                                  <title></title>
+                                  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                                  <meta name="viewport" content="width=device-width, initial-scale=1">
+                                  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                               <body style="margin: 0 !important; padding: 0 !important; background-color: #eeeeee;" bgcolor="#eeeeee">
+                                  <table border="0" cellpadding="0" cellspacing="0" width="60%" style="margin:0px auto;padding:50px 0px;">
+                                     <tr>
+                                        <td align="center" style="background-color: #eeeeee;" bgcolor="#eeeeee">
+                                           <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                                              <tr>
+                                                 <td align="center" valign="top" style="font-size:0; padding:20px 35px;" bgcolor="#252525">
+                                                    <div style="display:inline-block; max-width:50%; min-width:100px; vertical-align:top; width:100%;">
+                                                       <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
+                                                          <tr>
+                                                             <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 36px; font-weight: 800; line-height: 48px;" >
+                                                                <img src="https://fooddp.com//images/logo.png" width="150">
+                                                             </td>
+                                                          </tr>
+                                                       </table>
+                                                    </div>
+                                                    <div style="display:inline-block; max-width:50%; min-width:100px; vertical-align:top; width:100%;" class="mobile-hide">
+                                                       <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
+                                                          <tr>
+                                                             <td align="right" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 48px; font-weight: 400; line-height: 25px;">
+                                                                <table cellspacing="0" cellpadding="0" border="0" align="right">
+                                                                   <tr>
+                                                                      <td style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 18px; font-weight: 400;">
+                                                                         <p style="font-size: 18px; font-weight: 400; margin: 0; color: #ffffff;"><a style="color: #ffffff; text-decoration: none;">Date : '. date("Y-m-d").'</a></p>
+                                     <div style="font-size: 15px; font-weight: 400; margin: 0; color: #ffffff;">Time :  '. date("h:i A").'</div>
+                                                                      </td>
+                                                                   </tr>
+                                                                </table>
+                                                             </td>
+                                                          </tr>
+                                                       </table>
+                                                    </div>
+                                                 </td>
+                                              </tr>
+                                              <tr>
+                                                 <td align="center" style="padding:20px 35px; background-color: #ffffff;" bgcolor="#ffffff">
+                                                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:600px;">
+                                                       <tr>
+                                                          <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;">
+                                                             <h2 style="font-size: 30px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;">
+                                                                Thank You For Your Order!
+                                                             </h2>
+                                                          </td>
+                                                       </tr>
+                                                       <tr>
+                                                          <td align="left" style="padding-top: 20px;">
+                                                             <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tr>
+                                                                   <td width="75%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
+                                                                      Items
+                                                                   </td>
+                                                                   <td width="25%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
+                                                                      Price
+                                                                   </td>
+                                                                </tr>
+                                                                    '.$menus.'
+                                                                    
+                                                                    '.$deliveryInfo.'
+                                                                
+                                                                <tr>
+                                                                   <td width="75%" align="right" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                                                      Tax
+                                                                   </td>
+                                                                   <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 5px 10px;">
+                                                                      '.SITE_CURRENCY.' '.number_format($taxAmount,2).'
+                                                                   </td>
+                                                                </tr>
+                                                             </table>
+                                                          </td>
+                                                       </tr>
+                                                       <tr>
+                                                          <td align="left" style="padding-top: 20px;">
+                                                             <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                <tr>
+                                                                   <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
+                                                                      TOTAL
+                                                                   </td>
+                                                                   <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
+                                                                      '.SITE_CURRENCY.' '.number_format($totalAmount,2).'
+                                                                   </td>
+                                                                </tr>
+                                                             </table>
+                                                          </td>
+                                                       </tr>
+                                                    </table>
+                                                 </td>
+                                              </tr>
+                                              <tr>
+                                                 <td align="center" height="100%" valign="top" width="100%" style="padding: 0 35px 35px 35px; background-color: #ffffff;" bgcolor="#ffffff">
+                                                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:660px;">
+                                                       <tr>
+                                                          <td align="center" valign="top" style="font-size:0;">
+                                                             <div style="display:inline-block; max-width:50%; min-width:240px; vertical-align:top; width:100%;">
+                                                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
+                                                                   '.$deliveryAddress.'
+                                                                </table>
+                                                             </div>
+                                                             <div style="display:inline-block; max-width:50%; min-width:240px; vertical-align:top; width:100%;">
+                                                                <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:300px;">
+                                                                   <tr>
+                                                                      <td align="left" valign="top" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;">
+                                                                         <p style="font-weight: 800;">Order Info</p>
+                                                                         <p>
+                                                                            '.$finalorderid.'<br>
+                                                                            '.$customerDetails['name'].'<br>
+                                                                            '.$customerDetails['phone_number'].'
+                                                                         </p>
+                                                                      </td>
+                                                                   </tr>
+                                                                </table>
+                                                             </div>
+                                                          </td>
+                                                       </tr>
+                                                    </table>
+                                                 </td>
+                                              </tr>
+                                              <tr>
+                                                 <td align="center" style=" padding:15px 35px; background-color: #f5861f;" bgcolor="#f5861f">
+                                                    <div style="color:#fff;font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400;">All Rights Reserved by fooddp.com</div>
+                                                 </td>
+                                              </tr>
+                                           </table>
+                                        </td>
+                                     </tr>
+                                  </table>
+                               </body>
+                            </html>';
+
+                //Email Section:
+                $mg = Mailgun::create('key-d446caa439f4436a87de9ec76f801694');
+                $mg->messages()->send('fooddp.com', [
+                    'from'    => 'fooddp.com@fooddp.com',
+                    'to'      => $customerDetails['username'],
+                    'subject' => 'Order Placed Successful - '.$finalorderid,
+                    'text'    => 'It is so simple to send a message.',
+                    'html'    => $html
+                ]);
+
+                $this->Flash->set(__('Your Order Placed Successful'));
+                return $this->redirect(BASE_URL.'myaccount/trackOrder/'.$orderId);
             }else {
                 return $this->redirect(BASE_URL);
             }

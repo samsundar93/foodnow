@@ -126,7 +126,7 @@ class AppController extends Controller
             ]            
         ])->hydrate(false)->first();
 
-
+        define('SITE_CURRENCY','$');
 
         define('STRIPE_API_KEY',$siteSettings['stripe_apikey_test']);
         define('STRIPE_PUBLISHERKEY',$siteSettings['publisher_key_test']);

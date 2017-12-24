@@ -85,6 +85,36 @@ Router::scope('/', function (RouteBuilder $routes) {
         $routes->fallbacks('InflectedRoute');
     });
 
+    $routes->connect('terms-conditions', [
+        'controller' => 'Users',
+        'action' => 'terms'
+    ]);
+
+    $routes->connect('refund-policy', [
+        'controller' => 'Users',
+        'action' => 'refund'
+    ]);
+
+    $routes->connect('privacy-policy', [
+        'controller' => 'Users',
+        'action' => 'privacy'
+    ]);
+
+    $routes->connect('aboutus', [
+        'controller' => 'Users',
+        'action' => 'aboutus'
+    ]);
+
+    $routes->connect('career', [
+        'controller' => 'Users',
+        'action' => 'career'
+    ]);
+
+    $routes->connect('help-support', [
+        'controller' => 'Users',
+        'action' => 'help'
+    ]);
+
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */

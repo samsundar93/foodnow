@@ -9,19 +9,17 @@
         </div>
         <div class="col-sm-3">
             <ul class="footer-ul">
-                <li><i class="fa fa-dot-circle-o"></i><a href="#">About Us</a></li>
-                <li><i class="fa fa-dot-circle-o"></i><a href="#">Team</a></li>
-                <li><i class="fa fa-dot-circle-o"></i><a href="#">Career</a></li>
-                <li><i class="fa fa-dot-circle-o"></i><a href="#">Help & support</a></li>
+                <li><i class="fa fa-dot-circle-o"></i><a href="<?php echo BASE_URL ?>aboutus">About Us</a></li>
+                <li><i class="fa fa-dot-circle-o"></i><a href="<?php echo BASE_URL ?>career">Career</a></li>
+                <li><i class="fa fa-dot-circle-o"></i><a href="<?php echo BASE_URL ?>help-support">Help & support</a></li>
             </ul>
         </div>
 
         <div class="col-sm-3">
             <ul class="footer-ul">
-                <li><i class="fa fa-dot-circle-o"></i><a href="#">Terms & Conditions </a></li>
-                <li><i class="fa fa-dot-circle-o"></i><a href="#">Refunds & Cancellation Policy</a></li>
-                <li><i class="fa fa-dot-circle-o"></i><a href="#">Privacy Policy</a></li>
-                <li><i class="fa fa-dot-circle-o"></i><a href="#">Offer Terms </a></li>
+                <li><i class="fa fa-dot-circle-o"></i><a href="<?php echo BASE_URL ?>terms-conditions">Terms & Conditions </a></li>
+                <li><i class="fa fa-dot-circle-o"></i><a href="<?php echo BASE_URL ?>refund-policy">Refunds & Cancellation Policy</a></li>
+                <li><i class="fa fa-dot-circle-o"></i><a href="<?php echo BASE_URL ?>privacy-policy">Privacy Policy</a></li>
             </ul>
         </div>
         <div class="col-sm-3">
